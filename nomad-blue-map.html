@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nomad Blue Map — 디지털 노마드 성과 시뮬레이터</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans+KR:wght@300;400;500;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue-100: #E8F4FD;
+  --blue-200: #C5E4F7;
+  --blue-300: #87CEEB;
+  --blue-400: #5BB8E0;
+  --blue-500: #3AA0D1;
+  --blue-600: #2980B9;
+  --blue-700: #1A5F8A;
+  --blue-800: #0E3D5C;
+  --blue-900: #071F2E;
+  --sand-50: #FEFCF9;
+  --sand-100: #FDF8F0;
+  --sand-200: #F5EDE0;
+  --sand-300: #E8D9C5;
+  --gold-400: #D4A853;
+  --gold-500: #C49A3C;
+  --coral: #E8846B;
+  --mint: #6BC5B0;
+  --slate-50: #F8FAFC;
+  --slate-100: #F1F5F9;
+  --slate-200: #E2E8F0;
+  --slate-300: #CBD5E1;
+  --slate-400: #94A3B8;
+  --slate-500: #64748B;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1E293B;
+  --slate-900: #0F172A;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --shadow-sm: 0 1px 3px rgba(14,61,92,0.06), 0 1px 2px rgba(14,61,92,0.04);
+  --shadow-md: 0 4px 16px rgba(14,61,92,0.08), 0 2px 6px rgba(14,61,92,0.04);
+  --shadow-lg: 0 12px 40px rgba(14,61,92,0.12), 0 4px 12px rgba(14,61,92,0.06);
+  --shadow-glow: 0 0 30px rgba(135,206,235,0.25);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Noto Sans KR', 'DM Sans', sans-serif;
+  background: var(--sand-50);
+  color: var(--slate-800);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── HEADER ── */
+.hero {
+  position: relative;
+  background: linear-gradient(135deg, var(--blue-800) 0%, var(--blue-700) 30%, var(--blue-500) 70%, var(--blue-300) 100%);
+  padding: 48px 24px 80px;
+  text-align: center;
+  overflow: hidden;
+}
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-content { position:relative; z-index:1; max-width:640px; margin:0 auto; }
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+.hero h1 span { color: var(--gold-400); }
+.hero .tagline {
+  font-size: 0.95rem;
+  color: var(--blue-200);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+}
+.hero .sub {
+  margin-top: 16px;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.5);
+}
+
+/* ── WAVE DIVIDER ── */
+.wave-divider {
+  position: relative;
+  margin-top: -60px;
+  z-index: 2;
+}
+.wave-divider svg { display:block; width:100%; height:60px; }
+
+/* ── MAIN LAYOUT ── */
+.app-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px 80px;
+}
+
+/* ── SECTION CARDS ── */
+.section-card {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  padding: 32px 28px;
+  margin-bottom: 24px;
+  border: 1px solid var(--slate-100);
+  transition: box-shadow 0.3s;
+  animation: fadeUp 0.5s ease both;
+}
+.section-card:hover { box-shadow: var(--shadow-lg); }
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(20px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+.section-card h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--blue-700);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-card h2 .icon {
+  width: 36px; height: 36px;
+  background: var(--blue-100);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.section-card .desc {
+  font-size: 0.82rem;
+  color: var(--slate-400);
+  margin-bottom: 24px;
+  padding-left: 46px;
+}
+
+/* ── FORM ELEMENTS ── */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+.form-group { display:flex; flex-direction:column; gap:5px; }
+.form-group label {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--slate-500);
+  letter-spacing: 0.02em;
+}
+.form-group input, .form-group select {
+  padding: 10px 14px;
+  border: 1.5px solid var(--slate-200);
+  border-radius: var(--radius-sm);
+  font-size: 0.92rem;
+  font-family: inherit;
+  color: var(--slate-800);
+  background: var(--slate-50);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+.form-group input:focus, .form-group select:focus {
+  border-color: var(--blue-400);
+  box-shadow: 0 0 0 3px rgba(135,206,235,0.2);
+  background: #fff;
+}
+.form-group input::placeholder { color: var(--slate-300); }
+.form-group .unit {
+  font-size: 0.72rem;
+  color: var(--slate-400);
+  margin-top: -2px;
+}
+
+/* ── LEGS (TEAM) ── */
+.leg-container { margin-top: 8px; }
+.leg-row {
+  display: grid;
+  grid-template-columns: 80px 1fr 1fr 40px;
+  gap: 10px;
+  align-items: end;
+  margin-bottom: 10px;
+  padding: 12px 14px;
+  background: var(--sand-100);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--sand-200);
+}
+.leg-row .leg-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--blue-600);
+  padding-bottom: 8px;
+}
+.leg-row input {
+  padding: 8px 10px;
+  border: 1.5px solid var(--slate-200);
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-family: inherit;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.leg-row input:focus { border-color: var(--blue-400); }
+.btn-remove-leg {
+  background: none; border: none;
+  color: var(--slate-300);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding-bottom: 8px;
+  transition: color 0.2s;
+}
+.btn-remove-leg:hover { color: var(--coral); }
+
+.btn-add-leg {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--blue-100);
+  color: var(--blue-600);
+  border: 1.5px dashed var(--blue-300);
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 6px;
+}
+.btn-add-leg:hover {
+  background: var(--blue-200);
+  border-color: var(--blue-500);
+}
+
+/* ── CALCULATE BUTTON ── */
+.calc-btn-wrap { text-align: center; margin: 32px 0 8px; }
+.btn-calculate {
+  padding: 16px 56px;
+  background: linear-gradient(135deg, var(--blue-500), var(--blue-600));
+  color: #fff;
+  border: none;
+  border-radius: 60px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  box-shadow: 0 6px 24px rgba(41,128,185,0.35);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.btn-calculate::after {
+  content:'';
+  position:absolute; inset:0;
+  background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%);
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+.btn-calculate:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(41,128,185,0.45);
+}
+.btn-calculate:hover::after { transform: translateX(100%); }
+.btn-calculate:active { transform: translateY(0); }
+
+/* ── RESULT DASHBOARD ── */
+#resultDashboard {
+  display: none;
+  animation: fadeUp 0.6s ease both;
+}
+#resultDashboard.show { display: block; }
+
+.result-hero {
+  background: linear-gradient(135deg, var(--blue-800), var(--blue-600));
+  border-radius: var(--radius);
+  padding: 36px 32px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+.result-hero::before {
+  content:'';
+  position:absolute;
+  bottom:0; left:0; right:0;
+  height:80px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120'%3E%3Cpath fill='rgba(255,255,255,0.06)' d='M0,64 C360,120 720,0 1080,64 C1260,96 1440,80 1440,80 L1440,120 L0,120Z'/%3E%3C/svg%3E") no-repeat bottom/cover;
+}
+.result-hero .total-label {
+  font-size: 0.85rem;
+  color: var(--blue-200);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.result-hero .total-amount {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 6vw, 3.8rem);
+  font-weight: 700;
+  margin: 4px 0 8px;
+}
+.result-hero .total-krw {
+  font-size: 0.9rem;
+  color: var(--blue-200);
+}
+
+/* ── GAUGE BAR ── */
+.gauge-wrap {
+  margin: 24px auto 0;
+  max-width: 400px;
+  position: relative;
+  z-index: 1;
+}
+.gauge-label-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--blue-200);
+  margin-bottom: 6px;
+}
+.gauge-bar {
+  height: 28px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+}
+.gauge-fill {
+  height: 100%;
+  border-radius: 14px;
+  background: linear-gradient(90deg, var(--blue-300), var(--gold-400));
+  width: 0%;
+  transition: width 1.5s cubic-bezier(0.25,0.46,0.45,0.94);
+  position: relative;
+}
+.gauge-fill::after {
+  content:'';
+  position:absolute;
+  top:0; left:0; right:0; bottom:0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 8px,
+    rgba(255,255,255,0.12) 8px,
+    rgba(255,255,255,0.12) 16px
+  );
+  animation: waveSlide 2s linear infinite;
+}
+@keyframes waveSlide {
+  from { transform:translateX(0); }
+  to { transform:translateX(16px); }
+}
+
+/* ── BONUS CARDS ── */
+.bonus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.bonus-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 24px 22px;
+  border: 1px solid var(--slate-100);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s;
+}
+.bonus-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--blue-200);
+}
+.bonus-card .b-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.bonus-card .b-num {
+  width: 32px; height: 32px;
+  background: var(--blue-100);
+  color: var(--blue-600);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.bonus-card .b-title {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--slate-700);
+}
+.bonus-card .b-amount {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--blue-700);
+  margin-bottom: 8px;
+}
+.bonus-card .b-detail {
+  font-size: 0.78rem;
+  color: var(--slate-400);
+  line-height: 1.7;
+}
+.bonus-card.inactive { opacity: 0.5; }
+.bonus-card.inactive .b-amount { color: var(--slate-300); }
+
+/* ── SCHEDULE TABLE ── */
+.schedule-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.85rem;
+}
+.schedule-table thead th {
+  background: var(--blue-100);
+  color: var(--blue-700);
+  font-weight: 600;
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+}
+.schedule-table thead th:first-child { border-radius: 10px 0 0 0; }
+.schedule-table thead th:last-child { border-radius: 0 10px 0 0; }
+.schedule-table tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--slate-100);
+  color: var(--slate-600);
+}
+.schedule-table tbody tr:last-child td { border-bottom: none; }
+.schedule-table .amt { font-weight: 600; color: var(--blue-700); text-align: right; }
+
+/* ── INSIGHTS ── */
+.insight-list { display:flex; flex-direction:column; gap:12px; }
+.insight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  background: var(--sand-100);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--blue-400);
+}
+.insight-item .i-icon { font-size: 1.2rem; flex-shrink:0; margin-top: 1px; }
+.insight-item .i-text { font-size: 0.85rem; color: var(--slate-600); line-height: 1.6; }
+.insight-item.gold { border-left-color: var(--gold-400); background: #FFFBF0; }
+.insight-item.mint { border-left-color: var(--mint); background: #F0FBF8; }
+.insight-item.coral { border-left-color: var(--coral); background: #FFF5F2; }
+
+/* ── INCENTIVE BADGES ── */
+.incentive-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 60px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border: 1.5px solid;
+}
+.badge.active {
+  background: linear-gradient(135deg, #E8F8E8, #F0FFF0);
+  border-color: #6BC5B0;
+  color: #1A7A5A;
+}
+.badge.inactive {
+  background: var(--slate-50);
+  border-color: var(--slate-200);
+  color: var(--slate-400);
+}
+
+/* ── COPY BUTTON ── */
+.btn-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: var(--blue-700);
+  color: #fff;
+  border: none;
+  border-radius: 60px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 16px;
+}
+.btn-copy:hover { background: var(--blue-800); transform: translateY(-1px); }
+.btn-copy.copied { background: var(--mint); }
+
+/* ── RANK BADGE ── */
+.rank-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 60px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-top: 4px;
+}
+.rank-MD { background: rgba(135,206,235,0.2); color: var(--blue-300); }
+.rank-SD { background: rgba(212,168,83,0.2); color: var(--gold-400); }
+.rank-ED { background: rgba(232,132,107,0.2); color: var(--coral); }
+.rank-PD { background: rgba(107,197,176,0.2); color: var(--mint); }
+.rank-BOD { background: rgba(255,215,0,0.25); color: #B8860B; }
+.rank-RBOD { background: linear-gradient(135deg, rgba(255,215,0,0.3), rgba(255,165,0,0.3)); color: #8B6914; }
+.rank-none { background: var(--slate-100); color: var(--slate-400); }
+
+/* ── FOOTER ── */
+.app-footer {
+  text-align: center;
+  padding: 32px 20px;
+  font-size: 0.75rem;
+  color: var(--slate-400);
+  border-top: 1px solid var(--slate-100);
+  margin-top: 40px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .hero { padding: 36px 16px 72px; }
+  .section-card { padding: 24px 18px; }
+  .section-card .desc { padding-left: 0; }
+  .form-grid { grid-template-columns: 1fr; }
+  .leg-row { grid-template-columns: 60px 1fr 1fr 32px; gap: 6px; padding: 10px; }
+  .bonus-grid { grid-template-columns: 1fr; }
+  .result-hero { padding: 28px 20px; }
+  .schedule-table { font-size: 0.78rem; }
+  .schedule-table thead th, .schedule-table tbody td { padding: 10px 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-content">
+    <h1>Nomad <span>Blue</span> Map</h1>
+    <p class="tagline">신뢰로 구축하는 디지털 노마드의 삶</p>
+    <p class="sub">크루즈 멤버십 구독 플랫폼 · 통합 비즈니스 시뮬레이터</p>
+  </div>
+</header>
+
+<!-- WAVE -->
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
+    <path fill="var(--sand-50)" d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60Z"/>
+  </svg>
+</div>
+
+<main class="app-container">
+
+  <!-- ═══ SECTION 1: 개인 활동 ═══ -->
+  <section class="section-card" style="animation-delay:0.1s">
+    <h2><span class="icon">👤</span> 개인 활동</h2>
+    <p class="desc">나의 가입 정보와 직접 추천(직추) 멤버 현황을 입력하세요.</p>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>가입일</label>
+        <input type="date" id="joinDate">
+      </div>
+      <div class="form-group">
+        <label>직추 Starter 멤버 수</label>
+        <input type="number" id="starterCount" min="0" value="0" placeholder="0">
+        <span class="unit">월 $100 구독</span>
+      </div>
+      <div class="form-group">
+        <label>직추 Classic 멤버 수</label>
+        <input type="number" id="classicCount" min="0" value="0" placeholder="0">
+        <span class="unit">월 $200 구독</span>
+      </div>
+      <div class="form-group">
+        <label>직추 Premium 멤버 수</label>
+        <input type="number" id="premiumCount" min="0" value="0" placeholder="0">
+        <span class="unit">월 $250 구독</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 2: 팀 구조 ═══ -->
+  <section class="section-card" style="animation-delay:0.2s">
+    <h2><span class="icon">🏗️</span> 팀 구조 (파트너 레그)</h2>
+    <p class="desc">각 파트너 레그(팀)별 총 매출액과 리커링 매출액을 입력하세요. 최소 3개 레그 필요.</p>
+    <div class="leg-container" id="legContainer">
+      <div class="leg-row">
+        <span class="leg-label">레그 1</span>
+        <div class="form-group">
+          <label>총 매출 ($)</label>
+          <input type="number" class="leg-total" min="0" value="0" placeholder="0">
+        </div>
+        <div class="form-group">
+          <label>리커링 매출 ($)</label>
+          <input type="number" class="leg-recurring" min="0" value="0" placeholder="0">
+        </div>
+        <span></span>
+      </div>
+      <div class="leg-row">
+        <span class="leg-label">레그 2</span>
+        <div class="form-group">
+          <label>총 매출 ($)</label>
+          <input type="number" class="leg-total" min="0" value="0" placeholder="0">
+        </div>
+        <div class="form-group">
+          <label>리커링 매출 ($)</label>
+          <input type="number" class="leg-recurring" min="0" value="0" placeholder="0">
+        </div>
+        <span></span>
+      </div>
+      <div class="leg-row">
+        <span class="leg-label">레그 3</span>
+        <div class="form-group">
+          <label>총 매출 ($)</label>
+          <input type="number" class="leg-total" min="0" value="0" placeholder="0">
+        </div>
+        <div class="form-group">
+          <label>리커링 매출 ($)</label>
+          <input type="number" class="leg-recurring" min="0" value="0" placeholder="0">
+        </div>
+        <span></span>
+      </div>
+    </div>
+    <button class="btn-add-leg" onclick="addLeg()">＋ 레그 추가</button>
+  </section>
+
+  <!-- ═══ SECTION 3: 품질 지표 ═══ -->
+  <section class="section-card" style="animation-delay:0.3s">
+    <h2><span class="icon">📊</span> 품질 지표 (QBI)</h2>
+    <p class="desc">현재 QBI 비율 또는 신규 활성화/유지 멤버 수를 입력해 자동 계산합니다.</p>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>QBI 직접 입력 (%)</label>
+        <input type="number" id="qbiDirect" min="0" max="100" value="" placeholder="65">
+        <span class="unit">비워두면 아래 값으로 자동 계산</span>
+      </div>
+      <div class="form-group">
+        <label>신규 활성화 멤버 수</label>
+        <input type="number" id="newActive" min="0" value="" placeholder="10">
+      </div>
+      <div class="form-group">
+        <label>유지 멤버 수 (전체)</label>
+        <input type="number" id="retainedMembers" min="0" value="" placeholder="20">
+      </div>
+      <div class="form-group">
+        <label>본인 주간 생산액 ($)</label>
+        <input type="number" id="myWeeklyProd" min="0" value="0" placeholder="200">
+        <span class="unit">주간 매칭 보너스 기준</span>
+      </div>
+      <div class="form-group">
+        <label>팀 주간 생산액 ($)</label>
+        <input type="number" id="teamWeeklyProd" min="0" value="0" placeholder="600">
+        <span class="unit">주간 매칭 보너스 기준</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALCULATE -->
+  <div class="calc-btn-wrap">
+    <button class="btn-calculate" onclick="calculate()">🗺️ 나의 블루 맵 확인하기</button>
+  </div>
+
+  <!-- ═══ RESULT DASHBOARD ═══ -->
+  <div id="resultDashboard">
+
+    <!-- TOTAL -->
+    <div class="result-hero" id="resultHero">
+      <div class="total-label">예상 월 총 수익</div>
+      <div class="total-amount" id="totalAmount">$0</div>
+      <div class="total-krw" id="totalKrw">약 0원</div>
+      <div id="rankBadge" class="rank-badge rank-none" style="margin-top:12px">직급 미달</div>
+      <div class="gauge-wrap">
+        <div class="gauge-label-row">
+          <span>현재</span>
+          <span id="gaugeTarget">목표: MD ($2,000)</span>
+        </div>
+        <div class="gauge-bar">
+          <div class="gauge-fill" id="gaugeFill"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INCENTIVE BADGES -->
+    <div class="incentive-badges" id="incentiveBadges"></div>
+
+    <!-- BONUS CARDS -->
+    <div class="bonus-grid" id="bonusGrid"></div>
+
+    <!-- SCHEDULE -->
+    <section class="section-card">
+      <h2><span class="icon">📅</span> 지급 스케줄러</h2>
+      <p class="desc">보너스별 예상 지급일과 금액입니다.</p>
+      <table class="schedule-table" id="scheduleTable">
+        <thead>
+          <tr><th>보너스</th><th>지급 주기</th><th style="text-align:right">예상 금액</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <!-- INSIGHTS -->
+    <section class="section-card">
+      <h2><span class="icon">💡</span> 노마드 인사이트</h2>
+      <p class="desc">비즈니스 성장을 위한 맞춤 코칭 메시지입니다.</p>
+      <div class="insight-list" id="insightList"></div>
+    </section>
+
+    <!-- COPY REPORT -->
+    <section class="section-card" style="text-align:center">
+      <h2 style="justify-content:center"><span class="icon">📤</span> 팀 공유</h2>
+      <p class="desc" style="padding-left:0">계산 결과를 텍스트로 복사하여 팀에 공유하세요.</p>
+      <button class="btn-copy" id="btnCopy" onclick="copyReport()">📋 팀 전송용 리포트 복사</button>
+    </section>
+
+  </div>
+
+</main>
+
+<footer class="app-footer">
+  <p>Nomad Blue Map · 크루즈 멤버십 구독 플랫폼 비즈니스 시뮬레이터</p>
+  <p style="margin-top:4px">본 시뮬레이터의 계산 결과는 참고용이며, 실제 보상은 정책에 따라 달라질 수 있습니다.</p>
+</footer>
+
+<script>
+// ── STATE ──
+let legCount = 3;
+
+// ── ADD / REMOVE LEGS ──
+function addLeg() {
+  legCount++;
+  const container = document.getElementById('legContainer');
+  const row = document.createElement('div');
+  row.className = 'leg-row';
+  row.innerHTML = `
+    <span class="leg-label">레그 ${legCount}</span>
+    <div class="form-group">
+      <label>총 매출 ($)</label>
+      <input type="number" class="leg-total" min="0" value="0" placeholder="0">
+    </div>
+    <div class="form-group">
+      <label>리커링 매출 ($)</label>
+      <input type="number" class="leg-recurring" min="0" value="0" placeholder="0">
+    </div>
+    <button class="btn-remove-leg" onclick="removeLeg(this)" title="삭제">✕</button>
+  `;
+  container.appendChild(row);
+}
+function removeLeg(btn) {
+  const rows = document.querySelectorAll('.leg-row');
+  if (rows.length <= 3) return alert('최소 3개 레그가 필요합니다.');
+  btn.closest('.leg-row').remove();
+  reindexLegs();
+}
+function reindexLegs() {
+  document.querySelectorAll('.leg-row').forEach((r, i) => {
+    r.querySelector('.leg-label').textContent = `레그 ${i + 1}`;
+  });
+  legCount = document.querySelectorAll('.leg-row').length;
+}
+
+// ── HELPERS ──
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function fmt(n) { return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 }); }
+function fmtKrw(usd) {
+  const krw = Math.round(usd * 1380);
+  return '약 ' + krw.toLocaleString('ko-KR') + '원';
+}
+
+// ── CALCULATE ──
+function calculate() {
+  // --- Gather inputs ---
+  const starter = val('starterCount');
+  const classic = val('classicCount');
+  const premium = val('premiumCount');
+  const totalDirect = starter + classic + premium;
+
+  const legs = [];
+  document.querySelectorAll('.leg-row').forEach(row => {
+    legs.push({
+      total: parseFloat(row.querySelector('.leg-total').value) || 0,
+      recurring: parseFloat(row.querySelector('.leg-recurring').value) || 0
+    });
+  });
+
+  const qbiInput = document.getElementById('qbiDirect').value;
+  const newActive = val('newActive');
+  const retained = val('retainedMembers');
+  let qbi = qbiInput !== '' ? parseFloat(qbiInput) : (retained > 0 ? Math.round((newActive / retained) * 100) : 65);
+  qbi = Math.min(100, Math.max(0, qbi));
+
+  const myWeekly = val('myWeeklyProd');
+  const teamWeekly = val('teamWeeklyProd');
+
+  // Direct production
+  const directProd = starter * 100 + classic * 200 + premium * 250;
+
+  // Total team production
+  const totalTeamProd = legs.reduce((s, l) => s + l.total, 0);
+  const totalRecurring = legs.reduce((s, l) => s + l.recurring, 0);
+  const totalOrgProd = directProd + totalTeamProd;
+
+  // ═══ BONUS 1: DAB + MAB (활성화) ═══
+  const dabPerStarter = 20, dabPerClassic = 20, dabPerPremium = 50;
+  const dab = starter * dabPerStarter + classic * dabPerClassic + premium * dabPerPremium;
+
+  // MAB tiers
+  function getMAB(count) {
+    if (count >= 20) return 100;
+    if (count >= 15) return 80;
+    if (count >= 10) return 60;
+    if (count >= 5) return 40;
+    if (count >= 3) return 20;
+    return 0;
+  }
+  const mab = getMAB(totalDirect);
+  const bonus1 = dab + mab;
+
+  // ═══ BONUS 2: 주간 매칭 ═══
+  const weeklyMatch = (myWeekly >= 200 && teamWeekly >= 600) ? bonus1 : 0;
+  const bonus2 = weeklyMatch; // 100% matching of partner DAB+MAB
+
+  // ═══ BONUS 3: 팀 리더십 (직급 판정) ═══
+  // 40% rule: no single leg > 40% of total
+  const sortedLegs = [...legs].sort((a, b) => b.total - a.total);
+  const maxLegPct = totalTeamProd > 0 ? (sortedLegs[0]?.total / totalTeamProd * 100) : 0;
+  const qualifiedProd40 = totalTeamProd > 0
+    ? Math.min(totalTeamProd, totalTeamProd - Math.max(0, sortedLegs[0]?.total - totalTeamProd * 0.4))
+    : 0;
+  // Actually, eligible production = min(total, sum where no leg > 40%)
+  // Simpler: cap largest leg at 40%
+  const cappedLegs = sortedLegs.map((l, i) => {
+    if (i === 0 && totalTeamProd > 0) {
+      return Math.min(l.total, totalTeamProd * 0.4);
+    }
+    return l.total;
+  });
+  const eligibleProd = cappedLegs.reduce((s, v) => s + v, 0);
+
+  // Rank thresholds (monthly eligible production)
+  const ranks = [
+    { name: 'Royal BOD', key: 'RBOD', min: 750000, bonus: 305000 },
+    { name: 'BOD',       key: 'BOD',  min: 400000, bonus: 155000 },
+    { name: 'Presidential Director', key: 'PD', min: 200000, bonus: 55000 },
+    { name: 'Executive Director', key: 'ED', min: 100000, bonus: 20000 },
+    { name: 'Senior Director', key: 'SD', min: 50000, bonus: 5000 },
+    { name: 'Managing Director', key: 'MD', min: 2000, bonus: 300 },
+  ];
+  let currentRank = null;
+  let bonus3 = 0;
+  for (const r of ranks) {
+    if (eligibleProd >= r.min) {
+      currentRank = r;
+      bonus3 = r.bonus;
+      break;
+    }
+  }
+
+  // ═══ BONUS 4: 리커링 보너스 ═══
+  // Multiplier based on builder base bonus bracket
+  const builderBase = bonus1 + bonus3;
+  function getRecurringMultiplier(bb) {
+    if (bb >= 5000) return 10;
+    if (bb >= 2000) return 8;
+    if (bb >= 500) return 6;
+    if (bb >= 100) return 5;
+    return 5;
+  }
+  const recurMulti = getRecurringMultiplier(builderBase);
+  // RQP 40% rule on recurring: cap largest leg recurring at 40%
+  const sortedRecurring = [...legs].sort((a, b) => b.recurring - a.recurring);
+  const cappedRecurring = sortedRecurring.map((l, i) => {
+    if (i === 0 && totalRecurring > 0) {
+      return Math.min(l.recurring, totalRecurring * 0.4);
+    }
+    return l.recurring;
+  });
+  const eligibleRecurring = cappedRecurring.reduce((s, v) => s + v, 0);
+  const recurringUnits = Math.floor(eligibleRecurring / 100); // per $100 unit
+  const bonus4 = recurringUnits * recurMulti;
+
+  // ═══ BONUS 5: 빌더 베이스 & QBI ═══
+  // % based on total org production
+  function getBuilderBasePct(prod) {
+    if (prod >= 200000) return 0.30;
+    if (prod >= 100000) return 0.25;
+    if (prod >= 50000) return 0.20;
+    if (prod >= 20000) return 0.15;
+    if (prod >= 10000) return 0.10;
+    if (prod >= 2000) return 0.05;
+    return 0;
+  }
+  const bbPct = getBuilderBasePct(totalOrgProd);
+  let bonus5Raw = totalOrgProd * bbPct;
+  // QBI adjustment: 65% threshold, scale below
+  let qbiMultiplier = 1;
+  if (qbi < 65) {
+    qbiMultiplier = qbi / 65;
+  }
+  const bonus5 = Math.round(bonus5Raw * qbiMultiplier);
+
+  // ═══ INCENTIVES ═══
+  const freeMembership = directProd >= 500;
+  
+  // Fast start: MD within end of next month from join date
+  const joinDate = document.getElementById('joinDate').value;
+  let fastStartEligible = false;
+  let fastStartBonus = 0;
+  if (joinDate && currentRank) {
+    const jd = new Date(joinDate);
+    const nextMonthEnd = new Date(jd.getFullYear(), jd.getMonth() + 2, 0);
+    const now = new Date();
+    if (now <= nextMonthEnd && currentRank.min >= 2000) {
+      fastStartEligible = true;
+      fastStartBonus = 500;
+    }
+  }
+
+  const eliteTravel = currentRank && currentRank.min >= 2000; // MD+
+
+  // ═══ TOTALS ═══
+  const totalMonthly = bonus1 + bonus2 * 4 + bonus3 + bonus4 + bonus5 + fastStartBonus;
+  // bonus2 is weekly so ×4 for monthly estimate
+
+  // ═══ RENDER ═══
+  const dashboard = document.getElementById('resultDashboard');
+  dashboard.classList.add('show');
+  dashboard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  // Total
+  document.getElementById('totalAmount').textContent = fmt(totalMonthly);
+  document.getElementById('totalKrw').textContent = fmtKrw(totalMonthly);
+
+  // Rank badge
+  const rb = document.getElementById('rankBadge');
+  if (currentRank) {
+    rb.textContent = currentRank.name;
+    rb.className = 'rank-badge rank-' + currentRank.key;
+  } else {
+    rb.textContent = '직급 미달';
+    rb.className = 'rank-badge rank-none';
+  }
+
+  // Gauge (progress toward next rank or current)
+  let gaugeTarget = currentRank ? currentRank : ranks[ranks.length - 1];
+  let nextRank = null;
+  if (currentRank) {
+    const idx = ranks.indexOf(currentRank);
+    nextRank = idx > 0 ? ranks[idx - 1] : null;
+  } else {
+    nextRank = ranks[ranks.length - 1]; // MD
+  }
+  const gTarget = nextRank || gaugeTarget;
+  const gPct = Math.min(100, (eligibleProd / gTarget.min) * 100);
+  document.getElementById('gaugeTarget').textContent = `목표: ${gTarget.name} (${fmt(gTarget.min)})`;
+  setTimeout(() => {
+    document.getElementById('gaugeFill').style.width = gPct + '%';
+  }, 200);
+
+  // Incentive badges
+  const badgesEl = document.getElementById('incentiveBadges');
+  badgesEl.innerHTML = `
+    <span class="badge ${freeMembership ? 'active' : 'inactive'}">
+      ${freeMembership ? '✅' : '⬜'} 무료 멤버십 (월 $100 면제)
+    </span>
+    <span class="badge ${fastStartEligible ? 'active' : 'inactive'}">
+      ${fastStartEligible ? '🚀' : '⬜'} 패스트 스타트 $500
+    </span>
+    <span class="badge ${eliteTravel ? 'active' : 'inactive'}">
+      ${eliteTravel ? '✈️' : '⬜'} 엘리트 여행 (MD 3개월 유지)
+    </span>
+  `;
+
+  // Bonus cards
+  const bonusData = [
+    {
+      num: '01', title: '활성화 보너스 (DAB + MAB)', amount: bonus1,
+      detail: `DAB: ${fmt(dab)} (S×${starter} C×${classic} P×${premium})\nMAB: ${fmt(mab)} (직추 ${totalDirect}명 구간)`
+    },
+    {
+      num: '02', title: '주간 매칭 보너스', amount: bonus2,
+      detail: `주간 조건: 본인 $200 ${myWeekly >= 200 ? '✅' : '❌'} / 팀 $600 ${teamWeekly >= 600 ? '✅' : '❌'}\n파트너 DAB+MAB 100% 매칭 (×4주 = ${fmt(bonus2 * 4)}/월)`,
+      inactive: bonus2 === 0
+    },
+    {
+      num: '03', title: '팀 리더십 보너스', amount: bonus3,
+      detail: `적격 생산액: ${fmt(eligibleProd)} (40% 룰 적용)\n직급: ${currentRank ? currentRank.name : '미달'}`,
+      inactive: bonus3 === 0
+    },
+    {
+      num: '04', title: '리커링 보너스', amount: bonus4,
+      detail: `적격 리커링: ${fmt(Math.round(eligibleRecurring))}\n승수: $${recurMulti}/unit × ${recurringUnits} units`,
+      inactive: bonus4 === 0
+    },
+    {
+      num: '05', title: '빌더 베이스 & QBI', amount: bonus5,
+      detail: `총 조직 생산: ${fmt(totalOrgProd)} × ${(bbPct * 100).toFixed(0)}%\nQBI: ${qbi}% ${qbi >= 65 ? '(정상 지급)' : `(보정: ${(qbiMultiplier * 100).toFixed(0)}%)`}`,
+      inactive: bonus5 === 0
+    }
+  ];
+
+  const bonusGrid = document.getElementById('bonusGrid');
+  bonusGrid.innerHTML = bonusData.map(b => `
+    <div class="bonus-card ${b.inactive ? 'inactive' : ''}">
+      <div class="b-header">
+        <span class="b-num">${b.num}</span>
+        <span class="b-title">${b.title}</span>
+      </div>
+      <div class="b-amount">${fmt(b.amount)}</div>
+      <div class="b-detail">${b.detail.replace(/\n/g, '<br>')}</div>
+    </div>
+  `).join('');
+
+  // Schedule
+  const scheduleData = [
+    { name: '활성화 보너스 (DAB)', cycle: '24시간 이내', amount: dab },
+    { name: '활성화 보너스 (MAB)', cycle: '매주 월요일', amount: mab },
+    { name: '주간 매칭 보너스', cycle: '매주 월요일', amount: bonus2 },
+    { name: '팀 리더십 보너스', cycle: '매월 8일', amount: bonus3 },
+    { name: '리커링 보너스', cycle: '매월 10일', amount: bonus4 },
+    { name: '빌더 베이스 (QBI)', cycle: '매월 15일', amount: bonus5 },
+    ...(fastStartEligible ? [{ name: '패스트 스타트', cycle: '1회성', amount: 500 }] : [])
+  ];
+  document.querySelector('#scheduleTable tbody').innerHTML = scheduleData.map(s => `
+    <tr>
+      <td>${s.name}</td>
+      <td>${s.cycle}</td>
+      <td class="amt">${fmt(s.amount)}</td>
+    </tr>
+  `).join('');
+
+  // Insights
+  const insights = [];
+  const recurringPct = totalMonthly > 0 ? Math.round((bonus4 + bonus5) / totalMonthly * 100) : 0;
+  insights.push({
+    icon: '📈',
+    text: `현재 수익의 <strong>${recurringPct}%</strong>가 시스템 자산 소득(리커링+빌더베이스)입니다.`,
+    type: ''
+  });
+
+  if (qbi < 65) {
+    const qbiGap = 65 - qbi;
+    const improved5 = Math.round(bonus5Raw * 1);
+    insights.push({
+      icon: '⚡',
+      text: `QBI를 <strong>${qbiGap}%</strong>만 올리면 빌더 베이스 보너스가 <strong>${fmt(improved5 - bonus5)}</strong> 증가합니다!`,
+      type: 'coral'
+    });
+  }
+  if (qbi >= 65 && qbi < 80) {
+    insights.push({
+      icon: '✨',
+      text: `QBI ${qbi}% — 좋습니다! 80% 이상 유지하면 팀 리텐션이 안정적으로 올라갑니다.`,
+      type: 'mint'
+    });
+  }
+
+  if (!currentRank) {
+    insights.push({
+      icon: '🎯',
+      text: `MD 달성까지 적격 생산액 <strong>${fmt(2000 - eligibleProd)}</strong>이 필요합니다. 직추 3명만 더 확보해보세요!`,
+      type: 'gold'
+    });
+  } else if (nextRank) {
+    insights.push({
+      icon: '🎯',
+      text: `${nextRank.name} 달성까지 <strong>${fmt(nextRank.min - eligibleProd)}</strong> 추가 필요! 보너스 +${fmt(nextRank.bonus - bonus3)}.`,
+      type: 'gold'
+    });
+  }
+
+  if (freeMembership) {
+    insights.push({
+      icon: '🎁',
+      text: `직추 생산액 $500 달성! <strong>월 $100 멤버십 면제 + 200 포인트</strong> 적립 혜택을 받을 수 있습니다.`,
+      type: 'mint'
+    });
+  } else {
+    const gap = 500 - directProd;
+    insights.push({
+      icon: '💰',
+      text: `무료 멤버십까지 직추 생산액 <strong>${fmt(gap)}</strong>만 더! 달성하면 월 $100 절약 + 200포인트 적립.`,
+      type: ''
+    });
+  }
+
+  if (maxLegPct > 40 && totalTeamProd > 0) {
+    insights.push({
+      icon: '⚠️',
+      text: `최대 레그 비중 <strong>${maxLegPct.toFixed(0)}%</strong> — 40% 룰 초과! 다른 레그를 키워 적격 생산액을 늘리세요.`,
+      type: 'coral'
+    });
+  }
+
+  if (bonus2 === 0 && (myWeekly > 0 || teamWeekly > 0)) {
+    insights.push({
+      icon: '🔗',
+      text: `주간 매칭 조건 미달! 본인 $200 + 팀 $600을 동시에 충족하면 월 <strong>${fmt(bonus1 * 4)}</strong> 추가 수익.`,
+      type: ''
+    });
+  }
+
+  if (eliteTravel) {
+    insights.push({
+      icon: '✈️',
+      text: `MD 이상 유지 중! 3개월 연속 MD를 유지하면 <strong>엘리트 여행</strong> 자격이 주어집니다.`,
+      type: 'gold'
+    });
+  }
+
+  const insightList = document.getElementById('insightList');
+  insightList.innerHTML = insights.map(i => `
+    <div class="insight-item ${i.type}">
+      <span class="i-icon">${i.icon}</span>
+      <span class="i-text">${i.text}</span>
+    </div>
+  `).join('');
+
+  // Store for copy
+  window._reportData = {
+    totalMonthly, bonus1, bonus2, bonus3, bonus4, bonus5,
+    currentRank, qbi, eligibleProd, totalOrgProd, freeMembership,
+    fastStartEligible, fastStartBonus, recurringPct
+  };
+}
+
+// ── COPY REPORT ──
+function copyReport() {
+  const d = window._reportData;
+  if (!d) return;
+  const lines = [
+    `━━━ Nomad Blue Map 리포트 ━━━`,
+    ``,
+    `📊 예상 월 수익: ${fmt(d.totalMonthly)} (${fmtKrw(d.totalMonthly)})`,
+    `🏅 현재 직급: ${d.currentRank ? d.currentRank.name : '미달'}`,
+    `📈 QBI: ${d.qbi}%`,
+    ``,
+    `── 보너스 내역 ──`,
+    `① 활성화 (DAB+MAB): ${fmt(d.bonus1)}`,
+    `② 주간 매칭 (×4주): ${fmt(d.bonus2 * 4)}`,
+    `③ 팀 리더십: ${fmt(d.bonus3)}`,
+    `④ 리커링: ${fmt(d.bonus4)}`,
+    `⑤ 빌더 베이스: ${fmt(d.bonus5)}`,
+    d.fastStartEligible ? `🚀 패스트 스타트: ${fmt(d.fastStartBonus)}` : '',
+    ``,
+    `── 핵심 지표 ──`,
+    `• 시스템 자산소득 비율: ${d.recurringPct}%`,
+    `• 적격 생산액: ${fmt(d.eligibleProd)}`,
+    `• 조직 총 생산: ${fmt(d.totalOrgProd)}`,
+    d.freeMembership ? `✅ 무료 멤버십 달성` : `⬜ 무료 멤버십 미달`,
+    ``,
+    `━━━━━━━━━━━━━━━━━━━━━━`,
+    `Nomad Blue Map · 크루즈 멤버십 구독 플랫폼`
+  ].filter(Boolean).join('\n');
+
+  navigator.clipboard.writeText(lines).then(() => {
+    const btn = document.getElementById('btnCopy');
+    btn.textContent = '✅ 복사 완료!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = '📋 팀 전송용 리포트 복사';
+      btn.classList.remove('copied');
+    }, 2000);
+  }).catch(() => {
+    // Fallback
+    const ta = document.createElement('textarea');
+    ta.value = lines;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    const btn = document.getElementById('btnCopy');
+    btn.textContent = '✅ 복사 완료!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = '📋 팀 전송용 리포트 복사';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+
+// ── Auto set join date to today ──
+document.addEventListener('DOMContentLoaded', () => {
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('joinDate').value = today;
+});
+</script>
+</body>
+</html>
