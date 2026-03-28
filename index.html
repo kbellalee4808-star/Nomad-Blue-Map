@@ -147,6 +147,285 @@ body {
   padding-left: 46px;
 }
 
+/* ── TWIN INPUT CARDS ── */
+.section-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.section-header-row h2 { margin-bottom: 4px; }
+.section-header-row .desc { margin-bottom: 0 !important; }
+.fx-input-wrap {
+  flex-shrink: 0;
+  text-align: center;
+}
+.fx-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--slate-500);
+  display: block;
+  margin-bottom: 4px;
+}
+.fx-field {
+  display: flex;
+  align-items: center;
+  background: var(--slate-50);
+  border: 1.5px solid var(--slate-200);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.fx-field:focus-within {
+  border-color: var(--blue-400);
+  box-shadow: 0 0 0 3px rgba(135,206,235,0.15);
+}
+.fx-prefix {
+  padding: 6px 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--blue-600);
+  background: var(--blue-100);
+}
+.fx-field input {
+  width: 80px;
+  padding: 6px 8px;
+  border: none;
+  outline: none;
+  font-size: 0.88rem;
+  font-family: inherit;
+  font-weight: 600;
+  color: var(--slate-700);
+  background: transparent;
+  -moz-appearance: textfield;
+}
+.fx-field input::-webkit-outer-spin-button,
+.fx-field input::-webkit-inner-spin-button { -webkit-appearance: none; }
+.fx-hint {
+  font-size: 0.65rem;
+  color: var(--slate-400);
+  margin-top: 2px;
+  display: block;
+}
+.twin-krw {
+  font-size: 0.75rem;
+  color: var(--slate-400);
+  margin-top: 2px;
+  font-weight: 500;
+}
+.twin-input-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.twin-card {
+  background: var(--sand-100);
+  border: 2px solid var(--sand-200);
+  border-radius: var(--radius);
+  padding: 24px 16px 20px;
+  text-align: center;
+  transition: all 0.3s;
+  position: relative;
+}
+.twin-card:hover, .twin-card:focus-within {
+  border-color: var(--blue-300);
+  box-shadow: 0 0 0 3px rgba(135,206,235,0.12);
+}
+.twin-badge {
+  display: inline-block;
+  padding: 3px 14px;
+  border-radius: 60px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--blue-100);
+  color: var(--blue-600);
+  margin-bottom: 6px;
+}
+.twin-badge.prem {
+  background: linear-gradient(135deg, #FFF3D6, #FFE8B0);
+  color: var(--gold-500);
+}
+.twin-price {
+  font-size: 0.82rem;
+  color: var(--slate-400);
+  margin-bottom: 14px;
+}
+.twin-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+.twin-btn {
+  width: 40px;
+  height: 44px;
+  border: 1.5px solid var(--slate-200);
+  background: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--blue-600);
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.twin-btn:first-child { border-radius: 10px 0 0 10px; }
+.twin-btn:last-child { border-radius: 0 10px 10px 0; }
+.twin-btn:hover { background: var(--blue-100); }
+.twin-btn:active { background: var(--blue-200); transform: scale(0.95); }
+.twin-value {
+  width: 64px;
+  height: 44px;
+  border: 1.5px solid var(--slate-200);
+  border-left: none;
+  border-right: none;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--blue-700);
+  background: #fff;
+  outline: none;
+  -moz-appearance: textfield;
+}
+.twin-value::-webkit-outer-spin-button,
+.twin-value::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.twin-label {
+  font-size: 0.72rem;
+  color: var(--slate-400);
+  margin-top: 10px;
+}
+.twin-instant {
+  margin-top: 12px;
+  padding: 8px 12px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.instant-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--blue-500);
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+}
+.twin-premium .instant-tag {
+  background: var(--gold-500);
+}
+.instant-amount {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--blue-700);
+  transition: transform 0.2s;
+}
+.instant-amount.bump {
+  animation: bumpNum 0.3s ease;
+}
+@keyframes bumpNum {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.25); color: var(--mint); }
+  100% { transform: scale(1); }
+}
+.twin-pop {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--mint);
+  opacity: 0;
+  pointer-events: none;
+}
+.twin-pop.show {
+  animation: popUp 0.8s ease forwards;
+}
+@keyframes popUp {
+  0% { opacity: 0; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(-16px); }
+  100% { opacity: 0; transform: translateY(-36px); }
+}
+
+/* ── MINI CHART ── */
+.mini-chart-wrap {
+  margin-top: 20px;
+  padding: 18px 20px;
+  background: var(--slate-50);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--slate-100);
+}
+.mini-chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.mini-chart-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--slate-500);
+  letter-spacing: 0.03em;
+}
+.mini-chart-goal {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--blue-600);
+}
+.mini-chart-pct {
+  text-align: right;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--blue-500);
+  margin-top: -4px;
+  margin-bottom: 8px;
+  transition: color 0.3s;
+}
+.mini-chart-pct.achieved { color: var(--mint); }
+.mini-chart-bar-row { margin-bottom: 10px; }
+.mini-chart-bar {
+  height: 28px;
+  background: var(--slate-100);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+}
+.mini-bar-fill {
+  height: 100%;
+  transition: width 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+  min-width: 0;
+}
+.mini-bar-fill.classic-fill {
+  background: linear-gradient(90deg, var(--blue-400), var(--blue-300));
+}
+.mini-bar-fill.premium-fill {
+  background: linear-gradient(90deg, var(--gold-400), var(--gold-500));
+}
+.mini-chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.78rem;
+  color: var(--slate-500);
+}
+.legend-item { display: flex; align-items: center; gap: 6px; }
+.legend-dot {
+  width: 10px; height: 10px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.legend-dot.classic-dot { background: var(--blue-400); }
+.legend-dot.premium-dot { background: var(--gold-400); }
+.total-legend { margin-left: auto; color: var(--blue-700); }
+
 /* ── FORM ELEMENTS ── */
 .form-grid {
   display: grid;
@@ -187,39 +466,45 @@ body {
 .leg-container { margin-top: 8px; }
 .leg-row {
   display: grid;
-  grid-template-columns: 80px 1fr 1fr 40px;
+  grid-template-columns: 1fr 1fr;
   gap: 10px;
   align-items: end;
   margin-bottom: 10px;
-  padding: 12px 14px;
+  padding: 14px 16px;
   background: var(--sand-100);
   border-radius: var(--radius-sm);
   border: 1px solid var(--sand-200);
+  position: relative;
 }
 .leg-row .leg-label {
   font-size: 0.82rem;
   font-weight: 600;
   color: var(--blue-600);
-  padding-bottom: 8px;
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .leg-row input {
-  padding: 8px 10px;
+  padding: 10px 12px;
   border: 1.5px solid var(--slate-200);
   border-radius: 8px;
-  font-size: 0.88rem;
+  font-size: 0.92rem;
   font-family: inherit;
   background: #fff;
   outline: none;
   transition: border-color 0.2s;
+  width: 100%;
 }
-.leg-row input:focus { border-color: var(--blue-400); }
+.leg-row input:focus { border-color: var(--blue-400); box-shadow: 0 0 0 3px rgba(135,206,235,0.15); }
 .btn-remove-leg {
   background: none; border: none;
   color: var(--slate-300);
-  font-size: 1.2rem;
+  font-size: 1rem;
   cursor: pointer;
-  padding-bottom: 8px;
   transition: color 0.2s;
+  padding: 2px 6px;
+  line-height: 1;
 }
 .btn-remove-leg:hover { color: var(--coral); }
 
@@ -408,8 +693,14 @@ body {
   font-size: 1.8rem;
   font-weight: 700;
   color: var(--blue-700);
-  margin-bottom: 8px;
+  margin-bottom: 2px;
 }
+.bonus-card .b-krw {
+  font-size: 0.78rem;
+  color: var(--slate-400);
+  margin-bottom: 10px;
+}
+.bonus-card.inactive .b-krw { color: var(--slate-300); }
 .bonus-card .b-detail {
   font-size: 0.78rem;
   color: var(--slate-400);
@@ -443,6 +734,7 @@ body {
 }
 .schedule-table tbody tr:last-child td { border-bottom: none; }
 .schedule-table .amt { font-weight: 600; color: var(--blue-700); text-align: right; }
+.schedule-table .amt-krw { font-size: 0.72rem; color: var(--slate-400); font-weight: 400; }
 
 /* ── INSIGHTS ── */
 .insight-list { display:flex; flex-direction:column; gap:12px; }
@@ -527,6 +819,495 @@ body {
 .rank-RBOD { background: linear-gradient(135deg, rgba(255,215,0,0.3), rgba(255,165,0,0.3)); color: #8B6914; }
 .rank-none { background: var(--slate-100); color: var(--slate-400); }
 
+/* ── BUILDING VISUALIZATION ── */
+.building-wrap {
+  margin-top: 20px;
+  padding: 18px 20px 14px;
+  background: var(--slate-50);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--slate-100);
+}
+.building-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.building-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--slate-500);
+}
+.building-floor-count {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--blue-600);
+}
+.building-scene {
+  position: relative;
+  height: 280px;
+  background: linear-gradient(180deg, #D6EEFF 0%, #E8F4FD 50%, #F0F7FB 100%);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+/* Sky & clouds */
+.building-sky { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.cloud {
+  position: absolute;
+  background: rgba(255,255,255,0.7);
+  border-radius: 50px;
+  height: 20px;
+}
+.cloud::before {
+  content: '';
+  position: absolute;
+  background: inherit;
+  border-radius: 50%;
+  width: 28px; height: 28px;
+  top: -14px; left: 16px;
+}
+.cloud::after {
+  content: '';
+  position: absolute;
+  background: inherit;
+  border-radius: 50%;
+  width: 20px; height: 20px;
+  top: -8px; left: 38px;
+}
+.cloud-1 { width: 70px; top: 18px; left: 10%; animation: cloudDrift 22s linear infinite; }
+.cloud-2 { width: 55px; top: 40px; left: 55%; animation: cloudDrift 30s linear infinite reverse; opacity: 0.6; }
+.cloud-3 { width: 48px; top: 26px; left: 80%; animation: cloudDrift 26s linear infinite; animation-delay: -8s; opacity: 0.5; }
+@keyframes cloudDrift {
+  from { transform: translateX(0); }
+  to { transform: translateX(-200px); }
+}
+
+/* Foundation */
+.building-foundation {
+  width: 140px;
+  height: 24px;
+  background: linear-gradient(180deg, var(--slate-600), var(--slate-700));
+  border-radius: 4px 4px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 5;
+  flex-shrink: 0;
+}
+.foundation-text {
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.15em;
+}
+/* Ground */
+.building-ground {
+  width: 100%;
+  height: 18px;
+  background: linear-gradient(180deg, #8CB369, #6A994E);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 4;
+}
+.building-ground::before {
+  content: '';
+  position: absolute;
+  top: -3px; left: 0; right: 0;
+  height: 6px;
+  background: rgba(0,0,0,0.06);
+  border-radius: 0 0 0 0;
+}
+
+/* Tower (floors container) */
+.building-tower {
+  width: 120px;
+  display: flex;
+  flex-direction: column-reverse;
+  position: relative;
+  z-index: 5;
+  flex-shrink: 0;
+}
+/* Roof */
+.building-roof {
+  width: 120px;
+  height: 0;
+  transition: height 0.4s ease;
+}
+.building-roof.visible {
+  height: 14px;
+  background: var(--slate-500);
+  border-radius: 3px 3px 0 0;
+  position: relative;
+}
+.building-roof.visible::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 6px;
+  background: var(--slate-400);
+  border-radius: 3px 3px 0 0;
+}
+
+/* Individual floor */
+.b-floor {
+  width: 120px;
+  height: 26px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-left: 3px solid rgba(0,0,0,0.08);
+  border-right: 3px solid rgba(0,0,0,0.08);
+  animation: floorBuild 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.b-floor.classic-floor {
+  background: linear-gradient(90deg, var(--blue-300), var(--blue-400));
+}
+.b-floor.premium-floor {
+  background: linear-gradient(90deg, var(--gold-400), #E0B85C);
+}
+/* Windows */
+.b-floor-windows {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  width: 100%;
+  padding: 0 8px;
+}
+.b-window {
+  width: 16px;
+  height: 14px;
+  background: rgba(255,255,255,0.55);
+  border-radius: 2px 2px 0 0;
+  border-bottom: 2px solid rgba(255,255,255,0.3);
+  position: relative;
+}
+.b-window::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1px;
+  height: 80%;
+  background: rgba(0,0,0,0.1);
+}
+/* Floor number label */
+.b-floor-num {
+  position: absolute;
+  right: -32px;
+  font-size: 0.55rem;
+  font-weight: 600;
+  color: var(--slate-400);
+  white-space: nowrap;
+}
+@keyframes floorBuild {
+  0% {
+    transform: scaleY(0) translateY(10px);
+    opacity: 0;
+  }
+  60% {
+    transform: scaleY(1.08) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Flag */
+.building-flag {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+.building-flag.visible { opacity: 1; }
+.flag-pole {
+  width: 3px;
+  height: 30px;
+  background: var(--slate-500);
+  border-radius: 2px;
+}
+.flag-cloth {
+  position: absolute;
+  top: 2px;
+  left: 6px;
+  background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 0 4px 4px 0;
+  white-space: nowrap;
+  animation: flagWave 2s ease-in-out infinite;
+  transform-origin: left center;
+}
+@keyframes flagWave {
+  0%, 100% { transform: rotate(0deg) scaleX(1); }
+  25% { transform: rotate(-3deg) scaleX(0.96); }
+  75% { transform: rotate(2deg) scaleX(1.02); }
+}
+
+/* Empty state */
+.building-empty {
+  text-align: center;
+  padding: 40px 0;
+  color: var(--slate-300);
+  font-size: 0.82rem;
+  z-index: 5;
+  position: relative;
+}
+.building-empty-icon { font-size: 2rem; margin-bottom: 8px; display: block; }
+
+/* ── MAB STEP CHART ── */
+.mab-wrap {
+  margin-top: 20px;
+  padding: 18px 20px 14px;
+  background: var(--slate-50);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--slate-100);
+}
+.mab-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+.mab-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--slate-500);
+}
+.mab-total {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--blue-700);
+  font-family: 'Cormorant Garamond', serif;
+}
+.mab-desc {
+  font-size: 0.7rem;
+  color: var(--slate-400);
+  margin-bottom: 16px;
+}
+.mab-chart {
+  display: flex;
+  gap: 16px;
+}
+.mab-plan-row {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px 10px 12px;
+  border-radius: 12px;
+  transition: background 0.3s;
+}
+.mab-plan-row.classic-row { background: rgba(135,206,235,0.08); border: 1.5px solid rgba(135,206,235,0.15); }
+.mab-plan-row.premium-row { background: rgba(217,64,64,0.05); border: 1.5px solid rgba(217,64,64,0.15); }
+.mab-plan-row.classic-row.active-row { background: rgba(135,206,235,0.15); border-color: var(--blue-300); }
+.mab-plan-row.premium-row.active-row { background: rgba(217,64,64,0.1); border-color: #D94040; }
+.mab-plan-label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 5px 18px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+.mab-plan-label.classic-label { background: #1A6FB5; color: #fff; }
+.mab-plan-label.premium-label { background: #D94040; color: #fff; }
+.mab-steps {
+  display: flex;
+  gap: 6px;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100px;
+}
+.mab-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+  max-width: 72px;
+  height: 100%;
+}
+.mab-step-val {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--slate-400);
+  margin-bottom: 4px;
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+.mab-step.active .mab-step-val {
+  transform: scale(1.15);
+}
+.mab-step.active.is-classic .mab-step-val { color: var(--blue-600); }
+.mab-step.active.is-premium .mab-step-val { color: #D94040; }
+.mab-step-bar {
+  width: 100%;
+  border-radius: 6px 6px 0 0;
+  transition: height 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  min-height: 6px;
+  position: relative;
+}
+.mab-bar-classic {
+  background: linear-gradient(180deg, #5BB8E0 0%, #87CEEB 100%);
+  box-shadow: 0 -2px 8px rgba(91,184,224,0.3);
+}
+.mab-bar-premium {
+  background: linear-gradient(180deg, #D94040 0%, #E86B6B 100%);
+  box-shadow: 0 -2px 8px rgba(217,64,64,0.3);
+}
+.mab-step-bar.inactive {
+  background: var(--slate-200) !important;
+  box-shadow: none !important;
+}
+.mab-step-bar.active::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 6px 6px 0 0;
+}
+.mab-step-label {
+  font-size: 0.62rem;
+  color: var(--slate-400);
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+.mab-step.active .mab-step-label {
+  font-weight: 600;
+  color: var(--slate-600);
+}
+.mab-summary {
+  margin-top: 14px;
+  font-size: 0.78rem;
+  color: var(--slate-500);
+  text-align: center;
+  min-height: 20px;
+}
+.mab-summary strong { color: var(--blue-700); }
+.mab-summary .prem-strong { color: #D94040; }
+
+/* Labels */
+.building-labels {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 10px;
+  font-size: 0.72rem;
+  color: var(--slate-500);
+}
+.bl-item { display: flex; align-items: center; gap: 5px; }
+.bl-dot { width: 10px; height: 10px; border-radius: 3px; }
+.bl-dot.bl-classic { background: var(--blue-400); }
+.bl-dot.bl-premium { background: var(--gold-400); }
+
+/* ── FLOATING EARNINGS BAR ── */
+.floating-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: rgba(14,61,92,0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 -4px 24px rgba(0,0,0,0.2);
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+  border-radius: 16px 16px 0 0;
+}
+.floating-bar.visible {
+  transform: translateY(0);
+}
+.float-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 12px 24px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.float-left { flex: 1; min-width: 0; }
+.float-label {
+  font-size: 0.68rem;
+  color: var(--blue-200);
+  letter-spacing: 0.04em;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.float-breakdown {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.45);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.float-right {
+  text-align: right;
+  flex-shrink: 0;
+}
+.float-usd {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.1;
+  transition: transform 0.2s;
+}
+.float-usd.bump { animation: floatBump 0.35s ease; }
+@keyframes floatBump {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.12); color: var(--gold-400); }
+  100% { transform: scale(1); }
+}
+.float-krw {
+  font-size: 0.75rem;
+  color: var(--blue-200);
+  font-weight: 500;
+}
+.float-progress {
+  height: 3px;
+  background: rgba(255,255,255,0.1);
+}
+.float-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue-300), var(--gold-400));
+  width: 0%;
+  transition: width 0.6s ease;
+}
+
+/* Give body bottom padding so content isn't hidden behind floating bar */
+body.has-float { padding-bottom: 80px; }
+
+@media (max-width: 600px) {
+  .float-inner { padding: 10px 16px 6px; }
+  .float-usd { font-size: 1.3rem; }
+  .float-breakdown { font-size: 0.62rem; }
+}
+
 /* ── FOOTER ── */
 .app-footer {
   text-align: center;
@@ -540,12 +1321,33 @@ body {
 /* ── RESPONSIVE ── */
 @media (max-width: 600px) {
   .hero { padding: 36px 16px 72px; }
-  .section-card { padding: 24px 18px; }
+  .section-card { padding: 24px 16px; }
   .section-card .desc { padding-left: 0; }
   .form-grid { grid-template-columns: 1fr; }
-  .leg-row { grid-template-columns: 60px 1fr 1fr 32px; gap: 6px; padding: 10px; }
+  .twin-input-wrap { gap: 10px; }
+  .twin-card { padding: 18px 10px 16px; }
+  .section-header-row { flex-direction: column; gap: 12px; }
+  .fx-input-wrap { display: flex; align-items: center; gap: 8px; }
+  .fx-label { margin-bottom: 0; }
+  .twin-value { width: 52px; font-size: 1.1rem; }
+  .twin-btn { width: 36px; height: 40px; font-size: 1rem; }
+  .mini-chart-legend { gap: 10px; font-size: 0.72rem; }
+  .total-legend { margin-left: 0; }
+  .leg-row { grid-template-columns: 1fr 1fr; gap: 8px; padding: 12px; }
   .bonus-grid { grid-template-columns: 1fr; }
   .result-hero { padding: 28px 20px; }
+  .building-scene { height: 240px; }
+  .building-foundation { width: 120px; }
+  .building-tower, .b-floor, .building-roof, .building-roof.visible { width: 100px; }
+  .b-window { width: 13px; height: 12px; }
+  .b-floor { height: 22px; }
+  .b-floor-num { right: -28px; font-size: 0.5rem; }
+  .mab-chart { gap: 10px; }
+  .mab-steps { gap: 4px; height: 80px; }
+  .mab-step-val { font-size: 0.68rem; }
+  .mab-plan-row { padding: 10px 6px 8px; }
+  .mab-plan-label { font-size: 0.62rem; padding: 2px 10px; }
+  .mab-summary { font-size: 0.7rem; }
   .schedule-table { font-size: 0.78rem; }
   .schedule-table thead th, .schedule-table tbody td { padding: 10px 10px; }
 }
@@ -572,29 +1374,158 @@ body {
 <main class="app-container">
 
   <!-- ═══ SECTION 1: 개인 활동 ═══ -->
+  <input type="hidden" id="starterCount" value="0">
   <section class="section-card" style="animation-delay:0.1s">
-    <h2><span class="icon">👤</span> 개인 활동</h2>
-    <p class="desc">나의 가입 정보와 직접 추천(직추) 멤버 현황을 입력하세요.</p>
-    <div class="form-grid">
-      <div class="form-group">
-        <label>가입일</label>
-        <input type="date" id="joinDate">
+    <div class="section-header-row">
+      <div>
+        <h2><span class="icon">👤</span> 개인 활동</h2>
+        <p class="desc" style="margin-bottom:0">직접 추천(직추) 멤버 현황을 입력하세요.</p>
       </div>
-      <div class="form-group">
-        <label>직추 Starter 멤버 수</label>
-        <input type="number" id="starterCount" min="0" value="0" placeholder="0">
-        <span class="unit">월 $100 구독</span>
+      <div class="fx-input-wrap">
+        <label class="fx-label">💱 환율</label>
+        <div class="fx-field">
+          <span class="fx-prefix">₩</span>
+          <input type="number" id="fxRate" value="1500" min="1" step="10" oninput="updateMiniChart()">
+        </div>
+        <span class="fx-hint">1 USD 기준</span>
       </div>
-      <div class="form-group">
-        <label>직추 Classic 멤버 수</label>
-        <input type="number" id="classicCount" min="0" value="0" placeholder="0">
-        <span class="unit">월 $200 구독</span>
+    </div>
+    <div class="twin-input-wrap">
+      <div class="twin-card twin-classic">
+        <div class="twin-badge">Classic</div>
+        <div class="twin-price">$200</div>
+        <div class="twin-counter">
+          <button class="twin-btn" onclick="tweakCount('classicCount',-1)">−</button>
+          <input type="number" id="classicCount" min="0" value="0" class="twin-value" oninput="updateMiniChart()">
+          <button class="twin-btn" onclick="tweakCount('classicCount',1)">+</button>
+        </div>
+        <div class="twin-label">직추 멤버 수</div>
+        <div class="twin-instant" id="classicInstant">
+          <span class="instant-tag">즉시 10%</span>
+          <span class="instant-amount" id="classicIncome">$0</span>
+        </div>
+        <div class="twin-krw" id="classicKrw">₩0</div>
+        <div class="twin-pop" id="classicPop">+$20</div>
       </div>
-      <div class="form-group">
-        <label>직추 Premium 멤버 수</label>
-        <input type="number" id="premiumCount" min="0" value="0" placeholder="0">
-        <span class="unit">월 $250 구독</span>
+      <div class="twin-card twin-premium">
+        <div class="twin-badge prem">Premium</div>
+        <div class="twin-price">활성화비 포함 $500</div>
+        <div class="twin-counter">
+          <button class="twin-btn" onclick="tweakCount('premiumCount',-1)">−</button>
+          <input type="number" id="premiumCount" min="0" value="0" class="twin-value" oninput="updateMiniChart()">
+          <button class="twin-btn" onclick="tweakCount('premiumCount',1)">+</button>
+        </div>
+        <div class="twin-label">직추 멤버 수</div>
+        <div class="twin-instant" id="premiumInstant">
+          <span class="instant-tag">즉시 10%</span>
+          <span class="instant-amount" id="premiumIncome">$0</span>
+        </div>
+        <div class="twin-krw" id="premiumKrw">₩0</div>
+        <div class="twin-pop" id="premiumPop">+$50</div>
       </div>
+    </div>
+    <!-- Mini Chart -->
+    <div class="mini-chart-wrap" id="miniChartWrap">
+      <div class="mini-chart-header">
+        <div class="mini-chart-title">직추 생산액 → MD 목표</div>
+        <div class="mini-chart-goal">🎯 $3,000</div>
+      </div>
+      <div class="mini-chart-bar-row">
+        <div class="mini-chart-bar">
+          <div class="mini-bar-fill classic-fill" id="classicBar" style="width:0%"></div>
+          <div class="mini-bar-fill premium-fill" id="premiumBar" style="width:0%"></div>
+        </div>
+      </div>
+      <div class="mini-chart-pct" id="miniChartPct">0%</div>
+      <div class="mini-chart-legend">
+        <span class="legend-item"><span class="legend-dot classic-dot"></span>Classic <strong id="classicProdLabel">$0</strong></span>
+        <span class="legend-item"><span class="legend-dot premium-dot"></span>Premium <strong id="premiumProdLabel">$0</strong></span>
+        <span class="legend-item total-legend">합계 <strong id="totalProdLabel">$0</strong> / $3,000</span>
+      </div>
+    </div>
+
+    <!-- Building Visualization -->
+    <div class="building-wrap" id="buildingWrap">
+      <div class="building-header">
+        <span class="building-title">🏗️ 나의 온라인 빌딩</span>
+        <span class="building-floor-count" id="buildingFloorCount">0층</span>
+      </div>
+      <div class="building-scene" id="buildingScene">
+        <div class="building-sky" id="buildingSky">
+          <div class="cloud cloud-1"></div>
+          <div class="cloud cloud-2"></div>
+          <div class="cloud cloud-3"></div>
+        </div>
+        <div class="building-flag" id="buildingFlag">
+          <div class="flag-pole"></div>
+          <div class="flag-cloth">Dream 🎉</div>
+        </div>
+        <div class="building-tower" id="buildingTower">
+          <div class="building-roof" id="buildingRoof"></div>
+        </div>
+        <div class="building-foundation">
+          <div class="foundation-text">MY BUILDING</div>
+        </div>
+        <div class="building-ground"></div>
+      </div>
+      <div class="building-labels">
+        <span class="bl-item"><span class="bl-dot bl-classic"></span>Classic</span>
+        <span class="bl-item"><span class="bl-dot bl-premium"></span>Premium</span>
+      </div>
+    </div>
+
+    <!-- MAB Step Chart -->
+    <div class="mab-wrap" id="mabWrap">
+      <div class="mab-header">
+        <span class="mab-title">📈 월간 활성화 보너스 (MAB)</span>
+        <span class="mab-total" id="mabTotalLabel">$0</span>
+      </div>
+      <p class="mab-desc">같은 달에 3명 이상 활성화하면 1인당 보너스가 올라갑니다!</p>
+      <div class="mab-chart" id="mabChart">
+        <!-- Classic row -->
+        <div class="mab-plan-row classic-row" id="mabClassicRow">
+          <div class="mab-plan-label classic-label">CLASSIC</div>
+          <div class="mab-steps">
+            <div class="mab-step" id="mab-c-step1">
+              <div class="mab-step-val" id="mab-c-val1">$20</div>
+              <div class="mab-step-bar mab-bar-classic" id="mab-c-bar1" style="height:6px"></div>
+              <div class="mab-step-label">3-4명</div>
+            </div>
+            <div class="mab-step" id="mab-c-step2">
+              <div class="mab-step-val" id="mab-c-val2">$30</div>
+              <div class="mab-step-bar mab-bar-classic" id="mab-c-bar2" style="height:6px"></div>
+              <div class="mab-step-label">5-9명</div>
+            </div>
+            <div class="mab-step" id="mab-c-step3">
+              <div class="mab-step-val" id="mab-c-val3">$40</div>
+              <div class="mab-step-bar mab-bar-classic" id="mab-c-bar3" style="height:6px"></div>
+              <div class="mab-step-label">10명+</div>
+            </div>
+          </div>
+        </div>
+        <!-- Premium row -->
+        <div class="mab-plan-row premium-row" id="mabPremiumRow">
+          <div class="mab-plan-label premium-label">PREMIUM</div>
+          <div class="mab-steps">
+            <div class="mab-step" id="mab-p-step1">
+              <div class="mab-step-val" id="mab-p-val1">$50</div>
+              <div class="mab-step-bar mab-bar-premium" id="mab-p-bar1" style="height:6px"></div>
+              <div class="mab-step-label">3-4명</div>
+            </div>
+            <div class="mab-step" id="mab-p-step2">
+              <div class="mab-step-val" id="mab-p-val2">$75</div>
+              <div class="mab-step-bar mab-bar-premium" id="mab-p-bar2" style="height:6px"></div>
+              <div class="mab-step-label">5-9명</div>
+            </div>
+            <div class="mab-step" id="mab-p-step3">
+              <div class="mab-step-val" id="mab-p-val3">$100</div>
+              <div class="mab-step-bar mab-bar-premium" id="mab-p-bar3" style="height:6px"></div>
+              <div class="mab-step-label">10명+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mab-summary" id="mabSummary"></div>
     </div>
   </section>
 
@@ -610,10 +1541,9 @@ body {
           <input type="number" class="leg-total" min="0" value="0" placeholder="0">
         </div>
         <div class="form-group">
-          <label>리커링 매출 ($)</label>
+          <label>리커링 ($)</label>
           <input type="number" class="leg-recurring" min="0" value="0" placeholder="0">
         </div>
-        <span></span>
       </div>
       <div class="leg-row">
         <span class="leg-label">레그 2</span>
@@ -622,10 +1552,9 @@ body {
           <input type="number" class="leg-total" min="0" value="0" placeholder="0">
         </div>
         <div class="form-group">
-          <label>리커링 매출 ($)</label>
+          <label>리커링 ($)</label>
           <input type="number" class="leg-recurring" min="0" value="0" placeholder="0">
         </div>
-        <span></span>
       </div>
       <div class="leg-row">
         <span class="leg-label">레그 3</span>
@@ -634,10 +1563,9 @@ body {
           <input type="number" class="leg-total" min="0" value="0" placeholder="0">
         </div>
         <div class="form-group">
-          <label>리커링 매출 ($)</label>
+          <label>리커링 ($)</label>
           <input type="number" class="leg-recurring" min="0" value="0" placeholder="0">
         </div>
-        <span></span>
       </div>
     </div>
     <button class="btn-add-leg" onclick="addLeg()">＋ 레그 추가</button>
@@ -740,9 +1668,229 @@ body {
   <p style="margin-top:4px">본 시뮬레이터의 계산 결과는 참고용이며, 실제 보상은 정책에 따라 달라질 수 있습니다.</p>
 </footer>
 
+<!-- FLOATING EARNINGS BAR -->
+<div class="floating-bar" id="floatingBar">
+  <div class="float-inner">
+    <div class="float-left">
+      <div class="float-label">실시간 예상 수익</div>
+      <div class="float-breakdown" id="floatBreakdown">DAB $0 + MAB $0</div>
+    </div>
+    <div class="float-right">
+      <div class="float-usd" id="floatUsd">$0</div>
+      <div class="float-krw" id="floatKrw">₩0</div>
+    </div>
+  </div>
+  <div class="float-progress">
+    <div class="float-progress-fill" id="floatProgressFill"></div>
+  </div>
+</div>
+
 <script>
 // ── STATE ──
 let legCount = 3;
+
+// ── TWIN BUTTON HELPERS ──
+function tweakCount(id, delta) {
+  const el = document.getElementById(id);
+  const oldVal = parseInt(el.value) || 0;
+  const v = Math.max(0, oldVal + delta);
+  el.value = v;
+  // Pop animation on increment
+  if (delta > 0) {
+    const popId = id === 'classicCount' ? 'classicPop' : 'premiumPop';
+    const popEl = document.getElementById(popId);
+    popEl.classList.remove('show');
+    void popEl.offsetWidth;
+    popEl.classList.add('show');
+  }
+  updateMiniChart();
+  updateFloatingBar();
+}
+function updateMiniChart() {
+  const MD_GOAL = 3000;
+  const fx = parseInt(document.getElementById('fxRate').value) || 1500;
+  const classic = parseInt(document.getElementById('classicCount').value) || 0;
+  const premium = parseInt(document.getElementById('premiumCount').value) || 0;
+  const cProd = classic * 200;
+  const pProd = premium * 500;
+  const total = cProd + pProd;
+  const cPct = Math.min(100, (cProd / MD_GOAL * 100));
+  const pPct = Math.min(100 - cPct, (pProd / MD_GOAL * 100));
+  document.getElementById('classicBar').style.width = cPct + '%';
+  document.getElementById('premiumBar').style.width = pPct + '%';
+  document.getElementById('classicProdLabel').textContent = '$' + cProd.toLocaleString();
+  document.getElementById('premiumProdLabel').textContent = '$' + pProd.toLocaleString();
+  document.getElementById('totalProdLabel').textContent = '$' + total.toLocaleString();
+  const pctEl = document.getElementById('miniChartPct');
+  const pctVal = Math.min(100, Math.round(total / MD_GOAL * 100));
+  pctEl.textContent = total >= MD_GOAL ? '🎉 MD 달성!' : pctVal + '%';
+  pctEl.classList.toggle('achieved', total >= MD_GOAL);
+  // Instant income (10%) + KRW
+  const cIncome = classic * 20;
+  const pIncome = premium * 50;
+  const cIncEl = document.getElementById('classicIncome');
+  const pIncEl = document.getElementById('premiumIncome');
+  cIncEl.textContent = '$' + cIncome.toLocaleString();
+  pIncEl.textContent = '$' + pIncome.toLocaleString();
+  document.getElementById('classicKrw').textContent = '₩' + (cIncome * fx).toLocaleString();
+  document.getElementById('premiumKrw').textContent = '₩' + (pIncome * fx).toLocaleString();
+  // Bump animation
+  [cIncEl, pIncEl].forEach(el => {
+    el.classList.remove('bump');
+    void el.offsetWidth;
+    el.classList.add('bump');
+  });
+  updateBuilding(classic, premium);
+  updateMABChart(classic, premium);
+}
+
+// ── MAB CHART ──
+function getMABperPerson(planType, count) {
+  if (count < 3) return 0;
+  if (planType === 'classic') {
+    if (count >= 10) return 40;
+    if (count >= 5) return 30;
+    return 20;
+  } else {
+    if (count >= 10) return 100;
+    if (count >= 5) return 75;
+    return 50;
+  }
+}
+function calcMABtotal(classic, premium) {
+  const cPP = getMABperPerson('classic', classic);
+  const pPP = getMABperPerson('premium', premium);
+  return (cPP * classic) + (pPP * premium);
+}
+function updateMABChart(classic, premium) {
+  const fx = parseInt(document.getElementById('fxRate').value) || 1500;
+  const cPP = getMABperPerson('classic', classic);
+  const pPP = getMABperPerson('premium', premium);
+  const cMAB = cPP * classic;
+  const pMAB = pPP * premium;
+  const totalMAB = cMAB + pMAB;
+
+  document.getElementById('mabTotalLabel').textContent = '$' + totalMAB.toLocaleString();
+
+  // Row highlights
+  document.getElementById('mabClassicRow').classList.toggle('active-row', classic >= 3);
+  document.getElementById('mabPremiumRow').classList.toggle('active-row', premium >= 3);
+
+  // Classic bars (grow upward)
+  const cActive = classic >= 3 ? (classic >= 10 ? 2 : classic >= 5 ? 1 : 0) : -1;
+  [0,1,2].forEach(i => {
+    const bar = document.getElementById('mab-c-bar' + (i+1));
+    const step = document.getElementById('mab-c-step' + (i+1));
+    if (i <= cActive) {
+      bar.style.height = [30, 52, 76][i] + 'px';
+      bar.className = 'mab-step-bar mab-bar-classic active';
+      step.className = 'mab-step active is-classic';
+    } else {
+      bar.style.height = '6px';
+      bar.className = 'mab-step-bar mab-bar-classic inactive';
+      step.className = 'mab-step';
+    }
+  });
+
+  // Premium bars (grow upward)
+  const pActive = premium >= 3 ? (premium >= 10 ? 2 : premium >= 5 ? 1 : 0) : -1;
+  [0,1,2].forEach(i => {
+    const bar = document.getElementById('mab-p-bar' + (i+1));
+    const step = document.getElementById('mab-p-step' + (i+1));
+    if (i <= pActive) {
+      bar.style.height = [30, 52, 76][i] + 'px';
+      bar.className = 'mab-step-bar mab-bar-premium active';
+      step.className = 'mab-step active is-premium';
+    } else {
+      bar.style.height = '6px';
+      bar.className = 'mab-step-bar mab-bar-premium inactive';
+      step.className = 'mab-step';
+    }
+  });
+
+  // Summary
+  const summary = document.getElementById('mabSummary');
+  if (classic < 3 && premium < 3) {
+    summary.innerHTML = '3명 이상 활성화하면 MAB 보너스가 시작됩니다';
+  } else {
+    let parts = [];
+    if (classic >= 3) parts.push(`Classic ${classic}명 × <strong>$${cPP}</strong> = <strong>$${cMAB}</strong>`);
+    if (premium >= 3) parts.push(`Premium ${premium}명 × <strong class="prem-strong">$${pPP}</strong> = <strong class="prem-strong">$${pMAB}</strong>`);
+    summary.innerHTML = parts.join(' &nbsp;+&nbsp; ') + ` &nbsp;→&nbsp; 합계 <strong>$${totalMAB}</strong> (₩${(totalMAB * fx).toLocaleString()})`;
+  }
+}
+
+// ── BUILDING VISUALIZATION ──
+let prevFloorCount = 0;
+function updateBuilding(classic, premium) {
+  const total = classic + premium;
+  const tower = document.getElementById('buildingTower');
+  const roof = document.getElementById('buildingRoof');
+  const flag = document.getElementById('buildingFlag');
+  const scene = document.getElementById('buildingScene');
+  const countEl = document.getElementById('buildingFloorCount');
+
+  countEl.textContent = total + '층';
+
+  // Build floor data: classic first, then premium on top
+  const floors = [];
+  for (let i = 0; i < classic; i++) floors.push('classic');
+  for (let i = 0; i < premium; i++) floors.push('premium');
+
+  // Clear existing floors (keep roof)
+  tower.querySelectorAll('.b-floor').forEach(f => f.remove());
+  tower.querySelector('.building-empty')?.remove();
+
+  if (total === 0) {
+    roof.className = 'building-roof';
+    flag.classList.remove('visible');
+    const empty = document.createElement('div');
+    empty.className = 'building-empty';
+    empty.innerHTML = '<span class="building-empty-icon">🏗️</span>멤버를 추가하면<br>빌딩이 올라갑니다!';
+    tower.appendChild(empty);
+    scene.style.height = '200px';
+    return;
+  }
+
+  // Dynamic height: 280px base, grow if many floors
+  const neededH = Math.max(200, 42 + total * 26 + 30);
+  scene.style.height = Math.min(neededH, 520) + 'px';
+
+  // Insert floors (column-reverse so first = bottom)
+  floors.forEach((type, i) => {
+    const floor = document.createElement('div');
+    floor.className = `b-floor ${type}-floor`;
+    // Only animate new floors
+    if (i >= prevFloorCount) {
+      floor.style.animationDelay = ((i - prevFloorCount) * 0.08) + 's';
+    } else {
+      floor.style.animation = 'none';
+    }
+    floor.innerHTML = `
+      <div class="b-floor-windows">
+        <div class="b-window"></div>
+        <div class="b-window"></div>
+        <div class="b-window"></div>
+        <div class="b-window"></div>
+      </div>
+      ${(i + 1) % 5 === 0 || i === total - 1 ? `<span class="b-floor-num">${i + 1}F</span>` : ''}
+    `;
+    tower.insertBefore(floor, roof);
+  });
+
+  // Roof
+  roof.className = 'building-roof visible';
+
+  // Flag when MD goal met ($3000)
+  const prod = classic * 200 + premium * 500;
+  if (prod >= 3000) {
+    flag.classList.add('visible');
+  } else {
+    flag.classList.remove('visible');
+  }
+
+  prevFloorCount = total;
+}
 
 // ── ADD / REMOVE LEGS ──
 function addLeg() {
@@ -751,16 +1899,15 @@ function addLeg() {
   const row = document.createElement('div');
   row.className = 'leg-row';
   row.innerHTML = `
-    <span class="leg-label">레그 ${legCount}</span>
+    <span class="leg-label">레그 ${legCount} <button class="btn-remove-leg" onclick="removeLeg(this)" title="삭제">✕</button></span>
     <div class="form-group">
       <label>총 매출 ($)</label>
       <input type="number" class="leg-total" min="0" value="0" placeholder="0">
     </div>
     <div class="form-group">
-      <label>리커링 매출 ($)</label>
+      <label>리커링 ($)</label>
       <input type="number" class="leg-recurring" min="0" value="0" placeholder="0">
     </div>
-    <button class="btn-remove-leg" onclick="removeLeg(this)" title="삭제">✕</button>
   `;
   container.appendChild(row);
 }
@@ -781,7 +1928,8 @@ function reindexLegs() {
 function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
 function fmt(n) { return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 }); }
 function fmtKrw(usd) {
-  const krw = Math.round(usd * 1380);
+  const fx = parseInt(document.getElementById('fxRate').value) || 1500;
+  const krw = Math.round(usd * fx);
   return '약 ' + krw.toLocaleString('ko-KR') + '원';
 }
 
@@ -811,7 +1959,7 @@ function calculate() {
   const teamWeekly = val('teamWeeklyProd');
 
   // Direct production
-  const directProd = starter * 100 + classic * 200 + premium * 250;
+  const directProd = starter * 100 + classic * 200 + premium * 500;
 
   // Total team production
   const totalTeamProd = legs.reduce((s, l) => s + l.total, 0);
@@ -822,16 +1970,10 @@ function calculate() {
   const dabPerStarter = 20, dabPerClassic = 20, dabPerPremium = 50;
   const dab = starter * dabPerStarter + classic * dabPerClassic + premium * dabPerPremium;
 
-  // MAB tiers
-  function getMAB(count) {
-    if (count >= 20) return 100;
-    if (count >= 15) return 80;
-    if (count >= 10) return 60;
-    if (count >= 5) return 40;
-    if (count >= 3) return 20;
-    return 0;
-  }
-  const mab = getMAB(totalDirect);
+  // MAB: per-plan, per-person, tiered by count
+  const mab = calcMABtotal(classic, premium);
+  const mabClassicPP = getMABperPerson('classic', classic);
+  const mabPremiumPP = getMABperPerson('premium', premium);
   const bonus1 = dab + mab;
 
   // ═══ BONUS 2: 주간 매칭 ═══
@@ -921,10 +2063,11 @@ function calculate() {
   const freeMembership = directProd >= 500;
   
   // Fast start: MD within end of next month from join date
-  const joinDate = document.getElementById('joinDate').value;
+  // Auto-use today as join date reference
+  const joinDate = new Date().toISOString().split('T')[0];
   let fastStartEligible = false;
   let fastStartBonus = 0;
-  if (joinDate && currentRank) {
+  if (currentRank) {
     const jd = new Date(joinDate);
     const nextMonthEnd = new Date(jd.getFullYear(), jd.getMonth() + 2, 0);
     const now = new Date();
@@ -993,7 +2136,7 @@ function calculate() {
   const bonusData = [
     {
       num: '01', title: '활성화 보너스 (DAB + MAB)', amount: bonus1,
-      detail: `DAB: ${fmt(dab)} (S×${starter} C×${classic} P×${premium})\nMAB: ${fmt(mab)} (직추 ${totalDirect}명 구간)`
+      detail: `DAB: ${fmt(dab)} (C×${classic}=$${classic*20} P×${premium}=$${premium*50})\nMAB: ${fmt(mab)} (C ${classic}명×$${mabClassicPP} + P ${premium}명×$${mabPremiumPP})`
     },
     {
       num: '02', title: '주간 매칭 보너스', amount: bonus2,
@@ -1025,6 +2168,7 @@ function calculate() {
         <span class="b-title">${b.title}</span>
       </div>
       <div class="b-amount">${fmt(b.amount)}</div>
+      <div class="b-krw">${fmtKrw(b.amount)}</div>
       <div class="b-detail">${b.detail.replace(/\n/g, '<br>')}</div>
     </div>
   `).join('');
@@ -1043,7 +2187,7 @@ function calculate() {
     <tr>
       <td>${s.name}</td>
       <td>${s.cycle}</td>
-      <td class="amt">${fmt(s.amount)}</td>
+      <td class="amt">${fmt(s.amount)}<br><span class="amt-krw">${fmtKrw(s.amount)}</span></td>
     </tr>
   `).join('');
 
@@ -1197,11 +2341,63 @@ function copyReport() {
   });
 }
 
-// ── Auto set join date to today ──
+// ── Init ──
 document.addEventListener('DOMContentLoaded', () => {
-  const today = new Date().toISOString().split('T')[0];
-  document.getElementById('joinDate').value = today;
+  updateMiniChart();
+  // Listen to ALL inputs for floating bar
+  document.querySelectorAll('input[type="number"]').forEach(el => {
+    el.addEventListener('input', updateFloatingBar);
+  });
+  // Initial update
+  setTimeout(updateFloatingBar, 100);
 });
+
+// ── FLOATING EARNINGS BAR ──
+let floatVisible = false;
+function updateFloatingBar() {
+  const fx = parseInt(document.getElementById('fxRate').value) || 1500;
+  const classic = parseInt(document.getElementById('classicCount').value) || 0;
+  const premium = parseInt(document.getElementById('premiumCount').value) || 0;
+
+  // DAB
+  const dab = classic * 20 + premium * 50;
+  // MAB
+  const mab = calcMABtotal(classic, premium);
+  // Instant 10% = DAB basically
+  const totalNow = dab + mab;
+
+  // Show/hide bar
+  const bar = document.getElementById('floatingBar');
+  if (totalNow > 0 && !floatVisible) {
+    bar.classList.add('visible');
+    document.body.classList.add('has-float');
+    floatVisible = true;
+  } else if (totalNow === 0 && floatVisible) {
+    bar.classList.remove('visible');
+    document.body.classList.remove('has-float');
+    floatVisible = false;
+  }
+
+  // Update amounts
+  const usdEl = document.getElementById('floatUsd');
+  usdEl.textContent = '$' + totalNow.toLocaleString();
+  usdEl.classList.remove('bump');
+  void usdEl.offsetWidth;
+  usdEl.classList.add('bump');
+
+  document.getElementById('floatKrw').textContent = '₩' + (totalNow * fx).toLocaleString();
+
+  // Breakdown
+  const parts = [];
+  if (dab > 0) parts.push('DAB $' + dab);
+  if (mab > 0) parts.push('MAB $' + mab);
+  document.getElementById('floatBreakdown').textContent = parts.length ? parts.join(' + ') : '멤버를 추가해보세요';
+
+  // Progress toward MD ($3000 prod = goal context)
+  const prod = classic * 200 + premium * 500;
+  const pct = Math.min(100, Math.round(prod / 3000 * 100));
+  document.getElementById('floatProgressFill').style.width = pct + '%';
+}
 </script>
 </body>
 </html>
