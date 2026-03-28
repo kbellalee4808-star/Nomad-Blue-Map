@@ -147,6 +147,149 @@ body {
   padding-left: 46px;
 }
 
+/* ── GOAL SECTION ── */
+.goal-card {
+  background: linear-gradient(135deg, #fff 0%, #F0F7FB 100%);
+  border: 1.5px solid var(--blue-200);
+  position: relative;
+  overflow: hidden;
+}
+.goal-card::before {
+  content: '';
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 120px; height: 120px;
+  background: radial-gradient(circle, rgba(135,206,235,0.15) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.goal-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.goal-left h2 { margin-bottom: 2px; }
+.goal-sub {
+  font-size: 0.75rem;
+  color: var(--slate-400);
+}
+.goal-input-area {
+  text-align: right;
+  flex-shrink: 0;
+}
+.goal-field {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 2px solid var(--blue-300);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.goal-field:focus-within {
+  border-color: var(--blue-500);
+  box-shadow: 0 0 0 4px rgba(135,206,235,0.2);
+}
+.goal-prefix {
+  padding: 10px 10px 10px 14px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--blue-600);
+  font-family: 'Cormorant Garamond', serif;
+}
+.goal-field input {
+  width: 100px;
+  padding: 10px 14px 10px 0;
+  border: none;
+  outline: none;
+  font-size: 1.3rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  color: var(--blue-700);
+  background: transparent;
+  -moz-appearance: textfield;
+}
+.goal-field input::-webkit-outer-spin-button,
+.goal-field input::-webkit-inner-spin-button { -webkit-appearance: none; }
+.goal-krw {
+  font-size: 0.72rem;
+  color: var(--slate-400);
+  margin-top: 4px;
+}
+/* Goal progress bar */
+.goal-visual { position: relative; margin-bottom: 8px; }
+.goal-progress-bg {
+  height: 20px;
+  background: var(--slate-100);
+  border-radius: 10px;
+  overflow: visible;
+  position: relative;
+}
+.goal-progress-fill {
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(90deg, var(--blue-300), var(--blue-500));
+  transition: width 0.8s cubic-bezier(0.25,0.46,0.45,0.94), background 0.5s;
+  position: relative;
+}
+.goal-progress-fill.achieved {
+  background: linear-gradient(90deg, var(--mint), #4DB89A);
+}
+.goal-progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(90deg, transparent, transparent 10px, rgba(255,255,255,0.12) 10px, rgba(255,255,255,0.12) 20px);
+  border-radius: 10px;
+  animation: waveSlide 2s linear infinite;
+}
+.goal-progress-marker {
+  position: absolute;
+  top: -8px;
+  transform: translateX(-50%);
+  transition: left 0.8s cubic-bezier(0.25,0.46,0.45,0.94);
+  z-index: 2;
+}
+.goal-marker-label {
+  display: inline-block;
+  background: var(--blue-700);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 10px;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.goal-marker-label.achieved-label {
+  background: var(--mint);
+}
+.goal-milestones {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0 0 0;
+  margin-top: 4px;
+}
+.gm {
+  font-size: 0.6rem;
+  color: var(--slate-300);
+  transition: color 0.3s;
+  width: 25%;
+  text-align: center;
+}
+.gm.reached { color: var(--blue-500); font-weight: 600; }
+.gm-goal { text-align: right; width: auto; }
+.goal-message {
+  font-size: 0.78rem;
+  color: var(--slate-400);
+  text-align: center;
+  min-height: 22px;
+  transition: color 0.3s;
+}
+.goal-message strong { color: var(--blue-700); }
+.goal-message.achieved-msg { color: var(--mint); font-weight: 600; }
+
 /* ── TWIN INPUT CARDS ── */
 .section-header-row {
   display: flex;
@@ -843,9 +986,92 @@ body {
   font-weight: 700;
   color: var(--blue-600);
 }
+.building-layout {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+}
+/* Profile photo frame */
+.building-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  align-self: center;
+}
+.profile-frame {
+  width: 90px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid var(--blue-300);
+  background: #fff;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 3px 12px rgba(135,206,235,0.2);
+}
+.profile-frame:hover {
+  border-color: var(--blue-500);
+  box-shadow: 0 4px 18px rgba(135,206,235,0.35);
+}
+.profile-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+.profile-frame img.has-photo {
+  display: block;
+}
+.profile-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  color: var(--blue-300);
+  transition: color 0.2s;
+}
+.profile-frame:hover .profile-placeholder { color: var(--blue-500); }
+.profile-placeholder.hidden { display: none; }
+.profile-plus {
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1;
+}
+.profile-hint {
+  font-size: 0.58rem;
+  font-weight: 500;
+}
+.profile-name {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--slate-600);
+  text-align: center;
+  min-width: 60px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  cursor: text;
+}
+.profile-name:hover { border-color: var(--slate-200); }
+.profile-name:focus { border-color: var(--blue-300); background: #fff; }
+.profile-name:empty::before {
+  content: attr(data-placeholder);
+  color: var(--slate-300);
+  font-weight: 400;
+}
 .building-scene {
   position: relative;
   height: 280px;
+  flex: 1;
+  min-width: 0;
   background: linear-gradient(180deg, #D6EEFF 0%, #E8F4FD 50%, #F0F7FB 100%);
   border-radius: 12px;
   overflow: hidden;
@@ -1323,6 +1549,9 @@ body.has-float { padding-bottom: 80px; }
   .hero { padding: 36px 16px 72px; }
   .section-card { padding: 24px 16px; }
   .section-card .desc { padding-left: 0; }
+  .goal-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .goal-input-area { text-align: left; width: 100%; }
+  .goal-field input { width: 80px; }
   .form-grid { grid-template-columns: 1fr; }
   .twin-input-wrap { gap: 10px; }
   .twin-card { padding: 18px 10px 16px; }
@@ -1337,6 +1566,11 @@ body.has-float { padding-bottom: 80px; }
   .bonus-grid { grid-template-columns: 1fr; }
   .result-hero { padding: 28px 20px; }
   .building-scene { height: 240px; }
+  .building-layout { gap: 10px; }
+  .profile-frame { width: 70px; height: 86px; border-width: 2px; }
+  .profile-plus { font-size: 1.2rem; }
+  .profile-hint { font-size: 0.5rem; }
+  .profile-name { font-size: 0.65rem; }
   .building-foundation { width: 120px; }
   .building-tower, .b-floor, .building-roof, .building-roof.visible { width: 100px; }
   .b-window { width: 13px; height: 12px; }
@@ -1372,6 +1606,38 @@ body.has-float { padding-bottom: 80px; }
 </div>
 
 <main class="app-container">
+
+  <!-- ═══ SECTION 0: 목표 설정 ═══ -->
+  <section class="section-card goal-card" style="animation-delay:0.05s">
+    <div class="goal-inner">
+      <div class="goal-left">
+        <h2><span class="icon">🎯</span> 나의 목표</h2>
+        <p class="goal-sub">매달 달성하고 싶은 수익 목표를 입력하세요</p>
+      </div>
+      <div class="goal-input-area">
+        <div class="goal-field">
+          <span class="goal-prefix">$</span>
+          <input type="number" id="goalAmount" value="3000" min="100" step="100" oninput="updateGoal()">
+        </div>
+        <div class="goal-krw" id="goalKrw">₩4,500,000</div>
+      </div>
+    </div>
+    <div class="goal-visual">
+      <div class="goal-progress-bg">
+        <div class="goal-progress-fill" id="goalProgressFill" style="width:0%"></div>
+        <div class="goal-progress-marker" id="goalMarker" style="left:0%">
+          <span class="goal-marker-label" id="goalMarkerLabel">0%</span>
+        </div>
+      </div>
+      <div class="goal-milestones" id="goalMilestones">
+        <span class="gm" data-at="25">25%</span>
+        <span class="gm" data-at="50">50%</span>
+        <span class="gm" data-at="75">75%</span>
+        <span class="gm gm-goal">🎉 달성!</span>
+      </div>
+    </div>
+    <div class="goal-message" id="goalMessage">멤버를 추가하면 목표 달성률이 표시됩니다</div>
+  </section>
 
   <!-- ═══ SECTION 1: 개인 활동 ═══ -->
   <input type="hidden" id="starterCount" value="0">
@@ -1427,8 +1693,8 @@ body.has-float { padding-bottom: 80px; }
     <!-- Mini Chart -->
     <div class="mini-chart-wrap" id="miniChartWrap">
       <div class="mini-chart-header">
-        <div class="mini-chart-title">직추 생산액 → MD 목표</div>
-        <div class="mini-chart-goal">🎯 $3,000</div>
+        <div class="mini-chart-title">직추 생산액 → 목표</div>
+        <div class="mini-chart-goal" id="miniChartGoalLabel">🎯 $3,000</div>
       </div>
       <div class="mini-chart-bar-row">
         <div class="mini-chart-bar">
@@ -1440,7 +1706,7 @@ body.has-float { padding-bottom: 80px; }
       <div class="mini-chart-legend">
         <span class="legend-item"><span class="legend-dot classic-dot"></span>Classic <strong id="classicProdLabel">$0</strong></span>
         <span class="legend-item"><span class="legend-dot premium-dot"></span>Premium <strong id="premiumProdLabel">$0</strong></span>
-        <span class="legend-item total-legend">합계 <strong id="totalProdLabel">$0</strong> / $3,000</span>
+        <span class="legend-item total-legend">합계 <strong id="totalProdLabel">$0</strong> / <span id="miniGoalDenom">$3,000</span></span>
       </div>
     </div>
 
@@ -1450,23 +1716,38 @@ body.has-float { padding-bottom: 80px; }
         <span class="building-title">🏗️ 나의 온라인 빌딩</span>
         <span class="building-floor-count" id="buildingFloorCount">0층</span>
       </div>
-      <div class="building-scene" id="buildingScene">
-        <div class="building-sky" id="buildingSky">
-          <div class="cloud cloud-1"></div>
-          <div class="cloud cloud-2"></div>
-          <div class="cloud cloud-3"></div>
+      <div class="building-layout">
+        <!-- Profile photo -->
+        <div class="building-profile">
+          <label class="profile-frame" id="profileFrame" for="profileUpload">
+            <img id="profileImg" src="" alt="">
+            <div class="profile-placeholder" id="profilePlaceholder">
+              <span class="profile-plus">＋</span>
+              <span class="profile-hint">사진 추가</span>
+            </div>
+            <input type="file" id="profileUpload" accept="image/*" onchange="handleProfileUpload(this)" hidden>
+          </label>
+          <div class="profile-name" id="profileName" contenteditable="true" data-placeholder="이름 입력"></div>
         </div>
-        <div class="building-flag" id="buildingFlag">
-          <div class="flag-pole"></div>
-          <div class="flag-cloth">Dream 🎉</div>
+        <!-- Building scene -->
+        <div class="building-scene" id="buildingScene">
+          <div class="building-sky" id="buildingSky">
+            <div class="cloud cloud-1"></div>
+            <div class="cloud cloud-2"></div>
+            <div class="cloud cloud-3"></div>
+          </div>
+          <div class="building-flag" id="buildingFlag">
+            <div class="flag-pole"></div>
+            <div class="flag-cloth">Dream 🎉</div>
+          </div>
+          <div class="building-tower" id="buildingTower">
+            <div class="building-roof" id="buildingRoof"></div>
+          </div>
+          <div class="building-foundation">
+            <div class="foundation-text">MY BUILDING</div>
+          </div>
+          <div class="building-ground"></div>
         </div>
-        <div class="building-tower" id="buildingTower">
-          <div class="building-roof" id="buildingRoof"></div>
-        </div>
-        <div class="building-foundation">
-          <div class="foundation-text">MY BUILDING</div>
-        </div>
-        <div class="building-ground"></div>
       </div>
       <div class="building-labels">
         <span class="bl-item"><span class="bl-dot bl-classic"></span>Classic</span>
@@ -1571,36 +1852,12 @@ body.has-float { padding-bottom: 80px; }
     <button class="btn-add-leg" onclick="addLeg()">＋ 레그 추가</button>
   </section>
 
-  <!-- ═══ SECTION 3: 품질 지표 ═══ -->
-  <section class="section-card" style="animation-delay:0.3s">
-    <h2><span class="icon">📊</span> 품질 지표 (QBI)</h2>
-    <p class="desc">현재 QBI 비율 또는 신규 활성화/유지 멤버 수를 입력해 자동 계산합니다.</p>
-    <div class="form-grid">
-      <div class="form-group">
-        <label>QBI 직접 입력 (%)</label>
-        <input type="number" id="qbiDirect" min="0" max="100" value="" placeholder="65">
-        <span class="unit">비워두면 아래 값으로 자동 계산</span>
-      </div>
-      <div class="form-group">
-        <label>신규 활성화 멤버 수</label>
-        <input type="number" id="newActive" min="0" value="" placeholder="10">
-      </div>
-      <div class="form-group">
-        <label>유지 멤버 수 (전체)</label>
-        <input type="number" id="retainedMembers" min="0" value="" placeholder="20">
-      </div>
-      <div class="form-group">
-        <label>본인 주간 생산액 ($)</label>
-        <input type="number" id="myWeeklyProd" min="0" value="0" placeholder="200">
-        <span class="unit">주간 매칭 보너스 기준</span>
-      </div>
-      <div class="form-group">
-        <label>팀 주간 생산액 ($)</label>
-        <input type="number" id="teamWeeklyProd" min="0" value="0" placeholder="600">
-        <span class="unit">주간 매칭 보너스 기준</span>
-      </div>
-    </div>
-  </section>
+  <!-- Hidden defaults for removed QBI section -->
+  <input type="hidden" id="qbiDirect" value="65">
+  <input type="hidden" id="newActive" value="0">
+  <input type="hidden" id="retainedMembers" value="0">
+  <input type="hidden" id="myWeeklyProd" value="200">
+  <input type="hidden" id="teamWeeklyProd" value="600">
 
   <!-- CALCULATE -->
   <div class="calc-btn-wrap">
@@ -1689,6 +1946,75 @@ body.has-float { padding-bottom: 80px; }
 // ── STATE ──
 let legCount = 3;
 
+// ── PROFILE PHOTO ──
+function handleProfileUpload(input) {
+  if (!input.files || !input.files[0]) return;
+  const file = input.files[0];
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const img = document.getElementById('profileImg');
+    img.src = e.target.result;
+    img.classList.add('has-photo');
+    document.getElementById('profilePlaceholder').classList.add('hidden');
+  };
+  reader.readAsDataURL(file);
+}
+
+// ── GOAL ──
+function getGoal() {
+  return parseInt(document.getElementById('goalAmount').value) || 3000;
+}
+function updateGoal() {
+  const fx = parseInt(document.getElementById('fxRate').value) || 1500;
+  const goal = getGoal();
+  document.getElementById('goalKrw').textContent = '₩' + (goal * fx).toLocaleString();
+  updateGoalProgress();
+  updateMiniChart();
+}
+function updateGoalProgress() {
+  const fx = parseInt(document.getElementById('fxRate').value) || 1500;
+  const goal = getGoal();
+  const classic = parseInt(document.getElementById('classicCount').value) || 0;
+  const premium = parseInt(document.getElementById('premiumCount').value) || 0;
+  const dab = classic * 20 + premium * 50;
+  const mab = calcMABtotal(classic, premium);
+  const earned = dab + mab;
+  const pct = goal > 0 ? Math.min(100, Math.round(earned / goal * 100)) : 0;
+  const achieved = pct >= 100;
+
+  // Progress bar
+  const fill = document.getElementById('goalProgressFill');
+  fill.style.width = pct + '%';
+  fill.classList.toggle('achieved', achieved);
+
+  // Marker
+  const marker = document.getElementById('goalMarker');
+  marker.style.left = Math.min(pct, 97) + '%';
+  const markerLabel = document.getElementById('goalMarkerLabel');
+  markerLabel.textContent = achieved ? '🎉 달성!' : '$' + earned.toLocaleString() + ' (' + pct + '%)';
+  markerLabel.classList.toggle('achieved-label', achieved);
+
+  // Milestones
+  document.querySelectorAll('.gm[data-at]').forEach(gm => {
+    const at = parseInt(gm.dataset.at);
+    gm.classList.toggle('reached', pct >= at);
+  });
+
+  // Message
+  const msg = document.getElementById('goalMessage');
+  if (earned === 0) {
+    msg.innerHTML = '멤버를 추가하면 목표 달성률이 표시됩니다';
+    msg.className = 'goal-message';
+  } else if (achieved) {
+    msg.innerHTML = `🎉 목표 <strong>$${goal.toLocaleString()}</strong> 달성! 다음 목표를 세워보세요`;
+    msg.className = 'goal-message achieved-msg';
+  } else {
+    const remaining = goal - earned;
+    msg.innerHTML = `목표까지 <strong>$${remaining.toLocaleString()}</strong> (₩${(remaining * fx).toLocaleString()}) 남았습니다`;
+    msg.className = 'goal-message';
+  }
+}
+
 // ── TWIN BUTTON HELPERS ──
 function tweakCount(id, delta) {
   const el = document.getElementById(id);
@@ -1707,7 +2033,7 @@ function tweakCount(id, delta) {
   updateFloatingBar();
 }
 function updateMiniChart() {
-  const MD_GOAL = 3000;
+  const MD_GOAL = getGoal();
   const fx = parseInt(document.getElementById('fxRate').value) || 1500;
   const classic = parseInt(document.getElementById('classicCount').value) || 0;
   const premium = parseInt(document.getElementById('premiumCount').value) || 0;
@@ -1723,8 +2049,11 @@ function updateMiniChart() {
   document.getElementById('totalProdLabel').textContent = '$' + total.toLocaleString();
   const pctEl = document.getElementById('miniChartPct');
   const pctVal = Math.min(100, Math.round(total / MD_GOAL * 100));
-  pctEl.textContent = total >= MD_GOAL ? '🎉 MD 달성!' : pctVal + '%';
+  pctEl.textContent = total >= MD_GOAL ? '🎉 목표 달성!' : pctVal + '%';
   pctEl.classList.toggle('achieved', total >= MD_GOAL);
+  // Update goal labels
+  document.getElementById('miniChartGoalLabel').textContent = '🎯 $' + MD_GOAL.toLocaleString();
+  document.getElementById('miniGoalDenom').textContent = '$' + MD_GOAL.toLocaleString();
   // Instant income (10%) + KRW
   const cIncome = classic * 20;
   const pIncome = premium * 50;
@@ -1742,6 +2071,7 @@ function updateMiniChart() {
   });
   updateBuilding(classic, premium);
   updateMABChart(classic, premium);
+  updateGoalProgress();
 }
 
 // ── MAB CHART ──
@@ -1881,9 +2211,9 @@ function updateBuilding(classic, premium) {
   // Roof
   roof.className = 'building-roof visible';
 
-  // Flag when MD goal met ($3000)
+  // Flag when goal met
   const prod = classic * 200 + premium * 500;
-  if (prod >= 3000) {
+  if (prod >= getGoal()) {
     flag.classList.add('visible');
   } else {
     flag.classList.remove('visible');
@@ -2343,6 +2673,7 @@ function copyReport() {
 
 // ── Init ──
 document.addEventListener('DOMContentLoaded', () => {
+  updateGoal();
   updateMiniChart();
   // Listen to ALL inputs for floating bar
   document.querySelectorAll('input[type="number"]').forEach(el => {
@@ -2393,9 +2724,10 @@ function updateFloatingBar() {
   if (mab > 0) parts.push('MAB $' + mab);
   document.getElementById('floatBreakdown').textContent = parts.length ? parts.join(' + ') : '멤버를 추가해보세요';
 
-  // Progress toward MD ($3000 prod = goal context)
+  // Progress toward goal
   const prod = classic * 200 + premium * 500;
-  const pct = Math.min(100, Math.round(prod / 3000 * 100));
+  const goal = getGoal();
+  const pct = Math.min(100, Math.round(prod / goal * 100));
   document.getElementById('floatProgressFill').style.width = pct + '%';
 }
 </script>
