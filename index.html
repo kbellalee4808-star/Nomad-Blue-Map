@@ -215,9 +215,16 @@ body {
   color: var(--blue-600);
   font-family: 'Cormorant Garamond', serif;
 }
-.goal-field input {
-  width: 130px;
+.goal-suffix {
   padding: 10px 14px 10px 0;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--blue-600);
+  white-space: nowrap;
+}
+.goal-field input {
+  width: 90px;
+  padding: 10px 6px 10px 14px;
   border: none;
   outline: none;
   font-size: 1.3rem;
@@ -230,6 +237,46 @@ body {
 .goal-field input::-webkit-outer-spin-button,
 .goal-field input::-webkit-inner-spin-button { -webkit-appearance: none; }
 /* Goal progress bar */
+.fast-start-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: rgba(255,140,0,0.06);
+  border: 1px solid rgba(255,140,0,0.15);
+  border-radius: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.fast-start-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #E87C00;
+  flex-shrink: 0;
+}
+.fast-start-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.fast-start-desc {
+  font-size: 0.72rem;
+  color: var(--slate-500);
+}
+.fast-start-desc strong { color: #E87C00; }
+.join-month-input {
+  padding: 5px 10px;
+  border: 1.5px solid var(--slate-200);
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-family: inherit;
+  color: var(--slate-700);
+  background: #fff;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.join-month-input:focus { border-color: var(--blue-400); }
 .goal-visual { position: relative; margin-bottom: 8px; }
 .goal-progress-bg {
   height: 20px;
@@ -1275,23 +1322,6 @@ body {
   to { transform: translateX(-200px); }
 }
 
-/* Landmarks */
-.landmark {
-  position: absolute;
-  z-index: 3;
-  font-size: 1.6rem;
-  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.12));
-  opacity: 0.7;
-  transition: opacity 0.3s, transform 0.3s;
-}
-.landmark:hover { opacity: 1; transform: scale(1.2); }
-.lm-left-1 { bottom: 22px; left: 8px; font-size: 1.4rem; }
-.lm-left-2 { bottom: 22px; left: 34px; font-size: 1.2rem; opacity: 0.6; }
-.lm-right-1 { bottom: 22px; right: 8px; font-size: 1.5rem; }
-.lm-right-2 { bottom: 22px; right: 36px; font-size: 1.2rem; opacity: 0.6; }
-.lm-far-left { top: 30%; left: 6px; font-size: 1rem; opacity: 0.4; }
-.lm-far-right { top: 25%; right: 6px; font-size: 1rem; opacity: 0.4; }
-
 /* Foundation */
 .building-foundation {
   width: 140px;
@@ -1732,7 +1762,9 @@ body.has-float { padding-bottom: 80px; }
   .goal-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
   .goal-input-area { text-align: left; width: 100%; }
   .goal-field-row { justify-content: flex-start; }
-  .goal-field input { width: 110px; }
+  .goal-field input { width: 70px; }
+  .fast-start-row { gap: 8px; }
+  .fast-start-right { gap: 6px; }
   .match-conditions { flex-direction: column; gap: 8px; }
   .match-partner-input-wrap { grid-template-columns: 1fr; }
   .form-grid { grid-template-columns: 1fr; }
@@ -1757,10 +1789,6 @@ body.has-float { padding-bottom: 80px; }
   .building-foundation { width: 120px; }
   .building-tower, .b-floor, .building-roof, .building-roof.visible { width: 100px; }
   .b-window { width: 18px; height: 13px; font-size: 8px; }
-  .landmark { font-size: 1.1rem; }
-  .lm-left-1 { font-size: 1rem; }
-  .lm-right-1 { font-size: 1.1rem; }
-  .lm-far-left, .lm-far-right { display: none; }
   .b-floor { height: 22px; }
   .b-floor-num { right: -28px; font-size: 0.5rem; }
   .mab-chart { gap: 10px; }
@@ -1805,11 +1833,19 @@ body.has-float { padding-bottom: 80px; }
         <div class="goal-field-row">
           <span class="goal-month-label">월</span>
           <div class="goal-field">
-            <span class="goal-prefix">₩</span>
-            <input type="number" id="goalAmountKrw" value="4500000" min="10000" step="100000" oninput="updateGoal()">
+            <input type="number" id="goalAmountKrw" value="450" min="1" step="10" oninput="updateGoal()">
+            <span class="goal-suffix">만원</span>
           </div>
         </div>
         <div class="goal-usd" id="goalUsd">$3,000</div>
+      </div>
+    </div>
+    <div class="fast-start-row">
+      <span class="fast-start-label">🚀 패스트 스타트</span>
+      <div class="fast-start-right">
+        <span class="fast-start-desc">가입월</span>
+        <input type="month" id="joinMonth" class="join-month-input">
+        <span class="fast-start-desc">익월 말까지 $3,000 달성 시 <strong>$200</strong> 추가!</span>
       </div>
     </div>
     <div class="goal-visual">
@@ -1834,7 +1870,7 @@ body.has-float { padding-bottom: 80px; }
   <section class="section-card" style="animation-delay:0.1s">
     <div class="section-header-row">
       <div>
-        <h2><span class="icon">💰</span> 일일 & 월간 활성화 보너스</h2>
+        <h2><span class="icon">💰</span> ① 일일 & 월간 활성화 보너스</h2>
         <p class="desc" style="margin-bottom:0">직접 추천(직추) 멤버 현황을 입력하세요.</p>
       </div>
       <div class="fx-input-wrap">
@@ -1927,13 +1963,6 @@ body.has-float { padding-bottom: 80px; }
             <div class="cloud cloud-2"></div>
             <div class="cloud cloud-3"></div>
           </div>
-          <!-- Landmarks -->
-          <div class="landmark lm-left-1" title="Sydney">🏛️</div>
-          <div class="landmark lm-left-2" title="Japan">⛩️</div>
-          <div class="landmark lm-right-1" title="USA">🗽</div>
-          <div class="landmark lm-right-2" title="Taiwan">🏯</div>
-          <div class="landmark lm-far-left" title="Brazil">🗿</div>
-          <div class="landmark lm-far-right" title="Peru">🏔️</div>
           <div class="building-flag" id="buildingFlag">
             <div class="flag-pole"></div>
             <div class="flag-cloth">Dream 🎉</div>
@@ -1956,7 +1985,7 @@ body.has-float { padding-bottom: 80px; }
     <!-- MAB Step Chart -->
     <div class="mab-wrap" id="mabWrap">
       <div class="mab-header">
-        <span class="mab-title">📈 월간 활성화 보너스 (MAB)</span>
+        <span class="mab-title">📈 월간 활성화 보너스</span>
         <span class="mab-total" id="mabTotalLabel">$0</span>
       </div>
       <p class="mab-desc">같은 달에 3명 이상 활성화하면 1인당 보너스가 올라갑니다!</p>
@@ -2008,6 +2037,59 @@ body.has-float { padding-bottom: 80px; }
     </div>
   </section>
 
+  <!-- ═══ SECTION 2: 주간 매칭 보너스 ═══ -->
+  <section class="section-card" style="animation-delay:0.15s">
+    <h2><span class="icon">🔗</span> ② 주간 매칭 보너스</h2>
+    <p class="desc">조건 충족 시, 내 직추 파트너들이 받는 일일+월간 활성화 보너스를 100% 올려받습니다.</p>
+
+    <div class="match-conditions">
+      <div class="match-cond">
+        <div class="match-cond-icon" id="matchCond1Icon">⬜</div>
+        <div class="match-cond-text">
+          <span class="match-cond-label">내 주간 직추 생산액</span>
+          <div class="match-cond-input">
+            <span class="match-prefix">$</span>
+            <input type="number" id="myWeeklyProd" min="0" value="200" placeholder="200" oninput="updateMatchPreview()">
+            <span class="match-threshold">/ $200</span>
+          </div>
+        </div>
+      </div>
+      <div class="match-cond">
+        <div class="match-cond-icon" id="matchCond2Icon">⬜</div>
+        <div class="match-cond-text">
+          <span class="match-cond-label">팀 주간 총 생산액</span>
+          <div class="match-cond-input">
+            <span class="match-prefix">$</span>
+            <input type="number" id="teamWeeklyProd" min="0" value="600" placeholder="600" oninput="updateMatchPreview()">
+            <span class="match-threshold">/ $600</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="match-partner-section">
+      <div class="match-partner-title">직추 파트너 보너스 합산 (내가 올려받는 금액)</div>
+      <div class="match-partner-desc">내 직추 파트너들이 이번 주에 받는 일일 + 월간 활성화 보너스 합계를 입력하세요</div>
+      <div class="match-example">예: 파트너 A가 Premium 10명 가입 → 일일 $500 + 월간 $1,000 = $1,500</div>
+      <div class="match-partner-input-wrap">
+        <div class="form-group">
+          <label>파트너 일일 활성화 보너스 합계 ($)</label>
+          <input type="number" id="partnerDAB" min="0" value="0" placeholder="500" oninput="updateMatchPreview()">
+        </div>
+        <div class="form-group">
+          <label>파트너 월간 활성화 보너스 합계 ($)</label>
+          <input type="number" id="partnerMAB" min="0" value="0" placeholder="1000" oninput="updateMatchPreview()">
+        </div>
+      </div>
+      <div class="match-result" id="matchResult">
+        <div class="match-result-label">내 주간 매칭 수익</div>
+        <div class="match-result-amount" id="matchResultAmount">$0</div>
+        <div class="match-result-krw" id="matchResultKrw">₩0</div>
+        <div class="match-result-status" id="matchResultStatus">조건을 충족하면 매칭이 시작됩니다</div>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══ SECTION 2: 팀 구조 ═══ -->
   <section class="section-card" style="animation-delay:0.2s">
     <h2><span class="icon">🏗️</span> 팀 구조 (파트너 레그)</h2>
@@ -2054,59 +2136,6 @@ body.has-float { padding-bottom: 80px; }
   <input type="hidden" id="qbiDirect" value="65">
   <input type="hidden" id="newActive" value="0">
   <input type="hidden" id="retainedMembers" value="0">
-
-  <!-- ═══ SECTION 3: 주간 매칭 보너스 ═══ -->
-  <section class="section-card" style="animation-delay:0.3s">
-    <h2><span class="icon">🔗</span> 주간 매칭 보너스</h2>
-    <p class="desc">조건 충족 시, 내 직추 파트너들이 받는 DAB+MAB을 100% 올려받습니다.</p>
-
-    <div class="match-conditions">
-      <div class="match-cond">
-        <div class="match-cond-icon" id="matchCond1Icon">⬜</div>
-        <div class="match-cond-text">
-          <span class="match-cond-label">내 주간 직추 생산액</span>
-          <div class="match-cond-input">
-            <span class="match-prefix">$</span>
-            <input type="number" id="myWeeklyProd" min="0" value="200" placeholder="200" oninput="updateMatchPreview()">
-            <span class="match-threshold">/ $200</span>
-          </div>
-        </div>
-      </div>
-      <div class="match-cond">
-        <div class="match-cond-icon" id="matchCond2Icon">⬜</div>
-        <div class="match-cond-text">
-          <span class="match-cond-label">팀 주간 총 생산액</span>
-          <div class="match-cond-input">
-            <span class="match-prefix">$</span>
-            <input type="number" id="teamWeeklyProd" min="0" value="600" placeholder="600" oninput="updateMatchPreview()">
-            <span class="match-threshold">/ $600</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="match-partner-section">
-      <div class="match-partner-title">직추 파트너 보너스 합산 (내가 올려받는 금액)</div>
-      <div class="match-partner-desc">내 직추 파트너들이 이번 주에 받는 DAB + MAB 합계를 입력하세요</div>
-      <div class="match-example">예: 파트너 A가 Premium 10명 가입 → DAB $500 + MAB $1,000 = $1,500</div>
-      <div class="match-partner-input-wrap">
-        <div class="form-group">
-          <label>파트너 DAB 합계 ($)</label>
-          <input type="number" id="partnerDAB" min="0" value="0" placeholder="500" oninput="updateMatchPreview()">
-        </div>
-        <div class="form-group">
-          <label>파트너 MAB 합계 ($)</label>
-          <input type="number" id="partnerMAB" min="0" value="0" placeholder="1000" oninput="updateMatchPreview()">
-        </div>
-      </div>
-      <div class="match-result" id="matchResult">
-        <div class="match-result-label">내 주간 매칭 수익</div>
-        <div class="match-result-amount" id="matchResultAmount">$0</div>
-        <div class="match-result-krw" id="matchResultKrw">₩0</div>
-        <div class="match-result-status" id="matchResultStatus">조건을 충족하면 매칭이 시작됩니다</div>
-      </div>
-    </div>
-  </section>
 
   <!-- CALCULATE -->
   <div class="calc-btn-wrap">
@@ -2179,7 +2208,7 @@ body.has-float { padding-bottom: 80px; }
   <div class="float-inner">
     <div class="float-left">
       <div class="float-label">실시간 예상 수익</div>
-      <div class="float-breakdown" id="floatBreakdown">DAB $0 + MAB $0</div>
+      <div class="float-breakdown" id="floatBreakdown">일일 $0 + 월간 $0</div>
     </div>
     <div class="float-right">
       <div class="float-usd" id="floatUsd">$0</div>
@@ -2245,7 +2274,7 @@ function updateMatchPreview() {
   } else if (partnerTotal === 0) {
     status.textContent = '✅ 조건 충족! 파트너 보너스를 입력하세요';
   } else {
-    status.textContent = '✅ 파트너 DAB+MAB 100% 매칭 중!';
+    status.textContent = '✅ 파트너 일일+월간 활성화 보너스 100% 매칭 중!';
   }
   if (typeof updateFloatingBar === 'function') updateFloatingBar();
 }
@@ -2253,7 +2282,8 @@ function updateMatchPreview() {
 // ── GOAL ──
 function getGoal() {
   const fx = parseInt(document.getElementById('fxRate').value) || 1500;
-  const krw = parseInt(document.getElementById('goalAmountKrw').value) || 4500000;
+  const manwon = parseInt(document.getElementById('goalAmountKrw').value) || 450;
+  const krw = manwon * 10000;
   return Math.round(krw / fx);
 }
 function updateGoal() {
@@ -2298,11 +2328,12 @@ function updateGoalProgress() {
     msg.innerHTML = '멤버를 추가하면 목표 달성률이 표시됩니다';
     msg.className = 'goal-message';
   } else if (achieved) {
-    msg.innerHTML = `🎉 목표 <strong>₩${(goal * fx).toLocaleString()}</strong> 달성! 다음 목표를 세워보세요`;
+    msg.innerHTML = `🎉 목표 <strong>${Math.round(goal * fx / 10000).toLocaleString()}만원</strong> 달성! 다음 목표를 세워보세요`;
     msg.className = 'goal-message achieved-msg';
   } else {
     const remaining = goal - earned;
-    msg.innerHTML = `목표까지 <strong>₩${(remaining * fx).toLocaleString()}</strong> ($${remaining.toLocaleString()}) 남았습니다`;
+    const remainManwon = Math.round(remaining * fx / 10000);
+    msg.innerHTML = `목표까지 <strong>${remainManwon.toLocaleString()}만원</strong> ($${remaining.toLocaleString()}) 남았습니다`;
     msg.className = 'goal-message';
   }
 }
@@ -2433,7 +2464,7 @@ function updateMABChart(classic, premium) {
   // Summary
   const summary = document.getElementById('mabSummary');
   if (classic < 3 && premium < 3) {
-    summary.innerHTML = '3명 이상 활성화하면 MAB 보너스가 시작됩니다';
+    summary.innerHTML = '3명 이상 활성화하면 월간 보너스가 시작됩니다';
   } else {
     let parts = [];
     if (classic >= 3) parts.push(`<span class="classic-name">Classic</span> ${classic}명 × <strong class="amt-black">$${cPP}</strong> = <strong class="amt-black">$${cMAB}</strong>`);
@@ -2479,7 +2510,7 @@ function updateBuilding(classic, premium) {
   scene.style.height = Math.min(neededH, 520) + 'px';
 
   // Country flags for windows
-  const FLAGS = ['🇰🇷','🇯🇵','🇪🇸','🇺🇸','🇧🇷','🇵🇪','🇸🇬','🇲🇾'];
+  const FLAGS = ['🇰🇷','🇯🇵','🇰🇷','🇺🇸','🇰🇷','🇪🇸','🇰🇷','🇧🇷','🇰🇷','🇸🇬','🇰🇷','🇲🇾','🇰🇷','🇵🇪'];
 
   // Insert floors (column-reverse so first = bottom)
   floors.forEach((type, i) => {
@@ -2612,37 +2643,33 @@ function calculate() {
   const bonus2 = weeklyMatch; // 100% matching of partner DAB+MAB
 
   // ═══ BONUS 3: 팀 리더십 (직급 판정) ═══
-  // 40% rule: no single leg > 40% of total
+  // 40% rule: 한 라인은 전체 팀 매출의 40%까지만 인정
   const sortedLegs = [...legs].sort((a, b) => b.total - a.total);
   const maxLegPct = totalTeamProd > 0 ? (sortedLegs[0]?.total / totalTeamProd * 100) : 0;
-  const qualifiedProd40 = totalTeamProd > 0
-    ? Math.min(totalTeamProd, totalTeamProd - Math.max(0, sortedLegs[0]?.total - totalTeamProd * 0.4))
-    : 0;
-  // Actually, eligible production = min(total, sum where no leg > 40%)
-  // Simpler: cap largest leg at 40%
-  const cappedLegs = sortedLegs.map((l, i) => {
-    if (i === 0 && totalTeamProd > 0) {
+  // Cap each leg at 40% of total team production
+  const cappedLegs = sortedLegs.map((l) => {
+    if (totalTeamProd > 0) {
       return Math.min(l.total, totalTeamProd * 0.4);
     }
     return l.total;
   });
   const eligibleProd = cappedLegs.reduce((s, v) => s + v, 0);
 
-  // Rank thresholds (monthly eligible production)
+  // Rank thresholds — 보너스는 적격 생산액의 10%
   const ranks = [
-    { name: 'Royal BOD', key: 'RBOD', min: 750000, bonus: 305000 },
-    { name: 'BOD',       key: 'BOD',  min: 400000, bonus: 155000 },
-    { name: 'Presidential Director', key: 'PD', min: 200000, bonus: 55000 },
-    { name: 'Executive Director', key: 'ED', min: 100000, bonus: 20000 },
-    { name: 'Senior Director', key: 'SD', min: 50000, bonus: 5000 },
-    { name: 'Managing Director', key: 'MD', min: 2000, bonus: 300 },
+    { name: 'Royal BOD', key: 'RBOD', min: 750000 },
+    { name: 'BOD',       key: 'BOD',  min: 400000 },
+    { name: 'Presidential Director', key: 'PD', min: 200000 },
+    { name: 'Executive Director', key: 'ED', min: 100000 },
+    { name: 'National Director',  key: 'SD', min: 50000 },
+    { name: 'Managing Director',  key: 'MD', min: 3000 },
   ];
   let currentRank = null;
   let bonus3 = 0;
   for (const r of ranks) {
     if (eligibleProd >= r.min) {
       currentRank = r;
-      bonus3 = r.bonus;
+      bonus3 = Math.round(eligibleProd * 0.10); // 10% of eligible production
       break;
     }
   }
@@ -2693,22 +2720,22 @@ function calculate() {
   // ═══ INCENTIVES ═══
   const freeMembership = directProd >= 500;
   
-  // Fast start: MD within end of next month from join date
-  // Auto-use today as join date reference
-  const joinDate = new Date().toISOString().split('T')[0];
+  // Fast start: 가입 익월 말까지 MD $3000 달성 시 $200 추가
+  const joinMonthEl = document.getElementById('joinMonth');
+  const joinMonth = joinMonthEl ? joinMonthEl.value : '';
   let fastStartEligible = false;
   let fastStartBonus = 0;
-  if (currentRank) {
-    const jd = new Date(joinDate);
-    const nextMonthEnd = new Date(jd.getFullYear(), jd.getMonth() + 2, 0);
+  if (joinMonth && directProd >= 3000) {
+    const [y, m] = joinMonth.split('-').map(Number);
+    const nextMonthEnd = new Date(y, m + 1, 0); // end of month after join
     const now = new Date();
-    if (now <= nextMonthEnd && currentRank.min >= 2000) {
+    if (now <= nextMonthEnd) {
       fastStartEligible = true;
-      fastStartBonus = 500;
+      fastStartBonus = 200;
     }
   }
 
-  const eliteTravel = currentRank && currentRank.min >= 2000; // MD+
+  const eliteTravel = currentRank && currentRank.min >= 3000; // MD+
 
   // ═══ TOTALS ═══
   const totalMonthly = bonus1 + bonus2 * 4 + bonus3 + bonus4 + bonus5 + fastStartBonus;
@@ -2756,7 +2783,7 @@ function calculate() {
       ${freeMembership ? '✅' : '⬜'} 무료 멤버십 (월 $100 면제)
     </span>
     <span class="badge ${fastStartEligible ? 'active' : 'inactive'}">
-      ${fastStartEligible ? '🚀' : '⬜'} 패스트 스타트 $500
+      ${fastStartEligible ? '🚀' : '⬜'} 패스트 스타트 $200
     </span>
     <span class="badge ${eliteTravel ? 'active' : 'inactive'}">
       ${eliteTravel ? '✈️' : '⬜'} 엘리트 여행 (MD 3개월 유지)
@@ -2766,17 +2793,17 @@ function calculate() {
   // Bonus cards
   const bonusData = [
     {
-      num: '01', title: '활성화 보너스 (DAB + MAB)', amount: bonus1,
-      detail: `DAB: ${fmt(dab)} (C×${classic}=$${classic*20} P×${premium}=$${premium*50})\nMAB: ${fmt(mab)} (C ${classic}명×$${mabClassicPP} + P ${premium}명×$${mabPremiumPP})`
+      num: '01', title: '일일 + 월간 활성화 보너스', amount: bonus1,
+      detail: `일일: ${fmt(dab)} (C×${classic}=$${classic*20} P×${premium}=$${premium*50})\n월간: ${fmt(mab)} (C ${classic}명×$${mabClassicPP} + P ${premium}명×$${mabPremiumPP})`
     },
     {
       num: '02', title: '주간 매칭 보너스', amount: bonus2,
-      detail: `조건: 본인 $200 ${myWeekly >= 200 ? '✅' : '❌'} / 팀 $600 ${teamWeekly >= 600 ? '✅' : '❌'}\n파트너 DAB ${fmt(partnerDAB)} + MAB ${fmt(partnerMAB)} = ${fmt(partnerTotal)}\n매칭 (×4주 = ${fmt(bonus2 * 4)}/월)`,
+      detail: `조건: 본인 $200 ${myWeekly >= 200 ? '✅' : '❌'} / 팀 $600 ${teamWeekly >= 600 ? '✅' : '❌'}\n파트너 일일 ${fmt(partnerDAB)} + 월간 ${fmt(partnerMAB)} = ${fmt(partnerTotal)}\n매칭 (×4주 = ${fmt(bonus2 * 4)}/월)`,
       inactive: bonus2 === 0
     },
     {
       num: '03', title: '팀 리더십 보너스', amount: bonus3,
-      detail: `적격 생산액: ${fmt(eligibleProd)} (40% 룰 적용)\n직급: ${currentRank ? currentRank.name : '미달'}`,
+      detail: `총 팀 매출: ${fmt(totalTeamProd)} → 적격 생산액: ${fmt(eligibleProd)} (40% 룰)\n직급: ${currentRank ? currentRank.name : '미달'} | 보너스: 적격 생산액의 10%`,
       inactive: bonus3 === 0
     },
     {
@@ -2806,13 +2833,13 @@ function calculate() {
 
   // Schedule
   const scheduleData = [
-    { name: '활성화 보너스 (DAB)', cycle: '24시간 이내', amount: dab },
-    { name: '활성화 보너스 (MAB)', cycle: '매주 월요일', amount: mab },
+    { name: '일일 활성화 보너스', cycle: '24시간 이내', amount: dab },
+    { name: '월간 활성화 보너스', cycle: '매주 월요일', amount: mab },
     { name: '주간 매칭 보너스', cycle: '매주 월요일', amount: bonus2 },
     { name: '팀 리더십 보너스', cycle: '매월 8일', amount: bonus3 },
     { name: '리커링 보너스', cycle: '매월 10일', amount: bonus4 },
     { name: '빌더 베이스 (QBI)', cycle: '매월 15일', amount: bonus5 },
-    ...(fastStartEligible ? [{ name: '패스트 스타트', cycle: '1회성', amount: 500 }] : [])
+    ...(fastStartEligible ? [{ name: '패스트 스타트', cycle: '1회성', amount: 200 }] : [])
   ];
   document.querySelector('#scheduleTable tbody').innerHTML = scheduleData.map(s => `
     <tr>
@@ -2851,13 +2878,13 @@ function calculate() {
   if (!currentRank) {
     insights.push({
       icon: '🎯',
-      text: `MD 달성까지 적격 생산액 <strong>${fmt(2000 - eligibleProd)}</strong>이 필요합니다. 직추 3명만 더 확보해보세요!`,
+      text: `MD 달성까지 적격 생산액 <strong>${fmt(3000 - eligibleProd)}</strong>이 필요합니다. 직추 멤버를 더 확보해보세요!`,
       type: 'gold'
     });
   } else if (nextRank) {
     insights.push({
       icon: '🎯',
-      text: `${nextRank.name} 달성까지 <strong>${fmt(nextRank.min - eligibleProd)}</strong> 추가 필요! 보너스 +${fmt(nextRank.bonus - bonus3)}.`,
+      text: `${nextRank.name} 달성까지 <strong>${fmt(nextRank.min - eligibleProd)}</strong> 추가 필요! 달성 시 보너스 ${fmt(Math.round(nextRank.min * 0.1))}+`,
       type: 'gold'
     });
   }
@@ -2880,7 +2907,7 @@ function calculate() {
   if (maxLegPct > 40 && totalTeamProd > 0) {
     insights.push({
       icon: '⚠️',
-      text: `최대 레그 비중 <strong>${maxLegPct.toFixed(0)}%</strong> — 40% 룰 초과! 다른 레그를 키워 적격 생산액을 늘리세요.`,
+      text: `최대 레그 비중 <strong>${maxLegPct.toFixed(0)}%</strong> — 40% 룰 초과! 한 팀에서 전체 매출의 40%까지만 인정됩니다. 다른 레그를 골고루 키워야 직급이 올라갑니다.`,
       type: 'coral'
     });
   }
@@ -2929,7 +2956,7 @@ function copyReport() {
     `📈 QBI: ${d.qbi}%`,
     ``,
     `── 보너스 내역 ──`,
-    `① 활성화 (DAB+MAB): ${fmt(d.bonus1)}`,
+    `① 일일+월간 활성화: ${fmt(d.bonus1)}`,
     `② 주간 매칭 (×4주): ${fmt(d.bonus2 * 4)}`,
     `③ 팀 리더십: ${fmt(d.bonus3)}`,
     `④ 리커링: ${fmt(d.bonus4)}`,
@@ -3028,8 +3055,8 @@ function updateFloatingBar() {
 
   // Breakdown
   const parts = [];
-  if (dab > 0) parts.push('DAB $' + dab);
-  if (mab > 0) parts.push('MAB $' + mab);
+  if (dab > 0) parts.push('일일 $' + dab);
+  if (mab > 0) parts.push('월간 $' + mab);
   if (matchBonus > 0) parts.push('매칭 $' + matchBonus);
   document.getElementById('floatBreakdown').textContent = parts.length ? parts.join(' + ') : '멤버를 추가해보세요';
 
