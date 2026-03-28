@@ -178,6 +178,25 @@ body {
   text-align: right;
   flex-shrink: 0;
 }
+.goal-krw {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--blue-700);
+  font-family: 'Cormorant Garamond', serif;
+  margin-bottom: 6px;
+}
+.goal-field-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: flex-end;
+}
+.goal-month-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--slate-500);
+  flex-shrink: 0;
+}
 .goal-field {
   display: flex;
   align-items: center;
@@ -212,11 +231,6 @@ body {
 }
 .goal-field input::-webkit-outer-spin-button,
 .goal-field input::-webkit-inner-spin-button { -webkit-appearance: none; }
-.goal-krw {
-  font-size: 0.72rem;
-  color: var(--slate-400);
-  margin-top: 4px;
-}
 /* Goal progress bar */
 .goal-visual { position: relative; margin-bottom: 8px; }
 .goal-progress-bg {
@@ -392,9 +406,10 @@ body {
   color: var(--gold-500);
 }
 .twin-price {
-  font-size: 0.82rem;
+  font-size: 0.75rem;
   color: var(--slate-400);
   margin-bottom: 14px;
+  line-height: 1.4;
 }
 .twin-counter {
   display: flex;
@@ -670,6 +685,147 @@ body {
   background: var(--blue-200);
   border-color: var(--blue-500);
 }
+
+/* ── WEEKLY MATCHING ── */
+.match-conditions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.match-cond {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--sand-100);
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--sand-200);
+  transition: border-color 0.3s, background 0.3s;
+}
+.match-cond.met {
+  background: #F0FBF8;
+  border-color: var(--mint);
+}
+.match-cond-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+.match-cond-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--slate-500);
+  display: block;
+  margin-bottom: 4px;
+}
+.match-cond-input {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.match-prefix {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--blue-600);
+}
+.match-cond-input input {
+  width: 72px;
+  padding: 6px 8px;
+  border: 1.5px solid var(--slate-200);
+  border-radius: 6px;
+  font-size: 0.88rem;
+  font-family: inherit;
+  font-weight: 600;
+  color: var(--slate-700);
+  background: #fff;
+  outline: none;
+}
+.match-cond-input input:focus { border-color: var(--blue-400); }
+.match-threshold {
+  font-size: 0.7rem;
+  color: var(--slate-400);
+}
+.match-partner-section {
+  padding: 16px;
+  background: var(--slate-50);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--slate-100);
+}
+.match-partner-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--slate-600);
+  margin-bottom: 4px;
+}
+.match-partner-desc {
+  font-size: 0.72rem;
+  color: var(--slate-400);
+  margin-bottom: 6px;
+}
+.match-example {
+  font-size: 0.68rem;
+  color: var(--blue-500);
+  background: var(--blue-100);
+  padding: 6px 10px;
+  border-radius: 6px;
+  margin-bottom: 14px;
+}
+.match-partner-input-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.match-partner-input-wrap input {
+  padding: 10px 12px;
+  border: 1.5px solid var(--slate-200);
+  border-radius: var(--radius-sm);
+  font-size: 0.92rem;
+  font-family: inherit;
+  color: var(--slate-800);
+  background: #fff;
+  outline: none;
+  width: 100%;
+}
+.match-partner-input-wrap input:focus {
+  border-color: var(--blue-400);
+  box-shadow: 0 0 0 3px rgba(135,206,235,0.15);
+}
+.match-result {
+  text-align: center;
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  background: var(--sand-100);
+  border: 1px solid var(--sand-200);
+  transition: all 0.3s;
+}
+.match-result.active {
+  background: linear-gradient(135deg, #E8F8E8, #F0FFF0);
+  border-color: var(--mint);
+}
+.match-result-label {
+  font-size: 0.72rem;
+  color: var(--slate-400);
+  margin-bottom: 4px;
+}
+.match-result-amount {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--slate-300);
+  transition: color 0.3s;
+}
+.match-result.active .match-result-amount { color: var(--blue-700); }
+.match-result-krw {
+  font-size: 0.78rem;
+  color: var(--slate-400);
+  margin-bottom: 6px;
+}
+.match-result-status {
+  font-size: 0.72rem;
+  color: var(--slate-400);
+}
+.match-result.active .match-result-status { color: var(--mint); font-weight: 600; }
 
 /* ── CALCULATE BUTTON ── */
 .calc-btn-wrap { text-align: center; margin: 32px 0 8px; }
@@ -1001,11 +1157,11 @@ body {
   align-self: center;
 }
 .profile-frame {
-  width: 90px;
-  height: 110px;
+  width: 120px;
+  height: 148px;
   border-radius: 50%;
-  border: 3px solid var(--blue-300);
-  background: #fff;
+  border: 3.5px solid var(--blue-300);
+  background: linear-gradient(135deg, #fff, #F0F7FB);
   overflow: hidden;
   cursor: pointer;
   position: relative;
@@ -1013,7 +1169,7 @@ body {
   align-items: center;
   justify-content: center;
   transition: border-color 0.3s, box-shadow 0.3s;
-  box-shadow: 0 3px 12px rgba(135,206,235,0.2);
+  box-shadow: 0 4px 16px rgba(135,206,235,0.25), inset 0 0 0 2px rgba(255,255,255,0.6);
 }
 .profile-frame:hover {
   border-color: var(--blue-500);
@@ -1039,12 +1195,12 @@ body {
 .profile-frame:hover .profile-placeholder { color: var(--blue-500); }
 .profile-placeholder.hidden { display: none; }
 .profile-plus {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 300;
   line-height: 1;
 }
 .profile-hint {
-  font-size: 0.58rem;
+  font-size: 0.65rem;
   font-weight: 500;
 }
 .profile-name {
@@ -1066,6 +1222,15 @@ body {
   content: attr(data-placeholder);
   color: var(--slate-300);
   font-weight: 400;
+}
+.profile-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--blue-600);
+  background: var(--blue-100);
+  padding: 2px 12px;
+  border-radius: 10px;
+  letter-spacing: 0.05em;
 }
 .building-scene {
   position: relative;
@@ -1111,6 +1276,23 @@ body {
   from { transform: translateX(0); }
   to { transform: translateX(-200px); }
 }
+
+/* Landmarks */
+.landmark {
+  position: absolute;
+  z-index: 3;
+  font-size: 1.6rem;
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.12));
+  opacity: 0.7;
+  transition: opacity 0.3s, transform 0.3s;
+}
+.landmark:hover { opacity: 1; transform: scale(1.2); }
+.lm-left-1 { bottom: 22px; left: 8px; font-size: 1.4rem; }
+.lm-left-2 { bottom: 22px; left: 34px; font-size: 1.2rem; opacity: 0.6; }
+.lm-right-1 { bottom: 22px; right: 8px; font-size: 1.5rem; }
+.lm-right-2 { bottom: 22px; right: 36px; font-size: 1.2rem; opacity: 0.6; }
+.lm-far-left { top: 30%; left: 6px; font-size: 1rem; opacity: 0.4; }
+.lm-far-right { top: 25%; right: 6px; font-size: 1rem; opacity: 0.4; }
 
 /* Foundation */
 .building-foundation {
@@ -1199,32 +1381,29 @@ body {
 .b-floor.premium-floor {
   background: linear-gradient(90deg, var(--gold-400), #E0B85C);
 }
-/* Windows */
+/* Windows with flags */
 .b-floor-windows {
   display: flex;
-  gap: 8px;
+  gap: 4px;
   justify-content: center;
   width: 100%;
-  padding: 0 8px;
+  padding: 0 6px;
 }
 .b-window {
-  width: 16px;
-  height: 14px;
+  width: 22px;
+  height: 16px;
   background: rgba(255,255,255,0.55);
   border-radius: 2px 2px 0 0;
   border-bottom: 2px solid rgba(255,255,255,0.3);
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  line-height: 1;
+  overflow: hidden;
 }
-.b-window::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 1px;
-  height: 80%;
-  background: rgba(0,0,0,0.1);
-}
+.b-window::after { display: none; }
 /* Floor number label */
 .b-floor-num {
   position: absolute;
@@ -1434,6 +1613,9 @@ body {
 }
 .mab-summary strong { color: var(--blue-700); }
 .mab-summary .prem-strong { color: #D94040; }
+.mab-summary .classic-name { color: #1A6FB5; font-weight: 700; }
+.mab-summary .prem-name { color: #D94040; font-weight: 700; }
+.mab-summary .amt-black { color: var(--slate-800); }
 
 /* Labels */
 .building-labels {
@@ -1551,7 +1733,10 @@ body.has-float { padding-bottom: 80px; }
   .section-card .desc { padding-left: 0; }
   .goal-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
   .goal-input-area { text-align: left; width: 100%; }
+  .goal-field-row { justify-content: flex-start; }
   .goal-field input { width: 80px; }
+  .match-conditions { flex-direction: column; gap: 8px; }
+  .match-partner-input-wrap { grid-template-columns: 1fr; }
   .form-grid { grid-template-columns: 1fr; }
   .twin-input-wrap { gap: 10px; }
   .twin-card { padding: 18px 10px 16px; }
@@ -1567,13 +1752,17 @@ body.has-float { padding-bottom: 80px; }
   .result-hero { padding: 28px 20px; }
   .building-scene { height: 240px; }
   .building-layout { gap: 10px; }
-  .profile-frame { width: 70px; height: 86px; border-width: 2px; }
-  .profile-plus { font-size: 1.2rem; }
-  .profile-hint { font-size: 0.5rem; }
+  .profile-frame { width: 90px; height: 110px; border-width: 2.5px; }
+  .profile-plus { font-size: 1.3rem; }
+  .profile-hint { font-size: 0.52rem; }
   .profile-name { font-size: 0.65rem; }
   .building-foundation { width: 120px; }
   .building-tower, .b-floor, .building-roof, .building-roof.visible { width: 100px; }
-  .b-window { width: 13px; height: 12px; }
+  .b-window { width: 18px; height: 13px; font-size: 8px; }
+  .landmark { font-size: 1.1rem; }
+  .lm-left-1 { font-size: 1rem; }
+  .lm-right-1 { font-size: 1.1rem; }
+  .lm-far-left, .lm-far-right { display: none; }
   .b-floor { height: 22px; }
   .b-floor-num { right: -28px; font-size: 0.5rem; }
   .mab-chart { gap: 10px; }
@@ -1615,11 +1804,14 @@ body.has-float { padding-bottom: 80px; }
         <p class="goal-sub">매달 달성하고 싶은 수익 목표를 입력하세요</p>
       </div>
       <div class="goal-input-area">
-        <div class="goal-field">
-          <span class="goal-prefix">$</span>
-          <input type="number" id="goalAmount" value="3000" min="100" step="100" oninput="updateGoal()">
-        </div>
         <div class="goal-krw" id="goalKrw">₩4,500,000</div>
+        <div class="goal-field-row">
+          <span class="goal-month-label">월</span>
+          <div class="goal-field">
+            <span class="goal-prefix">$</span>
+            <input type="number" id="goalAmount" value="3000" min="100" step="100" oninput="updateGoal()">
+          </div>
+        </div>
       </div>
     </div>
     <div class="goal-visual">
@@ -1644,7 +1836,7 @@ body.has-float { padding-bottom: 80px; }
   <section class="section-card" style="animation-delay:0.1s">
     <div class="section-header-row">
       <div>
-        <h2><span class="icon">👤</span> 개인 활동</h2>
+        <h2><span class="icon">💰</span> 일일 & 월간 활성화 보너스</h2>
         <p class="desc" style="margin-bottom:0">직접 추천(직추) 멤버 현황을 입력하세요.</p>
       </div>
       <div class="fx-input-wrap">
@@ -1659,7 +1851,7 @@ body.has-float { padding-bottom: 80px; }
     <div class="twin-input-wrap">
       <div class="twin-card twin-classic">
         <div class="twin-badge">Classic</div>
-        <div class="twin-price">$200</div>
+        <div class="twin-price">활성화비 $100 포함 $200</div>
         <div class="twin-counter">
           <button class="twin-btn" onclick="tweakCount('classicCount',-1)">−</button>
           <input type="number" id="classicCount" min="0" value="0" class="twin-value" oninput="updateMiniChart()">
@@ -1675,7 +1867,7 @@ body.has-float { padding-bottom: 80px; }
       </div>
       <div class="twin-card twin-premium">
         <div class="twin-badge prem">Premium</div>
-        <div class="twin-price">활성화비 포함 $500</div>
+        <div class="twin-price">활성화비 $250 포함 $500</div>
         <div class="twin-counter">
           <button class="twin-btn" onclick="tweakCount('premiumCount',-1)">−</button>
           <input type="number" id="premiumCount" min="0" value="0" class="twin-value" oninput="updateMiniChart()">
@@ -1728,6 +1920,7 @@ body.has-float { padding-bottom: 80px; }
             <input type="file" id="profileUpload" accept="image/*" onchange="handleProfileUpload(this)" hidden>
           </label>
           <div class="profile-name" id="profileName" contenteditable="true" data-placeholder="이름 입력"></div>
+          <div class="profile-title">건물주</div>
         </div>
         <!-- Building scene -->
         <div class="building-scene" id="buildingScene">
@@ -1736,6 +1929,13 @@ body.has-float { padding-bottom: 80px; }
             <div class="cloud cloud-2"></div>
             <div class="cloud cloud-3"></div>
           </div>
+          <!-- Landmarks -->
+          <div class="landmark lm-left-1" title="Sydney">🏛️</div>
+          <div class="landmark lm-left-2" title="Japan">⛩️</div>
+          <div class="landmark lm-right-1" title="USA">🗽</div>
+          <div class="landmark lm-right-2" title="Taiwan">🏯</div>
+          <div class="landmark lm-far-left" title="Brazil">🗿</div>
+          <div class="landmark lm-far-right" title="Peru">🏔️</div>
           <div class="building-flag" id="buildingFlag">
             <div class="flag-pole"></div>
             <div class="flag-cloth">Dream 🎉</div>
@@ -1744,7 +1944,7 @@ body.has-float { padding-bottom: 80px; }
             <div class="building-roof" id="buildingRoof"></div>
           </div>
           <div class="building-foundation">
-            <div class="foundation-text">MY BUILDING</div>
+            <div class="foundation-text">GLOBAL BUILDING</div>
           </div>
           <div class="building-ground"></div>
         </div>
@@ -1852,12 +2052,63 @@ body.has-float { padding-bottom: 80px; }
     <button class="btn-add-leg" onclick="addLeg()">＋ 레그 추가</button>
   </section>
 
-  <!-- Hidden defaults for removed QBI section -->
+  <!-- Hidden defaults -->
   <input type="hidden" id="qbiDirect" value="65">
   <input type="hidden" id="newActive" value="0">
   <input type="hidden" id="retainedMembers" value="0">
-  <input type="hidden" id="myWeeklyProd" value="200">
-  <input type="hidden" id="teamWeeklyProd" value="600">
+
+  <!-- ═══ SECTION 3: 주간 매칭 보너스 ═══ -->
+  <section class="section-card" style="animation-delay:0.3s">
+    <h2><span class="icon">🔗</span> 주간 매칭 보너스</h2>
+    <p class="desc">조건 충족 시, 내 직추 파트너들이 받는 DAB+MAB을 100% 올려받습니다.</p>
+
+    <div class="match-conditions">
+      <div class="match-cond">
+        <div class="match-cond-icon" id="matchCond1Icon">⬜</div>
+        <div class="match-cond-text">
+          <span class="match-cond-label">내 주간 직추 생산액</span>
+          <div class="match-cond-input">
+            <span class="match-prefix">$</span>
+            <input type="number" id="myWeeklyProd" min="0" value="200" placeholder="200" oninput="updateMatchPreview()">
+            <span class="match-threshold">/ $200</span>
+          </div>
+        </div>
+      </div>
+      <div class="match-cond">
+        <div class="match-cond-icon" id="matchCond2Icon">⬜</div>
+        <div class="match-cond-text">
+          <span class="match-cond-label">팀 주간 총 생산액</span>
+          <div class="match-cond-input">
+            <span class="match-prefix">$</span>
+            <input type="number" id="teamWeeklyProd" min="0" value="600" placeholder="600" oninput="updateMatchPreview()">
+            <span class="match-threshold">/ $600</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="match-partner-section">
+      <div class="match-partner-title">직추 파트너 보너스 합산 (내가 올려받는 금액)</div>
+      <div class="match-partner-desc">내 직추 파트너들이 이번 주에 받는 DAB + MAB 합계를 입력하세요</div>
+      <div class="match-example">예: 파트너 A가 Premium 10명 가입 → DAB $500 + MAB $1,000 = $1,500</div>
+      <div class="match-partner-input-wrap">
+        <div class="form-group">
+          <label>파트너 DAB 합계 ($)</label>
+          <input type="number" id="partnerDAB" min="0" value="0" placeholder="500" oninput="updateMatchPreview()">
+        </div>
+        <div class="form-group">
+          <label>파트너 MAB 합계 ($)</label>
+          <input type="number" id="partnerMAB" min="0" value="0" placeholder="1000" oninput="updateMatchPreview()">
+        </div>
+      </div>
+      <div class="match-result" id="matchResult">
+        <div class="match-result-label">내 주간 매칭 수익</div>
+        <div class="match-result-amount" id="matchResultAmount">$0</div>
+        <div class="match-result-krw" id="matchResultKrw">₩0</div>
+        <div class="match-result-status" id="matchResultStatus">조건을 충족하면 매칭이 시작됩니다</div>
+      </div>
+    </div>
+  </section>
 
   <!-- CALCULATE -->
   <div class="calc-btn-wrap">
@@ -1958,6 +2209,47 @@ function handleProfileUpload(input) {
     document.getElementById('profilePlaceholder').classList.add('hidden');
   };
   reader.readAsDataURL(file);
+}
+
+// ── WEEKLY MATCHING PREVIEW ──
+function updateMatchPreview() {
+  const fx = parseInt(document.getElementById('fxRate').value) || 1500;
+  const myW = parseFloat(document.getElementById('myWeeklyProd').value) || 0;
+  const teamW = parseFloat(document.getElementById('teamWeeklyProd').value) || 0;
+  const pDAB = parseFloat(document.getElementById('partnerDAB').value) || 0;
+  const pMAB = parseFloat(document.getElementById('partnerMAB').value) || 0;
+
+  const cond1 = myW >= 200;
+  const cond2 = teamW >= 600;
+  const bothMet = cond1 && cond2;
+  const partnerTotal = pDAB + pMAB;
+  const matchAmount = bothMet ? partnerTotal : 0;
+
+  // Condition icons
+  document.getElementById('matchCond1Icon').textContent = cond1 ? '✅' : '⬜';
+  document.getElementById('matchCond2Icon').textContent = cond2 ? '✅' : '⬜';
+  document.querySelectorAll('.match-cond')[0].classList.toggle('met', cond1);
+  document.querySelectorAll('.match-cond')[1].classList.toggle('met', cond2);
+
+  // Result
+  const resultEl = document.getElementById('matchResult');
+  resultEl.classList.toggle('active', bothMet && partnerTotal > 0);
+  document.getElementById('matchResultAmount').textContent = '$' + matchAmount.toLocaleString();
+  document.getElementById('matchResultKrw').textContent = '₩' + (matchAmount * fx).toLocaleString();
+
+  const status = document.getElementById('matchResultStatus');
+  if (!cond1 && !cond2) {
+    status.textContent = '주간 조건 2가지를 충족해야 매칭이 시작됩니다';
+  } else if (!cond1) {
+    status.textContent = '내 주간 생산액 $200 이상 필요';
+  } else if (!cond2) {
+    status.textContent = '팀 주간 생산액 $600 이상 필요';
+  } else if (partnerTotal === 0) {
+    status.textContent = '✅ 조건 충족! 파트너 보너스를 입력하세요';
+  } else {
+    status.textContent = '✅ 파트너 DAB+MAB 100% 매칭 중!';
+  }
+  if (typeof updateFloatingBar === 'function') updateFloatingBar();
 }
 
 // ── GOAL ──
@@ -2144,9 +2436,9 @@ function updateMABChart(classic, premium) {
     summary.innerHTML = '3명 이상 활성화하면 MAB 보너스가 시작됩니다';
   } else {
     let parts = [];
-    if (classic >= 3) parts.push(`Classic ${classic}명 × <strong>$${cPP}</strong> = <strong>$${cMAB}</strong>`);
-    if (premium >= 3) parts.push(`Premium ${premium}명 × <strong class="prem-strong">$${pPP}</strong> = <strong class="prem-strong">$${pMAB}</strong>`);
-    summary.innerHTML = parts.join(' &nbsp;+&nbsp; ') + ` &nbsp;→&nbsp; 합계 <strong>$${totalMAB}</strong> (₩${(totalMAB * fx).toLocaleString()})`;
+    if (classic >= 3) parts.push(`<span class="classic-name">Classic</span> ${classic}명 × <strong class="amt-black">$${cPP}</strong> = <strong class="amt-black">$${cMAB}</strong>`);
+    if (premium >= 3) parts.push(`<span class="prem-name">Premium</span> ${premium}명 × <strong class="amt-black">$${pPP}</strong> = <strong class="amt-black">$${pMAB}</strong>`);
+    summary.innerHTML = parts.join(' &nbsp;+&nbsp; ') + ` &nbsp;→&nbsp; 합계 <strong class="amt-black">$${totalMAB}</strong> (₩${(totalMAB * fx).toLocaleString()})`;
   }
 }
 
@@ -2186,6 +2478,9 @@ function updateBuilding(classic, premium) {
   const neededH = Math.max(200, 42 + total * 26 + 30);
   scene.style.height = Math.min(neededH, 520) + 'px';
 
+  // Country flags for windows
+  const FLAGS = ['🇰🇷','🇯🇵','🇪🇸','🇺🇸','🇧🇷','🇵🇪','🇸🇬','🇲🇾'];
+
   // Insert floors (column-reverse so first = bottom)
   floors.forEach((type, i) => {
     const floor = document.createElement('div');
@@ -2196,12 +2491,15 @@ function updateBuilding(classic, premium) {
     } else {
       floor.style.animation = 'none';
     }
+    // Pick 4 flags for this floor
+    const fi = (i * 4) % FLAGS.length;
+    const f = [FLAGS[fi % FLAGS.length], FLAGS[(fi+1) % FLAGS.length], FLAGS[(fi+2) % FLAGS.length], FLAGS[(fi+3) % FLAGS.length]];
     floor.innerHTML = `
       <div class="b-floor-windows">
-        <div class="b-window"></div>
-        <div class="b-window"></div>
-        <div class="b-window"></div>
-        <div class="b-window"></div>
+        <div class="b-window">${f[0]}</div>
+        <div class="b-window">${f[1]}</div>
+        <div class="b-window">${f[2]}</div>
+        <div class="b-window">${f[3]}</div>
       </div>
       ${(i + 1) % 5 === 0 || i === total - 1 ? `<span class="b-floor-num">${i + 1}F</span>` : ''}
     `;
@@ -2307,7 +2605,10 @@ function calculate() {
   const bonus1 = dab + mab;
 
   // ═══ BONUS 2: 주간 매칭 ═══
-  const weeklyMatch = (myWeekly >= 200 && teamWeekly >= 600) ? bonus1 : 0;
+  const partnerDAB = val('partnerDAB');
+  const partnerMAB = val('partnerMAB');
+  const partnerTotal = partnerDAB + partnerMAB;
+  const weeklyMatch = (myWeekly >= 200 && teamWeekly >= 600) ? partnerTotal : 0;
   const bonus2 = weeklyMatch; // 100% matching of partner DAB+MAB
 
   // ═══ BONUS 3: 팀 리더십 (직급 판정) ═══
@@ -2470,7 +2771,7 @@ function calculate() {
     },
     {
       num: '02', title: '주간 매칭 보너스', amount: bonus2,
-      detail: `주간 조건: 본인 $200 ${myWeekly >= 200 ? '✅' : '❌'} / 팀 $600 ${teamWeekly >= 600 ? '✅' : '❌'}\n파트너 DAB+MAB 100% 매칭 (×4주 = ${fmt(bonus2 * 4)}/월)`,
+      detail: `조건: 본인 $200 ${myWeekly >= 200 ? '✅' : '❌'} / 팀 $600 ${teamWeekly >= 600 ? '✅' : '❌'}\n파트너 DAB ${fmt(partnerDAB)} + MAB ${fmt(partnerMAB)} = ${fmt(partnerTotal)}\n매칭 (×4주 = ${fmt(bonus2 * 4)}/월)`,
       inactive: bonus2 === 0
     },
     {
@@ -2587,7 +2888,7 @@ function calculate() {
   if (bonus2 === 0 && (myWeekly > 0 || teamWeekly > 0)) {
     insights.push({
       icon: '🔗',
-      text: `주간 매칭 조건 미달! 본인 $200 + 팀 $600을 동시에 충족하면 월 <strong>${fmt(bonus1 * 4)}</strong> 추가 수익.`,
+      text: `주간 매칭 조건 미달! 본인 $200 + 팀 $600을 충족하면 파트너 보너스를 100% 올려받을 수 있습니다.`,
       type: ''
     });
   }
@@ -2675,6 +2976,7 @@ function copyReport() {
 document.addEventListener('DOMContentLoaded', () => {
   updateGoal();
   updateMiniChart();
+  updateMatchPreview();
   // Listen to ALL inputs for floating bar
   document.querySelectorAll('input[type="number"]').forEach(el => {
     el.addEventListener('input', updateFloatingBar);
@@ -2694,8 +2996,14 @@ function updateFloatingBar() {
   const dab = classic * 20 + premium * 50;
   // MAB
   const mab = calcMABtotal(classic, premium);
-  // Instant 10% = DAB basically
-  const totalNow = dab + mab;
+  // Weekly matching
+  const myW = parseFloat(document.getElementById('myWeeklyProd').value) || 0;
+  const teamW = parseFloat(document.getElementById('teamWeeklyProd').value) || 0;
+  const pDAB = parseFloat(document.getElementById('partnerDAB').value) || 0;
+  const pMAB = parseFloat(document.getElementById('partnerMAB').value) || 0;
+  const matchBonus = (myW >= 200 && teamW >= 600) ? (pDAB + pMAB) : 0;
+
+  const totalNow = dab + mab + matchBonus;
 
   // Show/hide bar
   const bar = document.getElementById('floatingBar');
@@ -2722,6 +3030,7 @@ function updateFloatingBar() {
   const parts = [];
   if (dab > 0) parts.push('DAB $' + dab);
   if (mab > 0) parts.push('MAB $' + mab);
+  if (matchBonus > 0) parts.push('매칭 $' + matchBonus);
   document.getElementById('floatBreakdown').textContent = parts.length ? parts.join(' + ') : '멤버를 추가해보세요';
 
   // Progress toward goal
