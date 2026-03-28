@@ -178,12 +178,10 @@ body {
   text-align: right;
   flex-shrink: 0;
 }
-.goal-krw {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--blue-700);
-  font-family: 'Cormorant Garamond', serif;
-  margin-bottom: 6px;
+.goal-krw, .goal-usd {
+  font-size: 0.78rem;
+  color: var(--slate-400);
+  margin-top: 4px;
 }
 .goal-field-row {
   display: flex;
@@ -218,7 +216,7 @@ body {
   font-family: 'Cormorant Garamond', serif;
 }
 .goal-field input {
-  width: 100px;
+  width: 130px;
   padding: 10px 14px 10px 0;
   border: none;
   outline: none;
@@ -1734,7 +1732,7 @@ body.has-float { padding-bottom: 80px; }
   .goal-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
   .goal-input-area { text-align: left; width: 100%; }
   .goal-field-row { justify-content: flex-start; }
-  .goal-field input { width: 80px; }
+  .goal-field input { width: 110px; }
   .match-conditions { flex-direction: column; gap: 8px; }
   .match-partner-input-wrap { grid-template-columns: 1fr; }
   .form-grid { grid-template-columns: 1fr; }
@@ -1804,14 +1802,14 @@ body.has-float { padding-bottom: 80px; }
         <p class="goal-sub">매달 달성하고 싶은 수익 목표를 입력하세요</p>
       </div>
       <div class="goal-input-area">
-        <div class="goal-krw" id="goalKrw">₩4,500,000</div>
         <div class="goal-field-row">
           <span class="goal-month-label">월</span>
           <div class="goal-field">
-            <span class="goal-prefix">$</span>
-            <input type="number" id="goalAmount" value="3000" min="100" step="100" oninput="updateGoal()">
+            <span class="goal-prefix">₩</span>
+            <input type="number" id="goalAmountKrw" value="4500000" min="10000" step="100000" oninput="updateGoal()">
           </div>
         </div>
+        <div class="goal-usd" id="goalUsd">$3,000</div>
       </div>
     </div>
     <div class="goal-visual">
@@ -1843,7 +1841,7 @@ body.has-float { padding-bottom: 80px; }
         <label class="fx-label">💱 환율</label>
         <div class="fx-field">
           <span class="fx-prefix">₩</span>
-          <input type="number" id="fxRate" value="1500" min="1" step="10" oninput="updateMiniChart()">
+          <input type="number" id="fxRate" value="1500" min="1" step="10" oninput="updateGoal()">
         </div>
         <span class="fx-hint">1 USD 기준</span>
       </div>
@@ -2254,12 +2252,14 @@ function updateMatchPreview() {
 
 // ── GOAL ──
 function getGoal() {
-  return parseInt(document.getElementById('goalAmount').value) || 3000;
+  const fx = parseInt(document.getElementById('fxRate').value) || 1500;
+  const krw = parseInt(document.getElementById('goalAmountKrw').value) || 4500000;
+  return Math.round(krw / fx);
 }
 function updateGoal() {
   const fx = parseInt(document.getElementById('fxRate').value) || 1500;
   const goal = getGoal();
-  document.getElementById('goalKrw').textContent = '₩' + (goal * fx).toLocaleString();
+  document.getElementById('goalUsd').textContent = '$' + goal.toLocaleString();
   updateGoalProgress();
   updateMiniChart();
 }
@@ -2298,11 +2298,11 @@ function updateGoalProgress() {
     msg.innerHTML = '멤버를 추가하면 목표 달성률이 표시됩니다';
     msg.className = 'goal-message';
   } else if (achieved) {
-    msg.innerHTML = `🎉 목표 <strong>$${goal.toLocaleString()}</strong> 달성! 다음 목표를 세워보세요`;
+    msg.innerHTML = `🎉 목표 <strong>₩${(goal * fx).toLocaleString()}</strong> 달성! 다음 목표를 세워보세요`;
     msg.className = 'goal-message achieved-msg';
   } else {
     const remaining = goal - earned;
-    msg.innerHTML = `목표까지 <strong>$${remaining.toLocaleString()}</strong> (₩${(remaining * fx).toLocaleString()}) 남았습니다`;
+    msg.innerHTML = `목표까지 <strong>₩${(remaining * fx).toLocaleString()}</strong> ($${remaining.toLocaleString()}) 남았습니다`;
     msg.className = 'goal-message';
   }
 }
