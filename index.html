@@ -172,23 +172,14 @@ body{font-family:'Gothic A1','Noto Sans KR',sans-serif;background:var(--sand-50)
 .inst-amt{font-size:1.1rem;font-weight:800;color:var(--blue-700);font-family:inherit}
 .twin-krw{font-size:.65rem;color:var(--sl400);margin-top:2px}
 
-/* MINI CHART */
-.mini{margin-top:12px;padding:12px 14px;background:var(--sl50);border-radius:var(--rs);border:1px solid var(--sl100)}
-.mini-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-.mini-ttl{font-size:.68rem;font-weight:600;color:var(--sl500)}
-.mini-goal{font-size:.68rem;font-weight:700;color:var(--blue-600)}
-.mini-bar-wrap{margin-bottom:6px}
-.mini-bar{height:22px;background:var(--sl100);border-radius:6px;overflow:hidden;display:flex}
-.mb-f{height:100%;transition:width .6s cubic-bezier(.25,.46,.45,.94);min-width:0}
-.mb-c{background:linear-gradient(90deg,var(--blue-400),var(--blue-300))}
-.mb-p{background:linear-gradient(90deg,var(--gold-400),var(--gold-500))}
-.mini-pct{text-align:right;font-size:.62rem;font-weight:700;color:var(--blue-500);margin-bottom:6px}
-.mini-pct.ach{color:var(--mint)}
-.mini-leg{display:flex;flex-wrap:wrap;gap:8px;font-size:.62rem;color:var(--sl500)}
-.ml-i{display:flex;align-items:center;gap:4px}
-.ml-d{width:8px;height:8px;border-radius:2px}
-.ml-dc{background:var(--blue-400)}.ml-dp{background:var(--gold-400)}
-.ml-total{margin-left:auto;color:var(--blue-700);font-weight:700}
+/* DAB TOTAL */
+.dab-total{margin-top:12px;padding:14px 16px;background:linear-gradient(135deg,var(--blue-100),#EEF6FC);border-radius:var(--rs);border:1.5px solid var(--blue-200)}
+.dab-total-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.dab-total-label{font-size:.78rem;font-weight:800;color:var(--blue-700)}
+.dab-total-note{font-size:.6rem;color:var(--blue-400);font-weight:500}
+.dab-total-row{display:flex;align-items:baseline;gap:10px}
+.dab-total-amt{font-size:1.5rem;font-weight:900;color:var(--blue-700)}
+.dab-total-krw{font-size:.82rem;font-weight:600;color:var(--sl400)}
 
 /* MAB */
 .mab-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:3px}
@@ -221,27 +212,36 @@ body{font-family:'Gothic A1','Noto Sans KR',sans-serif;background:var(--sand-50)
 .mab-tot-l{font-size:.75rem;font-weight:700;color:var(--blue-200);flex:1}
 .mab-tot-a{font-size:1.2rem;font-weight:900}
 .mab-tot-k{font-size:.7rem;color:var(--blue-200)}
+.dab-mab-total{display:flex;align-items:center;gap:8px;padding:10px 12px;margin-top:6px;background:linear-gradient(135deg,#1A7A5A,#22956E);border-radius:8px;color:#fff}
+.dmt-label{font-size:.7rem;font-weight:600;color:rgba(255,255,255,.8);flex:1}
+.dmt-amount{font-size:1.3rem;font-weight:900}
+.dmt-krw{font-size:.7rem;color:rgba(255,255,255,.7)}
+
+/* ACCORDION SPACING - main accordions only */
+.app > .acc-btn{margin-top:16px}
+.app > .acc-btn:first-of-type{margin-top:0}
+
+/* STEP CARDS */
+.step-cards{display:flex;flex-direction:column;align-items:center;gap:0;margin-bottom:14px}
+.step-card{width:100%;padding:14px 16px;border-radius:10px;background:#fff;border:1.5px solid var(--sl200);position:relative}
+.step-card-ok{background:linear-gradient(135deg,#E8F8F0,#F0FFF8);border-color:var(--mint)}
+.step-card-pay{background:linear-gradient(135deg,#E8F4FD,#F0F8FF);border-color:var(--blue-400)}
+.step-num{font-size:.58rem;font-weight:800;color:#fff;background:var(--blue-600);display:inline-block;padding:2px 10px;border-radius:10px;margin-bottom:6px;letter-spacing:.06em}
+.step-card-ok .step-num{background:var(--mint)}
+.step-card-pay .step-num{background:var(--gold-500)}
+.step-title{font-size:.85rem;font-weight:800;color:var(--sl700);margin-bottom:6px}
+.step-body{display:flex;flex-direction:column;gap:4px}
+.step-cond{padding:6px 12px;background:var(--sl50);border-radius:6px;font-size:.75rem;color:var(--sl600);border:1px solid var(--sl100)}
+.step-cond strong{color:var(--blue-700)}
+.step-text{font-size:.75rem;color:var(--sl600);line-height:1.6;margin:0}
+.step-text strong{color:var(--blue-700)}
+.step-arrow{font-size:1rem;color:var(--sl300);font-weight:700;padding:2px 0}
+.step-bonus-box{padding:14px 16px;background:rgba(255,140,0,.06);border:1.5px solid rgba(255,140,0,.2);border-radius:10px;margin-bottom:14px}
+.step-bonus-title{font-size:.78rem;font-weight:800;color:#E87C00;margin-bottom:6px}
+.step-bonus-desc{font-size:.72rem;color:var(--sl600);line-height:1.7;margin:0}
+.step-bonus-note{font-size:.68rem;color:var(--mint);font-weight:700}
 
 /* WEEKLY MATCHING */
-.match-cal{padding:12px 14px;background:var(--sand-100);border-radius:8px;margin-bottom:12px;border:1px solid var(--sand-200)}
-.match-cal-t{font-size:.75rem;font-weight:700;color:var(--sl700);margin-bottom:8px}
-.cal-week{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-bottom:8px}
-.cal-d{text-align:center;padding:6px 2px;background:var(--blue-100);border-radius:5px;font-size:.65rem;font-weight:700;color:var(--blue-600)}
-.cal-d-e{background:var(--blue-200);color:var(--blue-700)}
-.cal-flow{display:flex;align-items:center;gap:6px;margin:8px 0}
-.cal-fbar{flex:1;padding:5px 10px;background:linear-gradient(90deg,var(--blue-300),var(--blue-400));border-radius:5px;text-align:center}
-.cal-fbar span{font-size:.65rem;font-weight:700;color:#fff}
-.cal-farrow{font-size:1rem;color:var(--sl400);font-weight:700;flex-shrink:0}
-.cal-fpay{display:inline-block;padding:5px 12px;background:var(--mint);color:#fff;font-size:.65rem;font-weight:700;border-radius:5px;flex-shrink:0}
-/* Diagram */
-.match-diag{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:8px 0;padding:8px 10px;background:#fff;border-radius:6px;border:1px solid var(--sl200)}
-.md-box{padding:4px 10px;border-radius:5px;font-size:.65rem;font-weight:600;border:1px solid var(--sl200)}
-.md-plus{font-size:.82rem;font-weight:700;color:var(--sl400)}
-.md-result{background:#E8F8F0;border-color:var(--mint);color:#1A7A5A;font-weight:700}
-.match-monthly{padding:12px 14px;background:rgba(255,140,0,.06);border:1px solid rgba(255,140,0,.15);border-radius:8px;margin-bottom:12px}
-.match-monthly-t{font-size:.75rem;font-weight:700;color:#E87C00;margin-bottom:4px}
-.match-monthly-d{font-size:.68rem;color:var(--sl600);line-height:1.6}
-.match-monthly-n{font-size:.62rem;color:var(--mint);font-weight:600}
 /* Match inputs */
 .match-inputs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
 .match-result{text-align:center;padding:14px;background:var(--sl50);border-radius:8px;border:1px solid var(--sl100)}
@@ -258,10 +258,12 @@ body{font-family:'Gothic A1','Noto Sans KR',sans-serif;background:var(--sand-50)
 
 /* LEG ROWS */
 .leg-c{margin-top:8px}
-.leg-r{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;padding:10px 12px;background:var(--sand-100);border-radius:var(--rs);border:1px solid var(--sand-200)}
-.leg-r .leg-l{font-size:.75rem;font-weight:700;color:var(--blue-600);grid-column:1/-1;display:flex;justify-content:space-between;align-items:center}
+.leg-r{display:flex;flex-direction:column;gap:6px;margin-bottom:8px;padding:10px 12px;background:var(--sand-100);border-radius:var(--rs);border:1px solid var(--sand-200)}
+.leg-r .leg-l{font-size:.75rem;font-weight:700;color:var(--blue-600);display:flex;justify-content:space-between;align-items:center}
 .leg-r input{padding:8px 10px;border:1.5px solid var(--sl200);border-radius:6px;font-size:.82rem;font-family:inherit;background:#fff;outline:none;width:100%;transition:border-color .2s}
 .leg-r input:focus{border-color:var(--blue-400)}
+.act-select{padding:10px 12px;border:1.5px solid var(--sl200);border-radius:var(--rs);font-size:.82rem;font-family:inherit;font-weight:600;color:var(--sl700);background:#fff;outline:none;width:100%;cursor:pointer;transition:border-color .2s;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2394A3B8' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}
+.act-select:focus{border-color:var(--blue-400);box-shadow:0 0 0 3px rgba(135,206,235,.15)}
 .btn-rm{background:none;border:none;color:var(--sl300);font-size:.9rem;cursor:pointer;transition:color .2s;padding:2px 4px}
 .btn-rm:hover{color:var(--coral)}
 .btn-add{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;background:var(--blue-100);color:var(--blue-600);border:1.5px dashed var(--blue-300);border-radius:var(--rs);font-size:.72rem;font-weight:600;cursor:pointer;transition:all .2s;margin-top:4px;font-family:inherit}
@@ -285,10 +287,11 @@ body{font-family:'Gothic A1','Noto Sans KR',sans-serif;background:var(--sand-50)
 .rank-tbl .ca{background:#E87C00}
 .rank-tbl .cb{background:#1A7A5A}
 .rank-tbl .ck{background:#8B6914}
-.rank-tbl tbody td{padding:6px 5px;text-align:center;border-bottom:1px solid var(--sl100);color:var(--sl600)}
+.rank-tbl tbody td{padding:6px 5px;text-align:center;color:var(--sl600)}
 .rank-tbl tbody td:first-child{text-align:left}
 .rank-tbl tbody tr:hover{background:var(--blue-100)}
-.rank-tbl tbody tr.hl td{border:2px solid var(--red);font-weight:800;background:rgba(217,64,64,.05)}
+.rank-tbl tbody tr.hl{outline:2.5px solid var(--red);outline-offset:-1px;border-radius:4px}
+.rank-tbl tbody tr.hl td{font-weight:800;background:rgba(217,64,64,.05)}
 .td-p{color:var(--blue-700);font-weight:700}
 .td-a{color:#E87C00;font-weight:600}
 .td-b{color:#1A7A5A;font-weight:700}
@@ -320,17 +323,59 @@ body{font-family:'Gothic A1','Noto Sans KR',sans-serif;background:var(--sand-50)
 .fast-desc strong{color:#E87C00}
 .join-input{padding:4px 8px;border:1.5px solid var(--sl200);border-radius:6px;font-size:.7rem;font-family:inherit;color:var(--sl700);background:#fff;outline:none}
 .join-input:focus{border-color:var(--blue-400)}
+/* Incentive status badges */
+.inc-status{margin-top:6px;font-size:.68rem;font-weight:700;padding:4px 10px;border-radius:6px;display:inline-block}
+.inc-status.achieved{background:#E8F8F0;color:#1A7A5A;border:1px solid var(--mint)}
+.inc-status.not-yet{background:var(--sl50);color:var(--sl400);border:1px solid var(--sl200)}
+.inc-c.done{border-color:var(--mint);background:linear-gradient(135deg,#F0FFF8,#E8F8F0)}
+/* Elite Trip */
+.elite-progress{margin-top:8px}
+.elite-months{display:flex;align-items:center;gap:4px;justify-content:center;margin-bottom:8px}
+.elite-month{width:64px;height:64px;border-radius:50%;border:2.5px solid var(--sl200);background:#fff;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;transition:all .3s;font-family:inherit}
+.elite-month:hover{border-color:var(--blue-400);transform:scale(1.05)}
+.elite-month.checked{border-color:var(--mint);background:linear-gradient(135deg,#E8F8F0,#D4F5E9);animation:emPop .4s ease}
+.elite-month.checked .em-num{color:var(--mint)}
+@keyframes emPop{0%{transform:scale(1)}50%{transform:scale(1.15)}100%{transform:scale(1)}}
+.em-num{font-size:1rem;font-weight:900;color:var(--sl300);line-height:1}
+.em-label{font-size:.48rem;font-weight:600;color:var(--sl400)}
+.elite-arrow{font-size:.8rem;color:var(--sl300)}
+.elite-bar-wrap{height:6px;background:var(--sl100);border-radius:3px;overflow:hidden;margin-bottom:6px}
+.elite-bar-fill{height:100%;background:linear-gradient(90deg,var(--mint),#4ECDC4);border-radius:3px;transition:width .5s cubic-bezier(.25,.46,.45,.94)}
+.elite-msg{font-size:.68rem;color:var(--sl500);text-align:center}
+.elite-msg.complete{color:var(--mint);font-weight:700}
+/* Destination picker */
+.elite-dest{margin-top:10px;padding:12px;background:linear-gradient(135deg,#E8F4FD,#F0F8FF);border-radius:10px;border:1px solid var(--blue-200);animation:fadeIn .4s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.elite-dest-title{font-size:.75rem;font-weight:700;color:var(--blue-700);text-align:center;margin-bottom:8px}
+.elite-dest-btns{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.dest-btn{padding:10px 4px;border-radius:10px;border:2px solid var(--sl200);background:#fff;cursor:pointer;text-align:center;font-size:1.2rem;line-height:1.3;transition:all .2s;font-family:inherit}
+.dest-btn span{font-size:.6rem;font-weight:600;color:var(--sl600);display:block}
+.dest-btn:hover{border-color:var(--blue-400);transform:scale(1.05)}
+.dest-btn.picked{border-color:var(--gold-400);background:linear-gradient(135deg,#FFF3D6,#FFE8B0);transform:scale(1.05);box-shadow:0 3px 12px rgba(212,168,83,.2)}
+.elite-congrats{margin-top:8px;text-align:center;font-size:.72rem;font-weight:700;color:var(--gold-500)}
 
 /* WINWIN DIAGRAM */
-.ww{padding:12px;background:var(--sl50);border-radius:8px;margin-top:8px;text-align:center}
-.ww-t{font-size:.72rem;font-weight:700;color:var(--sl700);margin-bottom:8px}
-.ww-rows{display:flex;flex-direction:column;gap:4px;align-items:center}
-.ww-r{display:flex;align-items:center;gap:6px;font-size:.68rem}
-.ww-badge{padding:2px 8px;border-radius:4px;font-weight:700;font-size:.6rem}
-.ww-line{width:60px;height:2px;background:var(--sl300)}
-.ww-amt{font-weight:700;color:var(--blue-700)}
-.ww-total{margin-top:8px;font-size:.82rem;font-weight:800;color:var(--red)}
-.ww-sub{font-size:.65rem;color:var(--sl400)}
+.ww{padding:16px;background:linear-gradient(135deg,#0E3D5C,#1A5F8A);border-radius:12px;margin-top:8px;overflow:hidden;position:relative}
+.ww::before{content:'';position:absolute;top:-40px;right:-40px;width:120px;height:120px;background:rgba(135,206,235,.1);border-radius:50%}
+.ww::after{content:'';position:absolute;bottom:-30px;left:-30px;width:80px;height:80px;background:rgba(212,168,83,.08);border-radius:50%}
+.ww-header{text-align:center;margin-bottom:14px;position:relative;z-index:1}
+.ww-emoji{font-size:1.8rem;margin-bottom:4px}
+.ww-t{font-size:.85rem;font-weight:800;color:#fff}
+.ww-sub-t{font-size:.65rem;color:var(--blue-200);margin-top:2px}
+.ww-chart{display:flex;flex-direction:column;gap:10px;position:relative;z-index:1;margin-bottom:14px}
+.ww-row{display:flex;align-items:center;gap:8px}
+.ww-rank{flex-shrink:0;width:44px}
+.ww-bar-wrap{flex:1;height:28px;background:rgba(255,255,255,.1);border-radius:6px;overflow:hidden}
+.ww-bar{height:100%;border-radius:6px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:.6rem;font-weight:700;color:rgba(255,255,255,.8);transition:width 1s cubic-bezier(.25,.46,.45,.94)}
+.ww-bar-1{background:linear-gradient(90deg,#87CEEB,#5BB8E0)}
+.ww-bar-2{background:linear-gradient(90deg,#6BC5B0,#4ECDC4)}
+.ww-bar-3{background:linear-gradient(90deg,#D4A853,#E0B85C)}
+.ww-val{flex-shrink:0;font-size:.88rem;font-weight:900;color:#fff;width:60px;text-align:right}
+.ww-total-box{text-align:center;padding:12px;background:rgba(255,255,255,.08);border-radius:10px;border:1.5px solid rgba(255,255,255,.15);position:relative;z-index:1;margin-bottom:8px}
+.ww-total-label{font-size:.62rem;color:var(--blue-200);margin-bottom:2px}
+.ww-total-amt{font-size:1.8rem;font-weight:900;color:#FFD700;text-shadow:0 2px 10px rgba(255,215,0,.3);line-height:1.1}
+.ww-total-krw{font-size:.72rem;color:var(--blue-200);margin-top:2px}
+.ww-msg{text-align:center;font-size:.68rem;color:rgba(255,255,255,.6);position:relative;z-index:1}
 
 /* CAUTION */
 .caut{padding:10px 12px;background:#FFF8F0;border-radius:6px;border-left:3px solid #E87C00;font-size:.68rem;color:var(--sl600);line-height:1.6;margin-bottom:6px}
@@ -373,7 +418,7 @@ body.has-fb{padding-bottom:60px}
   .bw{width:14px;height:10px;font-size:6px}
   .bf{height:18px}
   .match-inputs{grid-template-columns:1fr}
-  .leg-r{gap:6px;padding:8px 10px}
+  .leg-r{gap:5px;padding:8px 10px}
   .acc-btn{padding:10px 12px;font-size:.75rem}
   .rank-tbl{font-size:.56rem}
   .rank-tbl thead th,.rank-tbl tbody td{padding:4px 3px}
@@ -401,7 +446,7 @@ body.has-fb{padding-bottom:60px}
 
 <!-- YOUTUBE -->
 <div class="yt-wrap">
-  <iframe src="https://www.youtube.com/embed/eTD01WI0d7w" allowfullscreen loading="lazy"></iframe>
+  <iframe src="https://www.youtube.com/embed/eTD01WI0d7w?autoplay=1&mute=1&loop=1&playlist=eTD01WI0d7w" allowfullscreen loading="lazy" allow="autoplay"></iframe>
 </div>
 
 <!-- GOAL -->
@@ -498,17 +543,15 @@ body.has-fb{padding-bottom:60px}
         <div class="twin-krw" id="pIncK">₩0</div>
       </div>
     </div>
-    <div class="mini">
-      <div class="mini-hdr">
-        <span class="mini-ttl">직추 생산액 → 목표</span>
-        <span class="mini-goal" id="miniGoal">🎯 $1,667</span>
+    <!-- DAB Total -->
+    <div class="dab-total">
+      <div class="dab-total-hdr">
+        <span class="dab-total-label">⚡ 일일 활성화 보너스</span>
+        <span class="dab-total-note">24시간 이내 지급</span>
       </div>
-      <div class="mini-bar-wrap"><div class="mini-bar"><div class="mb-f mb-c" id="miniC"></div><div class="mb-f mb-p" id="miniP"></div></div></div>
-      <div class="mini-pct" id="miniPct">0%</div>
-      <div class="mini-leg">
-        <span class="ml-i"><span class="ml-d ml-dc"></span>Classic <strong id="cProdL">$0</strong></span>
-        <span class="ml-i"><span class="ml-d ml-dp"></span>Premium <strong id="pProdL">$0</strong></span>
-        <span class="ml-total">합계 <strong id="tProdL">$0</strong></span>
+      <div class="dab-total-row">
+        <span class="dab-total-amt" id="dabTotalAmt">$0</span>
+        <span class="dab-total-krw" id="dabTotalKrw">₩0</span>
       </div>
     </div>
     <!-- MAB -->
@@ -531,7 +574,12 @@ body.has-fb{padding-bottom:60px}
       <div class="mab-calc">
         <div class="mab-cr mc-c"><span class="mab-tag ct">CLASSIC</span><span class="mab-det" id="mabCDet">0명</span><span class="mab-amt" id="mabCAmt">$0</span></div>
         <div class="mab-cr mc-p"><span class="mab-tag pt">PREMIUM</span><span class="mab-det" id="mabPDet">0명</span><span class="mab-amt pa" id="mabPAmt">$0</span></div>
-        <div class="mab-tot"><span class="mab-tot-l">합계</span><span class="mab-tot-a" id="mabTotA">$0</span><span class="mab-tot-k" id="mabTotK"></span></div>
+        <div class="mab-tot"><span class="mab-tot-l">월간 합계</span><span class="mab-tot-a" id="mabTotA">$0</span><span class="mab-tot-k" id="mabTotK"></span></div>
+        <div class="dab-mab-total" id="dabMabTotal">
+          <span class="dmt-label">일일 + 월간 활성화 보너스 합계</span>
+          <span class="dmt-amount" id="dmtAmt">$0</span>
+          <span class="dmt-krw" id="dmtKrw"></span>
+        </div>
       </div>
     </div>
   </div>
@@ -544,25 +592,45 @@ body.has-fb{padding-bottom:60px}
 </button>
 <div class="acc-body" id="acc2">
   <div class="acc-inner">
-    <div class="match-cal">
-      <div class="match-cal-t">📅 이렇게 작동해요</div>
-      <div class="cal-week"><div class="cal-d">월</div><div class="cal-d">화</div><div class="cal-d">수</div><div class="cal-d">목</div><div class="cal-d">금</div><div class="cal-d">토</div><div class="cal-d cal-d-e">일</div></div>
-      <div class="cal-flow"><div class="cal-fbar"><span>이번 주 (월~일)</span></div><span class="cal-farrow">→</span><div class="cal-fpay">다음 주 월요일 지급!</div></div>
-      <div class="match-diag">
-        <span class="md-box">🏢 팀 $600 이상</span>
-        <span class="md-plus">+</span>
-        <span class="md-box">👤 내 직추 $200 이상</span>
-        <span class="md-plus">=</span>
-        <span class="md-box md-result">🎉 팀 일일보너스 매칭!</span>
+    <!-- Step Cards -->
+    <div class="step-cards">
+      <div class="step-card">
+        <div class="step-num">STEP 1</div>
+        <div class="step-title">📅 한 주 동안 (월~일)</div>
+        <div class="step-body">
+          <div class="step-cond">🏢 우리 팀 매출 <strong>$600 이상</strong></div>
+          <div class="step-cond">👤 내 직추 매출 <strong>$200 이상</strong></div>
+        </div>
+      </div>
+      <div class="step-arrow">▼</div>
+      <div class="step-card step-card-ok">
+        <div class="step-num">STEP 2</div>
+        <div class="step-title">✅ 조건 충족!</div>
+        <div class="step-body">
+          <p class="step-text">팀이 이번 주에 받은 <strong>일일 활성화 보너스</strong>를<br>나도 그대로 매칭받습니다</p>
+        </div>
+      </div>
+      <div class="step-arrow">▼</div>
+      <div class="step-card step-card-pay">
+        <div class="step-num">STEP 3</div>
+        <div class="step-title">💰 다음 주 월요일 지급!</div>
+        <div class="step-body">
+          <p class="step-text">매주 반복! 한 달이면 <strong>4~5번</strong> 매칭 가능</p>
+        </div>
       </div>
     </div>
-    <div class="match-monthly">
-      <div class="match-monthly-t">🗓️ 월간 매칭 (매월 8일이 포함된 주)</div>
-      <p class="match-monthly-d">매월 <strong>8일이 포함된 주(월~일)</strong>에 같은 조건 충족 시,<br>팀의 <strong>전달 월간 활성화 보너스</strong>도 추가로 매칭!<br><span class="match-monthly-n">→ 그 주에는 주간 매칭 + 월간 매칭 동시에 받을 수 있어요</span></p>
+
+    <!-- Monthly bonus -->
+    <div class="step-bonus-box">
+      <div class="step-bonus-title">🎁 보너스 찬스! — 매월 8일이 포함된 주</div>
+      <p class="step-bonus-desc">그 주에 같은 조건을 충족하면<br>팀의 <strong>전달 월간 활성화 보너스(MAB)</strong>도 추가로 매칭!<br><span class="step-bonus-note">→ 주간 매칭 + 월간 매칭 동시 수령 가능 🎉</span></p>
     </div>
+
+    <!-- Inputs -->
+    <p style="font-size:.72rem;font-weight:700;color:var(--sl700);margin:12px 0 6px">📝 팀 보너스 입력</p>
     <div class="match-inputs">
       <div class="fg"><label>팀 일일 보너스 합계 ($)</label><input type="number" id="pDAB" min="0" value="0" oninput="updateAll()"><span class="unit">→ 주간 매칭 (매주)</span></div>
-      <div class="fg"><label>팀 전달 월간 보너스 ($)</label><input type="number" id="pMAB" min="0" value="0" oninput="updateAll()"><span class="unit">→ 월간 매칭 (8일 포함 주)</span></div>
+      <div class="fg"><label>팀 전달 월간 보너스 ($)</label><input type="number" id="pMAB" min="0" value="0" oninput="updateAll()"><span class="unit">→ 월간 매칭 (8일 포함 주에만)</span></div>
     </div>
     <div class="match-result">
       <div class="mr-label">내 매칭 수익</div>
@@ -585,15 +653,26 @@ body.has-fb{padding-bottom:60px}
     <!-- Leg inputs (shared with ④) -->
     <p style="font-size:.72rem;font-weight:700;color:var(--sl700);margin:12px 0 6px">📝 팀 매출 입력 (레그별)</p>
     <div class="leg-c" id="legC">
-      <div class="leg-r"><span class="leg-l">레그 1</span><div class="fg"><label>매출 ($)</label><input type="number" class="leg-v" min="0" value="0" oninput="updateAll()"></div><div class="fg"><label>리커링 ($)</label><input type="number" class="leg-rec" min="0" value="0" oninput="updateAll()"></div><div class="leg-gauge"><div class="leg-gauge-fill" style="width:0"></div></div></div>
-      <div class="leg-r"><span class="leg-l">레그 2</span><div class="fg"><label>매출 ($)</label><input type="number" class="leg-v" min="0" value="0" oninput="updateAll()"></div><div class="fg"><label>리커링 ($)</label><input type="number" class="leg-rec" min="0" value="0" oninput="updateAll()"></div><div class="leg-gauge"><div class="leg-gauge-fill" style="width:0"></div></div></div>
-      <div class="leg-r"><span class="leg-l">레그 3</span><div class="fg"><label>매출 ($)</label><input type="number" class="leg-v" min="0" value="0" oninput="updateAll()"></div><div class="fg"><label>리커링 ($)</label><input type="number" class="leg-rec" min="0" value="0" oninput="updateAll()"></div><div class="leg-gauge"><div class="leg-gauge-fill" style="width:0"></div></div></div>
+      <div class="leg-r"><span class="leg-l">레그 1</span><div class="fg"><label>매출 ($)</label><input type="number" class="leg-v" min="0" value="0" oninput="updateAll()"></div><div class="leg-gauge"><div class="leg-gauge-fill" style="width:0"></div></div></div>
+      <div class="leg-r"><span class="leg-l">레그 2</span><div class="fg"><label>매출 ($)</label><input type="number" class="leg-v" min="0" value="0" oninput="updateAll()"></div><div class="leg-gauge"><div class="leg-gauge-fill" style="width:0"></div></div></div>
+      <div class="leg-r"><span class="leg-l">레그 3</span><div class="fg"><label>매출 ($)</label><input type="number" class="leg-v" min="0" value="0" oninput="updateAll()"></div><div class="leg-gauge"><div class="leg-gauge-fill" style="width:0"></div></div></div>
     </div>
     <button class="btn-add" onclick="addLeg()">＋ 레그 추가</button>
     <div class="fg" style="margin-top:10px">
-      <label>팀 총 활성화 볼륨 (이번 달 신규매출 $)</label>
-      <input type="number" id="teamAct" min="0" value="0" oninput="updateAll()">
-      <span class="unit">매달 최소 $600 이상 필요 (리더십 보너스 조건)</span>
+      <label>팀 최소 활성화 볼륨 (이번 달 신규매출)</label>
+      <select id="teamAct" onchange="updateAll()" class="act-select">
+        <option value="0">선택하세요</option>
+        <option value="600">$600 (MD)</option>
+        <option value="2000">$2,000 (SMD)</option>
+        <option value="5000">$5,000 (RD)</option>
+        <option value="10000">$10,000 (ND)</option>
+        <option value="20000">$20,000 (ID)</option>
+        <option value="50000">$50,000 (ED)</option>
+        <option value="110000">$110,000 (BOD)</option>
+        <option value="300000">$300,000 (ABOD)</option>
+        <option value="1000000">$1,000,000 (PABOD)</option>
+        <option value="2000000">$2,000,000 (RABOD)</option>
+      </select>
     </div>
     <div class="leg-feedback" id="legFB"></div>
     <div class="match-result" style="margin-top:10px">
@@ -612,7 +691,7 @@ body.has-fb{padding-bottom:60px}
 </button>
 <div class="acc-body" id="acc4">
   <div class="acc-inner">
-    <p style="font-size:.72rem;color:var(--sl600);margin-bottom:8px">팀 구독료 매출 × 5% = 리커링 보너스 (계단식 레그 캡 적용)</p>
+    <p style="font-size:.72rem;color:var(--sl600);margin-bottom:8px">팀 구독료 매출 × 승수 = 리커링 보너스 (계단식 레그 캡 적용)</p>
     <button class="acc-btn mab-tbl-btn" onclick="toggleAcc('rqpTbl')">📊 구간별 레그 한도표 <span class="acc-click">(클릭)</span> <span class="acc-ar" id="rqpTbl-ar">▼</span></button>
     <div class="acc-body" id="rqpTbl">
       <table class="bb-tbl">
@@ -629,8 +708,24 @@ body.has-fb{padding-bottom:60px}
         </tbody>
       </table>
     </div>
-    <p style="font-size:.68rem;color:var(--sl500);margin:8px 0">※ 리커링 매출은 ③에서 입력한 레그 데이터를 자동으로 사용합니다.</p>
+    <button class="acc-btn mab-tbl-btn" onclick="toggleAcc('multiTbl')" style="margin-top:4px">💰 리커링 승수표 <span class="acc-click">(클릭)</span> <span class="acc-ar" id="multiTbl-ar">▼</span></button>
+    <div class="acc-body" id="multiTbl">
+      <table class="bb-tbl">
+        <thead><tr><th class="bb-th-v">빌더 베이스 보너스</th><th class="bb-th-p">승수 ($100당)</th></tr></thead>
+        <tbody>
+          <tr><td>$0 ~ $8,999</td><td><strong>$5</strong></td></tr>
+          <tr><td>$9,000 ~ $15,999</td><td><strong>$6</strong></td></tr>
+          <tr><td>$16,000 ~ $22,999</td><td><strong>$7</strong></td></tr>
+          <tr><td>$23,000 ~ $29,999</td><td><strong>$8</strong></td></tr>
+          <tr><td>$30,000</td><td><strong>$9</strong></td></tr>
+          <tr><td>$30,000+ & ID 팀</td><td><strong>$10</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top:8px;padding:6px 10px;background:var(--blue-100);border-radius:6px;font-size:.68rem;font-weight:600;color:var(--blue-700)" id="recMultiInfo">현재 승수: $100당 $5 (기본)</div>
+    <p style="font-size:.68rem;color:var(--sl500);margin:8px 0">레그별 리커링(구독료) 매출을 입력하세요.</p>
     <div class="fg"><label>직추 리커링 ($)</label><input type="number" id="myRec" min="0" value="0" oninput="updateAll()"></div>
+    <div id="recLegs" style="margin-top:6px"></div>
     <div class="leg-feedback" id="rqpFB" style="margin-top:8px"></div>
     <div class="match-result" style="margin-top:10px">
       <div class="mr-label">리커링 보너스</div>
@@ -667,14 +762,34 @@ body.has-fb{padding-bottom:60px}
     <button class="acc-btn mab-tbl-btn" onclick="toggleAcc('wwDiag')" style="margin-top:4px">🤝 왜 윈윈인가? <span class="acc-click">(클릭)</span> <span class="acc-ar" id="wwDiag-ar">▼</span></button>
     <div class="acc-body" id="wwDiag">
       <div class="ww">
-        <div class="ww-t">같은 매출에서 랭크별로 각각 보너스!</div>
-        <div class="ww-rows">
-          <div class="ww-r"><span class="ww-badge rk-go">RD</span><span class="ww-line"></span><span class="ww-amt">$9,000</span></div>
-          <div class="ww-r"><span class="ww-badge rk-si">ND</span><span class="ww-line"></span><span class="ww-amt">$9,000</span></div>
-          <div class="ww-r"><span class="ww-badge rk-go">ID</span><span class="ww-line"></span><span class="ww-amt">$9,000</span></div>
+        <div class="ww-header">
+          <div class="ww-emoji">🚀</div>
+          <div class="ww-t">같은 매출에서 랭크별로 각각 보너스!</div>
+          <div class="ww-sub-t">팀 신규매출 $30,000 달성 시</div>
         </div>
-        <div class="ww-total">총 $27,000</div>
-        <div class="ww-sub">한화 약 4,000만원 — 힘을 합쳐 신규매출을 늘리면 함께 윈윈!</div>
+        <div class="ww-chart">
+          <div class="ww-row">
+            <div class="ww-rank"><span class="rk-badge rk-si">RD</span></div>
+            <div class="ww-bar-wrap"><div class="ww-bar ww-bar-1" style="width:0%"></div></div>
+            <div class="ww-val">$9,000</div>
+          </div>
+          <div class="ww-row">
+            <div class="ww-rank"><span class="rk-badge rk-si">ND</span></div>
+            <div class="ww-bar-wrap"><div class="ww-bar ww-bar-2" style="width:0%"></div></div>
+            <div class="ww-val">$9,000</div>
+          </div>
+          <div class="ww-row">
+            <div class="ww-rank"><span class="rk-badge rk-go">ID</span></div>
+            <div class="ww-bar-wrap"><div class="ww-bar ww-bar-3" style="width:0%"></div></div>
+            <div class="ww-val">$9,000</div>
+          </div>
+        </div>
+        <div class="ww-total-box">
+          <div class="ww-total-label">3명이 각각 받는 보너스 합계</div>
+          <div class="ww-total-amt">$27,000</div>
+          <div class="ww-total-krw">한화 약 4,050만원</div>
+        </div>
+        <div class="ww-msg">💪 힘을 합쳐 신규매출을 늘리면 모두 함께 윈윈!</div>
       </div>
     </div>
     <div class="fg" style="margin-top:10px"><label>내 빌더 베이스 신규매출 ($)</label><input type="number" id="bbSales" min="0" value="0" oninput="updateAll()"><span class="unit">나보다 낮은 랭크 팀원만 포함, ID 이상 제외</span></div>
@@ -690,12 +805,68 @@ body.has-fb{padding-bottom:60px}
 
 <!-- 🎁 인센티브 -->
 <button class="acc-btn ab6" onclick="toggleAcc('acc6')">
-  <span class="acc-l"><span class="acc-n">🎁</span>5대 보너스 & 인센티브 가이드<span class="acc-click">(클릭)</span></span>
+  <span class="acc-l"><span class="acc-n">🎁</span>인센티브 가이드<span class="acc-click">(클릭)</span></span>
   <span class="acc-ar" id="acc6-ar">▼</span>
 </button>
 <div class="acc-body" id="acc6">
   <div class="acc-inner">
-    <!-- Quick guide accordions -->
+    <div class="inc-cards">
+      <div class="inc-c" id="incFree">
+        <span class="inc-ic">💳</span>
+        <div style="flex:1">
+          <div class="inc-ti">무료 멤버십 ($100 면제)</div>
+          <div class="inc-de">직추 생산액 <strong>$500</strong> 달성 시 월 $100 구독료 면제 + 200 포인트 적립</div>
+          <div class="inc-status" id="incFreeStatus"></div>
+        </div>
+      </div>
+      <div class="inc-c" id="incFast">
+        <span class="inc-ic">🚀</span>
+        <div style="flex:1">
+          <div class="inc-ti">패스트 스타트 보너스 $200</div>
+          <div class="inc-de">가입 <strong>익월 말</strong>까지 MD(직추 $3,000) 달성 시 $200 추가 지급</div>
+          <div class="fast-row"><span class="fast-desc">가입월</span><input type="month" id="joinMonth" class="join-input" oninput="updateAll()"><span class="fast-desc">익월 말까지 달성!</span></div>
+          <div class="inc-status" id="incFastStatus"></div>
+        </div>
+      </div>
+      <div class="inc-c" id="incElite">
+        <span class="inc-ic">✈️</span>
+        <div style="flex:1">
+          <div class="inc-ti">엘리트 트립 🏆</div>
+          <div class="inc-de">MD 이상에서 <strong>3개월 연속</strong> 리더십 보너스 수령 → 크루즈 예약 자격!</div>
+          <div class="elite-progress">
+            <div class="elite-months">
+              <button class="elite-month" id="em1" onclick="toggleElite(1)"><span class="em-num">1</span><span class="em-label">1개월차</span></button>
+              <span class="elite-arrow">→</span>
+              <button class="elite-month" id="em2" onclick="toggleElite(2)"><span class="em-num">2</span><span class="em-label">2개월차</span></button>
+              <span class="elite-arrow">→</span>
+              <button class="elite-month" id="em3" onclick="toggleElite(3)"><span class="em-num">3</span><span class="em-label">3개월차</span></button>
+            </div>
+            <div class="elite-bar-wrap"><div class="elite-bar-fill" id="eliteBar" style="width:0%"></div></div>
+            <div class="elite-msg" id="eliteMsg">리더십 보너스를 받은 달을 눌러주세요!</div>
+          </div>
+          <div class="elite-dest" id="eliteDest" style="display:none">
+            <div class="elite-dest-title">🌊 어디로 떠나고 싶으세요?</div>
+            <div class="elite-dest-btns">
+              <button class="dest-btn" onclick="pickDest(this,'🌺 하와이')">🌺<br><span>하와이</span></button>
+              <button class="dest-btn" onclick="pickDest(this,'🧊 알래스카')">🧊<br><span>알래스카</span></button>
+              <button class="dest-btn" onclick="pickDest(this,'🏛️ 지중해')">🏛️<br><span>지중해</span></button>
+              <button class="dest-btn" onclick="pickDest(this,'🏝️ 카리브해')">🏝️<br><span>카리브해</span></button>
+            </div>
+            <div class="elite-congrats" id="eliteCongrats"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 한줄정리 -->
+<button class="acc-btn" onclick="toggleAcc('accSummary')" style="margin-top:16px;border-left:3px solid var(--sl400)">
+  <span class="acc-l"><span class="acc-n" style="background:var(--sl100);color:var(--sl600);font-size:.7rem">📋</span>5대 보너스 한줄정리<span class="acc-click">(클릭)</span></span>
+  <span class="acc-ar" id="accSummary-ar">▼</span>
+</button>
+<div class="acc-body" id="accSummary">
+  <div class="acc-inner">
     <button class="acc-btn mab-tbl-btn ab1" onclick="toggleAcc('g1')"><span class="acc-l"><span class="acc-n">①</span>일일 & 월간 활성화</span><span class="acc-ar" id="g1-ar">▼</span></button>
     <div class="acc-body" id="g1"><div style="padding:10px 4px;font-size:.72rem;color:var(--sl600);line-height:1.7">
       <strong>일일 (DAB)</strong>: Classic $20 / Premium $50 — 24시간 이내 즉시 지급<br>
@@ -721,15 +892,6 @@ body.has-fb{padding-bottom:60px}
       이번 달 신규매출 $5K이상 → 5% / $10K이상 → 10% / $30K이상 → 30%<br>
       QBI 65% 이상 = 100% 지급. 랭크별로 각각 수령 가능 (윈윈!)
     </div></div>
-    <hr style="border:none;border-top:1px solid var(--sl200);margin:12px 0">
-    <p style="font-size:.75rem;font-weight:700;color:var(--sl700);margin-bottom:8px">🎁 인센티브</p>
-    <div class="inc-cards">
-      <div class="inc-c"><span class="inc-ic">💳</span><div><div class="inc-ti">무료 멤버십 ($100 면제)</div><div class="inc-de">직추 생산액 <strong>$500</strong> 달성 시 월 $100 구독료 면제 + 200 포인트 적립</div></div></div>
-      <div class="inc-c"><span class="inc-ic">🚀</span><div><div class="inc-ti">패스트 스타트 보너스 $200</div><div class="inc-de">가입 <strong>익월 말</strong>까지 MD(직추 $3,000) 달성 시 $200 추가 지급</div>
-        <div class="fast-row"><span class="fast-desc">가입월</span><input type="month" id="joinMonth" class="join-input"><span class="fast-desc">익월 말까지 달성!</span></div>
-      </div></div>
-      <div class="inc-c"><span class="inc-ic">✈️</span><div><div class="inc-ti">엘리트 트립</div><div class="inc-de">MD 이상에서 <strong>3개월 연속</strong> 리더십 보너스 수령 → 90일 이후 예약 시 <strong>100% 리워드</strong>로 크루즈 예약 가능!</div></div></div>
-    </div>
   </div>
 </div>
 
@@ -759,7 +921,15 @@ const fmtK=n=>{const m=Math.round(n*fx()/10000);return m.toLocaleString()+'만�
 const FLAGS=['🇰🇷','🇯🇵','🇰🇷','🇺🇸','🇰🇷','🇪🇸','🇰🇷','🇧🇷','🇰🇷','🇸🇬','🇰🇷','🇲🇾','🇰🇷','🇵🇪'];
 
 // ── ACCORDION ──
-function toggleAcc(id){const b=$(id),a=$(id+'-ar');b.classList.toggle('open');if(a)a.classList.toggle('open')}
+function toggleAcc(id){const b=$(id),a=$(id+'-ar');b.classList.toggle('open');if(a)a.classList.toggle('open');
+  // Animate WinWin bars when opening
+  if(id==='wwDiag'&&b.classList.contains('open')){
+    setTimeout(()=>{
+      const bars=b.querySelectorAll('.ww-bar');
+      bars.forEach((bar,i)=>{setTimeout(()=>{bar.style.width='80%'},i*200)});
+    },100);
+  }
+}
 
 // ── PHOTO ──
 function handlePhoto(inp){if(!inp.files||!inp.files[0])return;const r=new FileReader();r.onload=e=>{$('profImg').src=e.target.result;$('profImg').classList.add('has');$('profPh').classList.add('hid')};r.readAsDataURL(inp.files[0])}
@@ -800,10 +970,40 @@ function mabPP(type,cnt){
 // ── ADD LEG ──
 let legN=3;
 function addLeg(){legN++;const c=$('legC');const r=document.createElement('div');r.className='leg-r';
-r.innerHTML=`<span class="leg-l">레그 ${legN} <button class="btn-rm" onclick="rmLeg(this)">✕</button></span><div class="fg"><label>매출 ($)</label><input type="number" class="leg-v" min="0" value="0" oninput="updateAll()"></div><div class="fg"><label>리커링 ($)</label><input type="number" class="leg-rec" min="0" value="0" oninput="updateAll()"></div><div class="leg-gauge"><div class="leg-gauge-fill" style="width:0"></div></div>`;
+r.innerHTML=`<span class="leg-l">레그 ${legN} <button class="btn-rm" onclick="rmLeg(this)">✕</button></span><div class="fg"><label>매출 ($)</label><input type="number" class="leg-v" min="0" value="0" oninput="updateAll()"></div><div class="leg-gauge"><div class="leg-gauge-fill" style="width:0"></div></div>`;
 c.appendChild(r)}
 function rmLeg(btn){if(document.querySelectorAll('.leg-r').length<=3)return alert('최소 3개 레그 필요');btn.closest('.leg-r').remove();reIdx()}
 function reIdx(){document.querySelectorAll('.leg-r').forEach((r,i)=>{const l=r.querySelector('.leg-l');if(l)l.childNodes[0].textContent='레그 '+(i+1)+' '});legN=document.querySelectorAll('.leg-r').length}
+
+// ── ELITE TRIP ──
+let eliteChecks=[false,false,false];
+function toggleElite(n){
+  eliteChecks[n-1]=!eliteChecks[n-1];
+  const btn=$('em'+n);
+  btn.classList.toggle('checked',eliteChecks[n-1]);
+  const count=eliteChecks.filter(Boolean).length;
+  $('eliteBar').style.width=(count/3*100)+'%';
+  const dest=$('eliteDest');
+  const msg=$('eliteMsg');
+  if(count===3){
+    msg.textContent='🎉 3개월 연속 달성! 크루즈 예약 자격 획득!';
+    msg.className='elite-msg complete';
+    dest.style.display='block';
+  }else if(count>0){
+    msg.textContent='🔥 '+count+'/3개월 달성! '+(3-count)+'개월 남았어요!';
+    msg.className='elite-msg';
+    dest.style.display='none';
+  }else{
+    msg.textContent='리더십 보너스를 받은 달을 눌러주세요!';
+    msg.className='elite-msg';
+    dest.style.display='none';
+  }
+}
+function pickDest(btn,name){
+  document.querySelectorAll('.dest-btn').forEach(b=>b.classList.remove('picked'));
+  btn.classList.add('picked');
+  $('eliteCongrats').textContent='✨ '+name+'로 떠나는 꿈의 크루즈! 곧 현실이 됩니다 🚢';
+}
 
 // ── MASTER UPDATE ──
 function updateAll(){
@@ -828,15 +1028,9 @@ function updateAll(){
   $('cInc').textContent=fmt(c*20);$('pInc').textContent=fmt(p*50);
   $('cIncK').textContent='₩'+(c*20*f).toLocaleString();
   $('pIncK').textContent='₩'+(p*50*f).toLocaleString();
-  // Mini chart
-  const cProd=c*200,pProd=p*500,tProd=cProd+pProd;
-  $('miniGoal').textContent='🎯 '+fmt(goalUsd);
-  const cW=Math.min(100,cProd/goalUsd*100),pW=Math.min(100-cW,pProd/goalUsd*100);
-  $('miniC').style.width=cW+'%';$('miniP').style.width=pW+'%';
-  const tPct=Math.min(100,Math.round(tProd/goalUsd*100));
-  $('miniPct').textContent=tProd>=goalUsd?'🎉 목표 달성!':tPct+'%';
-  $('miniPct').classList.toggle('ach',tProd>=goalUsd);
-  $('cProdL').textContent=fmt(cProd);$('pProdL').textContent=fmt(pProd);$('tProdL').textContent=fmt(tProd);
+  // DAB total display
+  $('dabTotalAmt').textContent=fmt(dab);
+  $('dabTotalKrw').textContent='₩'+(dab*f).toLocaleString();
   // MAB
   $('mabTotal').textContent=fmt(mab);
   $('mabCDet').textContent=c>=3?c+'명 × $'+cPP+' =':(c>0?c+'명 (3명 이상 필요)':'0명');
@@ -845,6 +1039,9 @@ function updateAll(){
   $('mabPAmt').textContent=p>=3?fmt(pMAB):'$0';
   $('mabTotA').textContent=fmt(mab);
   $('mabTotK').textContent=mab>0?'('+fmtK(mab)+')':'';
+  // Combined DAB+MAB total
+  $('dmtAmt').textContent=fmt(bonus1);
+  $('dmtKrw').textContent=bonus1>0?'('+fmtK(bonus1)+')':'';
   $('prev1').textContent=fmt(bonus1);
 
   // ② Matching
@@ -861,13 +1058,12 @@ function updateAll(){
   document.querySelectorAll('.leg-r').forEach(r=>{
     legs.push({
       v:parseFloat(r.querySelector('.leg-v').value)||0,
-      rec:parseFloat(r.querySelector('.leg-rec').value)||0,
       row:r
     });
   });
   const totalTeam=legs.reduce((s,l)=>s+l.v,0);
   let curRank=null,bonus3=0,actMet=true;
-  const tAct=V('teamAct');
+  const tAct=parseInt($('teamAct').value)||0;
   const sortedLegs=[...legs].sort((a,b)=>b.v-a.v);
   for(const r of RANKS){
     const capped=sortedLegs.map(l=>totalTeam>0?Math.min(l.v,totalTeam*r.legCap):l.v);
@@ -875,9 +1071,9 @@ function updateAll(){
     if(elig>=r.min){
       curRank=r;
       if(tAct>=r.minAct){bonus3=r.bonus;actMet=true}
+      else if(tAct===0){bonus3=0;actMet=false}
       else if(tAct>=600&&r.min>=10000){bonus3=Math.round(r.bonus*.5);actMet=false}
-      else if(r.key==='MD'&&tAct<600){bonus3=0;actMet=false}
-      else{bonus3=Math.round(r.bonus*.5);actMet=false}
+      else{bonus3=0;actMet=false}
       break;
     }
   }
@@ -908,37 +1104,12 @@ function updateAll(){
   }else{fb.className='leg-feedback'}
   $('leadAmt').textContent=fmt(bonus3);
   $('leadKrw').textContent='₩'+(bonus3*f).toLocaleString();
-  $('leadRank').textContent=curRank?(curRank.name+(actMet?' ✅':' ⚠️ 활성화볼륨 부족')):'직급 미달';
+  $('leadRank').textContent=curRank?(curRank.name+(actMet?' ✅ 100%':(bonus3>0?' ⚠️ 50% (활성화볼륨 부족)':' ❌ 보너스 없음 (활성화볼륨 미달)'))):'직급 미달';
   $('prev3').textContent=fmt(bonus3);
   // Rank table highlight
   populateRanks(goalManwon);
 
-  // ④ Recurring (RQP)
-  const myRec=V('myRec');
-  const totalRecRaw=myRec+legs.reduce((s,l)=>s+l.rec,0);
-  const rqpCap=getRqpCap(totalRecRaw);
-  let rqpTotal=myRec;
-  let rqpWasted=0;
-  legs.forEach(l=>{
-    const capped=Math.min(l.rec,rqpCap);
-    rqpTotal+=capped;
-    rqpWasted+=(l.rec-capped);
-  });
-  const bonus4=Math.floor(rqpTotal/100)*5;
-  $('recAmt').textContent=fmt(bonus4);
-  $('recKrw').textContent='₩'+(bonus4*f).toLocaleString();
-  $('rqpInfo').textContent='RQP '+fmt(rqpTotal)+' (레그캡 '+fmt(rqpCap)+'/레그)'+(rqpWasted>0?' | 초과분 '+fmt(rqpWasted)+' 제외':'');
-  // RQP jump hint
-  const rqpFB=$('rqpFB');
-  const nextTier=RQP_TIERS.slice().reverse().find(t=>t.min>totalRecRaw);
-  if(nextTier&&totalRecRaw>0){
-    const gap=nextTier.min-totalRecRaw;
-    rqpFB.innerHTML='💡 '+fmt(gap)+'만 더 채우면 '+fmt(nextTier.min)+' 구간 진입! 레그캡 '+fmt(rqpCap)+' → '+fmt(nextTier.cap)+'로 수익 대폭 상승!';
-    rqpFB.className='leg-feedback show tip';
-  }else{rqpFB.className='leg-feedback'}
-  $('prev4').textContent=fmt(bonus4);
-
-  // ⑤ Builder Base
+  // ⑤ Builder Base (calculate first for recurring multiplier)
   const bbS=V('bbSales');
   const qbiV=Math.min(100,Math.max(0,V('qbi')));
   let bbPct=0;
@@ -950,24 +1121,119 @@ function updateAll(){
   $('bbInfo').textContent=bbPct>0?(fmt(bbS)+' × '+(bbPct*100)+'% = '+fmt(bbRaw)+(qbiV<65?' × QBI '+qbiV+'% = '+fmt(bonus5):' (QBI '+qbiV+'% ✅)')):'$5,000 이상 필요';
   $('prev5').textContent=fmt(bonus5);
 
+  // Recurring multiplier (based on BB bonus)
+  let recMulti=5;
+  if(bonus5>=30000)recMulti=9;
+  else if(bonus5>=23000)recMulti=8;
+  else if(bonus5>=16000)recMulti=7;
+  else if(bonus5>=9000)recMulti=6;
+  // TODO: $30,000+ & ID team → $10
+
+  // ④ Recurring (RQP) - 캡 적용 후 합계로 구간 판단
+  // Sync recurring leg inputs with ③ leg count
+  const recLegsDiv=$('recLegs');
+  const curRecInputs=recLegsDiv.querySelectorAll('.rec-leg-fg');
+  if(curRecInputs.length!==legs.length){
+    recLegsDiv.innerHTML=legs.map((_,i)=>`<div class="rec-leg-fg fg" style="margin-bottom:4px"><label>레그 ${i+1} 리커링 ($)</label><input type="number" class="rec-leg-v" min="0" value="${curRecInputs[i]?curRecInputs[i].querySelector('input').value:'0'}" oninput="updateAll()"></div>`).join('');
+  }
+  const myRec=V('myRec');
+  const recLegVals=[];
+  recLegsDiv.querySelectorAll('.rec-leg-v').forEach(inp=>recLegVals.push(parseFloat(inp.value)||0));
+
+  // Iterative: 최저 캡부터 적용 → 합계로 구간 판단 → 안정될 때까지 반복
+  let rqpCap=1200; // 최저 캡으로 시작
+  let rqpTotal=0;
+  let rqpWasted=0;
+  for(let iter=0;iter<5;iter++){
+    rqpTotal=myRec;
+    rqpWasted=0;
+    recLegVals.forEach(v=>{
+      const capped=Math.min(v,rqpCap);
+      rqpTotal+=capped;
+      rqpWasted+=(v-capped);
+    });
+    const newCap=getRqpCap(rqpTotal);
+    if(newCap===rqpCap)break; // 안정됨
+    rqpCap=newCap;
+  }
+
+  const bonus4=Math.floor(rqpTotal/100)*recMulti;
+  $('recAmt').textContent=fmt(bonus4);
+  $('recKrw').textContent='₩'+(bonus4*f).toLocaleString();
+  $('rqpInfo').textContent='RQP '+fmt(rqpTotal)+' × $'+recMulti+'/100 (레그당 최대 인정 '+fmt(rqpCap)+')'+(rqpWasted>0?' | 초과분 '+fmt(rqpWasted)+' 제외':'');
+  // RQP jump hint
+  const rqpFB=$('rqpFB');
+  const nextTier=RQP_TIERS.slice().reverse().find(t=>t.min>rqpTotal);
+  if(nextTier&&rqpTotal>0){
+    const gap=nextTier.min-rqpTotal;
+    rqpFB.innerHTML='💡 '+fmt(gap)+'만 더 채우면 '+fmt(nextTier.min)+' 구간 진입! 레그당 최대 인정 '+fmt(rqpCap)+' → '+fmt(nextTier.cap)+'로 수익 대폭 상승!';
+    rqpFB.className='leg-feedback show tip';
+  }else{rqpFB.className='leg-feedback'}
+  // Multiplier info
+  $('recMultiInfo').textContent='현재 승수: $100당 $'+recMulti+(recMulti>5?' (빌더 베이스 '+fmt(bonus5)+' 연동 🔥)':' (기본)');
+  $('prev4').textContent=fmt(bonus4);
+
+  // INCENTIVES
+  // 💳 Free membership: direct production >= $500
+  const directProd=c*200+p*500;
+  const freeEl=$('incFree');
+  const freeSt=$('incFreeStatus');
+  if(directProd>=500){
+    freeSt.textContent='✅ 달성! 월 $100 구독료 면제 + 200 포인트 적립';
+    freeSt.className='inc-status achieved';
+    freeEl.classList.add('done');
+  }else if(directProd>0){
+    const need=500-directProd;
+    freeSt.textContent='⏳ $'+need+' 더 필요 (현재 $'+directProd+')';
+    freeSt.className='inc-status not-yet';
+    freeEl.classList.remove('done');
+  }else{
+    freeSt.textContent='';freeSt.className='inc-status';freeEl.classList.remove('done');
+  }
+  // 🚀 Fast start: joinMonth + 1 month end not passed & MD achieved
+  let fastBonus=0;
+  const joinVal=$('joinMonth').value;
+  const fastEl=$('incFast');
+  const fastSt=$('incFastStatus');
+  if(joinVal){
+    const [jy,jm]=joinVal.split('-').map(Number);
+    const deadline=new Date(jm===12?jy+1:jy,jm===12?1:jm+1,0); // end of next month
+    const now=new Date();
+    if(now<=deadline){
+      if(directProd>=3000){
+        fastBonus=200;
+        fastSt.textContent='🎉 패스트 스타트 달성! $200 보너스 추가!';
+        fastSt.className='inc-status achieved';
+        fastEl.classList.add('done');
+      }else{
+        fastSt.textContent='⏳ MD까지 $'+(3000-directProd)+' 더 필요 ('+deadline.toLocaleDateString('ko-KR')+' 까지)';
+        fastSt.className='inc-status not-yet';
+        fastEl.classList.remove('done');
+      }
+    }else{
+      fastSt.textContent='⏰ 기한 만료 ('+deadline.toLocaleDateString('ko-KR')+')';
+      fastSt.className='inc-status not-yet';
+      fastEl.classList.remove('done');
+    }
+  }else{fastSt.textContent='';fastSt.className='inc-status';fastEl.classList.remove('done')}
+
   // TOTAL
-  const total=bonus1+bonus2+bonus3+bonus4+bonus5;
+  const total=bonus1+bonus2+bonus3+bonus4+bonus5+fastBonus;
   updateBuilding(c,p);
-  updateFloat(total,dab,mab,bonus2,bonus3,bonus4,bonus5);
+  updateFloat(total,dab,mab,bonus2,bonus3,bonus4,bonus5,fastBonus);
 }
 
 // ── RANK TABLE ──
 function populateRanks(goalManwon){
   const f=fx();
-  const goalUsd=Math.round(goalManwon*10000/f);
-  // Find closest rank by bonus
+  // Find first rank (from MD up) whose bonus KRW >= goal
   let hlIdx=-1;
-  const data=[...RANKS].reverse(); // MD first
-  for(let i=data.length-1;i>=0;i--){
+  const data=[...RANKS].reverse(); // MD first (index 0)
+  for(let i=0;i<data.length;i++){
     const krw=Math.round(data[i].bonus*f/10000);
     if(krw>=goalManwon){hlIdx=i;break}
   }
-  if(hlIdx===-1)hlIdx=data.length-1; // highest
+  if(hlIdx===-1)hlIdx=data.length-1; // if none found, highest
   const tierCls={br:'rk-br',si:'rk-si',go:'rk-go',di:'rk-di',cr:'rk-cr'};
   $('rankBody').innerHTML=data.map((r,i)=>`
     <tr class="${i===hlIdx?'hl':''}">
@@ -1020,7 +1286,7 @@ function updateBuilding(c,p){
 
 // ── FLOATING BAR ──
 let fbVis=false;
-function updateFloat(total,dab,mab,b2,b3,b4,b5){
+function updateFloat(total,dab,mab,b2,b3,b4,b5,fb){
   const f=fx();const bar=$('fbar');
   if(total>0&&!fbVis){bar.classList.add('vis');document.body.classList.add('has-fb');fbVis=true}
   else if(total===0&&fbVis){bar.classList.remove('vis');document.body.classList.remove('has-fb');fbVis=false}
@@ -1030,6 +1296,7 @@ function updateFloat(total,dab,mab,b2,b3,b4,b5){
   if(dab>0)parts.push('일일 $'+dab);if(mab>0)parts.push('월간 $'+mab);
   if(b2>0)parts.push('매칭 $'+b2);if(b3>0)parts.push('리더십 $'+b3);
   if(b4>0)parts.push('리커링 $'+b4);if(b5>0)parts.push('빌더 $'+b5);
+  if(fb>0)parts.push('패스트스타트 $'+fb);
   $('fbarBd').textContent=parts.length?parts.join(' + '):'멤버를 추가해보세요';
   const goalKrw=parseInt($('goalKrw').value)||250;
   const goalUsd=Math.round(goalKrw*10000/f);
