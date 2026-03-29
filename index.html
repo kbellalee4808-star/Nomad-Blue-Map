@@ -1155,11 +1155,16 @@ body {
   letter-spacing: 0.04em;
   margin-top: 4px;
 }
-.rank-MD { background: rgba(135,206,235,0.2); color: var(--blue-300); }
-.rank-SD { background: rgba(212,168,83,0.2); color: var(--gold-400); }
-.rank-ED { background: rgba(232,132,107,0.2); color: var(--coral); }
-.rank-PD { background: rgba(107,197,176,0.2); color: var(--mint); }
-.rank-BOD { background: rgba(255,215,0,0.25); color: #B8860B; }
+.rank-MD { background: rgba(135,206,235,0.2); color: var(--blue-500); }
+.rank-SMD { background: rgba(135,206,235,0.25); color: var(--blue-600); }
+.rank-RD { background: rgba(192,192,192,0.2); color: #666; }
+.rank-ND { background: rgba(192,192,192,0.25); color: #555; }
+.rank-ID { background: rgba(212,168,83,0.2); color: var(--gold-500); }
+.rank-ED { background: rgba(212,168,83,0.25); color: #A07D2E; }
+.rank-BOD { background: rgba(255,215,0,0.2); color: #B8860B; }
+.rank-ABOD { background: rgba(135,206,235,0.2); color: var(--blue-600); }
+.rank-PBOD { background: rgba(107,197,176,0.2); color: var(--mint); }
+.rank-GBOD { background: rgba(255,165,0,0.2); color: #D4760A; }
 .rank-RBOD { background: linear-gradient(135deg, rgba(255,215,0,0.3), rgba(255,165,0,0.3)); color: #8B6914; }
 .rank-none { background: var(--slate-100); color: var(--slate-400); }
 
@@ -1659,6 +1664,114 @@ body {
 .bl-dot.bl-classic { background: var(--blue-400); }
 .bl-dot.bl-premium { background: var(--gold-400); }
 
+/* ── ACCORDION ── */
+.accordion-btn {
+  width: 100%;
+  padding: 14px 18px;
+  background: var(--slate-50);
+  border: 1.5px solid var(--slate-200);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--slate-600);
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+.accordion-btn:hover { background: var(--blue-100); border-color: var(--blue-300); color: var(--blue-700); }
+.acc-arrow { transition: transform 0.3s; font-size: 0.75rem; }
+.acc-arrow.open { transform: rotate(180deg); }
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+.accordion-body.open { max-height: 2000px; }
+
+/* ── RANK TABLE ── */
+.rank-section { }
+.rank-table-scroll { overflow-x: auto; margin-top: 12px; }
+.rank-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.78rem;
+}
+.rank-table thead th {
+  padding: 10px 12px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-align: center;
+  white-space: nowrap;
+  background: var(--blue-800);
+  color: #fff;
+}
+.rank-table thead th:first-child { border-radius: 8px 0 0 0; text-align: left; }
+.rank-table thead th:last-child { border-radius: 0 8px 0 0; }
+.rank-table .col-prod { background: var(--blue-700); }
+.rank-table .col-act { background: #E87C00; }
+.rank-table .col-bonus { background: #1A7A5A; }
+.rank-table .col-krw { background: #8B6914; }
+.rank-table tbody td {
+  padding: 10px 12px;
+  text-align: center;
+  border-bottom: 1px solid var(--slate-100);
+  color: var(--slate-600);
+}
+.rank-table tbody td:first-child { text-align: left; font-weight: 600; color: var(--slate-700); }
+.rank-table tbody tr:hover { background: var(--blue-100); }
+.rank-table tbody tr.current-rank-row { background: rgba(135,206,235,0.15); }
+.rank-table tbody tr.current-rank-row td { font-weight: 700; color: var(--blue-800); }
+.rank-table .td-prod { color: var(--blue-700); font-weight: 700; }
+.rank-table .td-act { color: #E87C00; font-weight: 600; }
+.rank-table .td-bonus { color: #1A7A5A; font-weight: 700; font-size: 0.85rem; }
+.rank-table .td-krw { color: #8B6914; font-weight: 700; }
+.rank-table .rank-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.rank-tier {
+  font-size: 0.6rem;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.tier-bronze { background: #F5E6D3; color: #8B6914; }
+.tier-silver { background: #E8E8E8; color: #555; }
+.tier-gold { background: #FFF3D6; color: #B8860B; }
+.tier-diamond { background: #E8F4FD; color: var(--blue-600); }
+.tier-crown { background: linear-gradient(135deg,#FFD700,#FFA500); color: #fff; }
+.rank-table .you-badge {
+  display: inline-block;
+  background: var(--blue-500);
+  color: #fff;
+  font-size: 0.55rem;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 8px;
+  margin-left: 4px;
+}
+
+/* ── CAUTIONS ── */
+.caution-list { padding: 12px 0; display: flex; flex-direction: column; gap: 10px; }
+.caution-item {
+  padding: 14px 16px;
+  background: #FFF8F0;
+  border-radius: 8px;
+  border-left: 3px solid #E87C00;
+  font-size: 0.78rem;
+  color: var(--slate-600);
+  line-height: 1.7;
+}
+.caution-item strong { color: var(--slate-800); }
+
 /* ── FLOATING EARNINGS BAR ── */
 .floating-bar {
   position: fixed;
@@ -1797,6 +1910,9 @@ body.has-float { padding-bottom: 80px; }
   .mab-plan-row { padding: 10px 6px 8px; }
   .mab-plan-label { font-size: 0.62rem; padding: 2px 10px; }
   .mab-summary { font-size: 0.7rem; }
+  .rank-table { font-size: 0.7rem; }
+  .rank-table thead th, .rank-table tbody td { padding: 8px 8px; }
+  .caution-item { font-size: 0.72rem; }
   .schedule-table { font-size: 0.78rem; }
   .schedule-table thead th, .schedule-table tbody td { padding: 10px 10px; }
 }
@@ -2130,12 +2246,75 @@ body.has-float { padding-bottom: 80px; }
       </div>
     </div>
     <button class="btn-add-leg" onclick="addLeg()">＋ 레그 추가</button>
+    <div class="form-grid" style="margin-top:16px">
+      <div class="form-group">
+        <label>팀 총 활성화 볼륨 ($ / 이번 달 신규매출)</label>
+        <input type="number" id="teamActivation" min="0" value="0" placeholder="600">
+        <span class="unit">매달 최소 $600 이상 필요 (리더십 보너스 조건)</span>
+      </div>
+    </div>
   </section>
 
   <!-- Hidden defaults -->
   <input type="hidden" id="qbiDirect" value="65">
   <input type="hidden" id="newActive" value="0">
   <input type="hidden" id="retainedMembers" value="0">
+
+  <!-- ═══ RANK TABLE ACCORDION ═══ -->
+  <section class="section-card rank-section" style="animation-delay:0.35s">
+    <h2><span class="icon">🏆</span> ③ 팀 리더십 보너스 — 직급 & 보상표</h2>
+    <p class="desc">팀 매출로 직급이 올라가면 매월 자동 지급! 한 팀에만 의존하지 말고 골고루 키우세요.</p>
+
+    <button class="accordion-btn" onclick="toggleAccordion('rankTableWrap')">
+      📊 직급별 보상표 보기 <span class="acc-arrow" id="rankTableWrap-arrow">▼</span>
+    </button>
+    <div class="accordion-body" id="rankTableWrap">
+      <div class="rank-table-scroll">
+        <table class="rank-table">
+          <thead>
+            <tr>
+              <th>직급</th>
+              <th class="col-prod">적격 생산액</th>
+              <th>레그 캡</th>
+              <th class="col-act">활성화 볼륨</th>
+              <th class="col-bonus">리더십 보너스</th>
+              <th class="col-krw">한화 환산</th>
+            </tr>
+          </thead>
+          <tbody id="rankTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <button class="accordion-btn" onclick="toggleAccordion('rankCaution')" style="margin-top:10px">
+      ⚠️ 주의사항 & 조건 확인 <span class="acc-arrow" id="rankCaution-arrow">▼</span>
+    </button>
+    <div class="accordion-body" id="rankCaution">
+      <div class="caution-list">
+        <div class="caution-item">
+          <strong>📌 40% 룰 (레그 캡)</strong><br>
+          한 팀(레그)에서 아무리 매출이 나와도, 내 직급 기준 총 매출의 40%까지만 인정됩니다.<br>
+          예: 목표 $50,000 → 한 라인에서 $50,000이 나와도 $20,000만 인정. 나머지는 다른 라인에서!
+        </div>
+        <div class="caution-item">
+          <strong>📌 총 활성화 볼륨 (매달 신규매출)</strong><br>
+          직급을 달성해도 매달 팀의 신규매출(활성화 볼륨)이 기준 미달이면 보너스가 감액됩니다.<br>
+          • MD: $600 미만 → 직급만 유지, 보너스 0원<br>
+          • SMD 이상: $600 이상이면 50% 지급, 기준 충족 시 100%
+        </div>
+        <div class="caution-item">
+          <strong>📌 상위 직급 (BOD 이상)</strong><br>
+          BOD 이상은 레그 캡이 40%이지만, 앰배서더 등급부터는 20% → 10%로 더 균형 잡힌 팀 필요.<br>
+          즉, 더 많은 리더를 양성해야 최고 직급에 도달할 수 있습니다.
+        </div>
+        <div class="caution-item">
+          <strong>📌 지급일</strong><br>
+          팀 리더십 보너스는 매월 10일에 전월 생산액 기준으로 자동 지급됩니다.<br>
+          지급일에 활성 파트너여야 하며, 미활성 시 보너스가 영구 소멸됩니다.
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- CALCULATE -->
   <div class="calc-btn-wrap">
@@ -2154,7 +2333,7 @@ body.has-float { padding-bottom: 80px; }
       <div class="gauge-wrap">
         <div class="gauge-label-row">
           <span>현재</span>
-          <span id="gaugeTarget">목표: MD ($2,000)</span>
+          <span id="gaugeTarget">목표: MD ($3,000)</span>
         </div>
         <div class="gauge-bar">
           <div class="gauge-fill" id="gaugeFill"></div>
@@ -2292,6 +2471,7 @@ function updateGoal() {
   document.getElementById('goalUsd').textContent = '$' + goal.toLocaleString();
   updateGoalProgress();
   updateMiniChart();
+  populateRankTable();
 }
 function updateGoalProgress() {
   const fx = parseInt(document.getElementById('fxRate').value) || 1500;
@@ -2643,36 +2823,60 @@ function calculate() {
   const bonus2 = weeklyMatch; // 100% matching of partner DAB+MAB
 
   // ═══ BONUS 3: 팀 리더십 (직급 판정) ═══
-  // 40% rule: 한 라인은 전체 팀 매출의 40%까지만 인정
+  // 40% rule for lower ranks, 20%/10% for top ranks
   const sortedLegs = [...legs].sort((a, b) => b.total - a.total);
   const maxLegPct = totalTeamProd > 0 ? (sortedLegs[0]?.total / totalTeamProd * 100) : 0;
-  // Cap each leg at 40% of total team production
-  const cappedLegs = sortedLegs.map((l) => {
-    if (totalTeamProd > 0) {
-      return Math.min(l.total, totalTeamProd * 0.4);
-    }
-    return l.total;
-  });
-  const eligibleProd = cappedLegs.reduce((s, v) => s + v, 0);
 
-  // Rank thresholds — 보너스는 적격 생산액의 10%
+  // Rank table: name, key, min(적격생산액), legCap%, minActivation(총활성화볼륨), bonus
   const ranks = [
-    { name: 'Royal BOD', key: 'RBOD', min: 750000 },
-    { name: 'BOD',       key: 'BOD',  min: 400000 },
-    { name: 'Presidential Director', key: 'PD', min: 200000 },
-    { name: 'Executive Director', key: 'ED', min: 100000 },
-    { name: 'National Director',  key: 'SD', min: 50000 },
-    { name: 'Managing Director',  key: 'MD', min: 3000 },
+    { name: '로열 앰배서더 BOD', nameEn: 'Royal Ambassador BOD', key: 'RBOD', min: 1000000, legCap: 0.10, minAct: 2000000, bonus: 305000 },
+    { name: '글로벌 앰배서더 BOD', nameEn: 'Global Ambassador BOD', key: 'GBOD', min: 1000000, legCap: 0.10, minAct: 400000, bonus: 180000 },
+    { name: '프리미어 앰배서더 BOD', nameEn: 'Premier Ambassador BOD', key: 'PBOD', min: 750000, legCap: 0.20, minAct: 1000000, bonus: 155000 },
+    { name: '앰배서더 BOD', nameEn: 'Ambassador BOD', key: 'ABOD', min: 750000, legCap: 0.20, minAct: 300000, bonus: 105000 },
+    { name: '이사회 (BOD)', nameEn: 'Board of Directors', key: 'BOD', min: 550000, legCap: 0.40, minAct: 110000, bonus: 55000 },
+    { name: '상무이사 (ED)', nameEn: 'Executive Director', key: 'ED', min: 250000, legCap: 0.40, minAct: 50000, bonus: 25000 },
+    { name: '국제이사 (ID)', nameEn: 'International Director', key: 'ID', min: 100000, legCap: 0.40, minAct: 20000, bonus: 10000 },
+    { name: '전국이사 (ND)', nameEn: 'National Director', key: 'ND', min: 50000, legCap: 0.40, minAct: 10000, bonus: 5000 },
+    { name: '지역이사 (RD)', nameEn: 'Regional Director', key: 'RD', min: 25000, legCap: 0.40, minAct: 5000, bonus: 2500 },
+    { name: '시니어 MD (SMD)', nameEn: 'Senior Marketing Director', key: 'SMD', min: 10000, legCap: 0.40, minAct: 2000, bonus: 1000 },
+    { name: '마케팅 이사 (MD)', nameEn: 'Marketing Director', key: 'MD', min: 3000, legCap: 0.40, minAct: 600, bonus: 300 },
   ];
+
+  // Determine rank based on eligible production (with per-rank leg cap)
   let currentRank = null;
   let bonus3 = 0;
+  let activationMet = true;
+  const teamActivation = val('teamActivation');
   for (const r of ranks) {
-    if (eligibleProd >= r.min) {
+    // Cap legs according to this rank's legCap%
+    const cappedForRank = sortedLegs.map((l) => {
+      return totalTeamProd > 0 ? Math.min(l.total, totalTeamProd * r.legCap) : l.total;
+    });
+    const eligForRank = cappedForRank.reduce((s, v) => s + v, 0);
+    if (eligForRank >= r.min) {
       currentRank = r;
-      bonus3 = Math.round(eligibleProd * 0.10); // 10% of eligible production
+      // Check activation volume
+      if (teamActivation >= r.minAct) {
+        bonus3 = r.bonus;
+        activationMet = true;
+      } else if (teamActivation >= 600 && r.min >= 10000) {
+        // SMD 이상: 활성화볼륨 $600 이상이면 50% 지급
+        bonus3 = Math.round(r.bonus * 0.5);
+        activationMet = false;
+      } else if (r.key === 'MD' && teamActivation < 600) {
+        // MD: 활성화볼륨 $600 미만이면 직급만, 보너스 0
+        bonus3 = 0;
+        activationMet = false;
+      }
       break;
     }
   }
+  // Recalc eligible prod for display (use current rank's legCap)
+  const currentLegCap = currentRank ? currentRank.legCap : 0.40;
+  const cappedLegs = sortedLegs.map((l) => {
+    return totalTeamProd > 0 ? Math.min(l.total, totalTeamProd * currentLegCap) : l.total;
+  });
+  const eligibleProd = cappedLegs.reduce((s, v) => s + v, 0);
 
   // ═══ BONUS 4: 리커링 보너스 ═══
   // Multiplier based on builder base bonus bracket
@@ -2803,7 +3007,7 @@ function calculate() {
     },
     {
       num: '03', title: '팀 리더십 보너스', amount: bonus3,
-      detail: `총 팀 매출: ${fmt(totalTeamProd)} → 적격 생산액: ${fmt(eligibleProd)} (40% 룰)\n직급: ${currentRank ? currentRank.name : '미달'} | 보너스: 적격 생산액의 10%`,
+      detail: `적격 생산액: ${fmt(eligibleProd)} | 직급: ${currentRank ? currentRank.name : '미달'}\n활성화 볼륨: ${fmt(teamActivation)} / ${currentRank ? fmt(currentRank.minAct) : '-'} ${activationMet ? '✅' : '⚠️ 50% 감액'}`,
       inactive: bonus3 === 0
     },
     {
@@ -2812,8 +3016,8 @@ function calculate() {
       inactive: bonus4 === 0
     },
     {
-      num: '05', title: '빌더 베이스 & QBI', amount: bonus5,
-      detail: `총 조직 생산: ${fmt(totalOrgProd)} × ${(bbPct * 100).toFixed(0)}%\nQBI: ${qbi}% ${qbi >= 65 ? '(정상 지급)' : `(보정: ${(qbiMultiplier * 100).toFixed(0)}%)`}`,
+      num: '05', title: '빌더 베이스 보너스', amount: bonus5,
+      detail: `총 조직 생산: ${fmt(totalOrgProd)} × ${(bbPct * 100).toFixed(0)}%`,
       inactive: bonus5 === 0
     }
   ];
@@ -2838,7 +3042,7 @@ function calculate() {
     { name: '주간 매칭 보너스', cycle: '매주 월요일', amount: bonus2 },
     { name: '팀 리더십 보너스', cycle: '매월 8일', amount: bonus3 },
     { name: '리커링 보너스', cycle: '매월 10일', amount: bonus4 },
-    { name: '빌더 베이스 (QBI)', cycle: '매월 15일', amount: bonus5 },
+    { name: '빌더 베이스 보너스', cycle: '매월 15일', amount: bonus5 },
     ...(fastStartEligible ? [{ name: '패스트 스타트', cycle: '1회성', amount: 200 }] : [])
   ];
   document.querySelector('#scheduleTable tbody').innerHTML = scheduleData.map(s => `
@@ -2858,23 +3062,6 @@ function calculate() {
     type: ''
   });
 
-  if (qbi < 65) {
-    const qbiGap = 65 - qbi;
-    const improved5 = Math.round(bonus5Raw * 1);
-    insights.push({
-      icon: '⚡',
-      text: `QBI를 <strong>${qbiGap}%</strong>만 올리면 빌더 베이스 보너스가 <strong>${fmt(improved5 - bonus5)}</strong> 증가합니다!`,
-      type: 'coral'
-    });
-  }
-  if (qbi >= 65 && qbi < 80) {
-    insights.push({
-      icon: '✨',
-      text: `QBI ${qbi}% — 좋습니다! 80% 이상 유지하면 팀 리텐션이 안정적으로 올라갑니다.`,
-      type: 'mint'
-    });
-  }
-
   if (!currentRank) {
     insights.push({
       icon: '🎯',
@@ -2884,7 +3071,7 @@ function calculate() {
   } else if (nextRank) {
     insights.push({
       icon: '🎯',
-      text: `${nextRank.name} 달성까지 <strong>${fmt(nextRank.min - eligibleProd)}</strong> 추가 필요! 달성 시 보너스 ${fmt(Math.round(nextRank.min * 0.1))}+`,
+      text: `${nextRank.name} 달성까지 <strong>${fmt(nextRank.min - eligibleProd)}</strong> 추가 필요! 달성 시 보너스 <strong>${fmt(nextRank.bonus)}</strong>`,
       type: 'gold'
     });
   }
@@ -2908,6 +3095,14 @@ function calculate() {
     insights.push({
       icon: '⚠️',
       text: `최대 레그 비중 <strong>${maxLegPct.toFixed(0)}%</strong> — 40% 룰 초과! 한 팀에서 전체 매출의 40%까지만 인정됩니다. 다른 레그를 골고루 키워야 직급이 올라갑니다.`,
+      type: 'coral'
+    });
+  }
+
+  if (currentRank && !activationMet) {
+    insights.push({
+      icon: '🔥',
+      text: `활성화 볼륨 부족! 현재 <strong>${fmt(teamActivation)}</strong> / 필요 <strong>${fmt(currentRank.minAct)}</strong>. 기준 미달 시 리더십 보너스 50% 감액 또는 미지급됩니다.`,
       type: 'coral'
     });
   }
@@ -2939,8 +3134,8 @@ function calculate() {
   // Store for copy
   window._reportData = {
     totalMonthly, bonus1, bonus2, bonus3, bonus4, bonus5,
-    currentRank, qbi, eligibleProd, totalOrgProd, freeMembership,
-    fastStartEligible, fastStartBonus, recurringPct
+    currentRank, eligibleProd, totalOrgProd, freeMembership,
+    fastStartEligible, fastStartBonus, recurringPct, teamActivation, activationMet
   };
 }
 
@@ -2948,17 +3143,17 @@ function calculate() {
 function copyReport() {
   const d = window._reportData;
   if (!d) return;
+  const fx = parseInt(document.getElementById('fxRate').value) || 1500;
   const lines = [
     `━━━ Nomad Blue Map 리포트 ━━━`,
     ``,
-    `📊 예상 월 수익: ${fmt(d.totalMonthly)} (${fmtKrw(d.totalMonthly)})`,
+    `📊 예상 월 수익: ${fmt(d.totalMonthly)} (${Math.round(d.totalMonthly * fx / 10000).toLocaleString()}만원)`,
     `🏅 현재 직급: ${d.currentRank ? d.currentRank.name : '미달'}`,
-    `📈 QBI: ${d.qbi}%`,
     ``,
     `── 보너스 내역 ──`,
     `① 일일+월간 활성화: ${fmt(d.bonus1)}`,
     `② 주간 매칭 (×4주): ${fmt(d.bonus2 * 4)}`,
-    `③ 팀 리더십: ${fmt(d.bonus3)}`,
+    `③ 팀 리더십: ${fmt(d.bonus3)} ${d.activationMet ? '✅' : '⚠️감액'}`,
     `④ 리커링: ${fmt(d.bonus4)}`,
     `⑤ 빌더 베이스: ${fmt(d.bonus5)}`,
     d.fastStartEligible ? `🚀 패스트 스타트: ${fmt(d.fastStartBonus)}` : '',
@@ -2967,6 +3162,7 @@ function copyReport() {
     `• 시스템 자산소득 비율: ${d.recurringPct}%`,
     `• 적격 생산액: ${fmt(d.eligibleProd)}`,
     `• 조직 총 생산: ${fmt(d.totalOrgProd)}`,
+    `• 활성화 볼륨: ${fmt(d.teamActivation)}`,
     d.freeMembership ? `✅ 무료 멤버십 달성` : `⬜ 무료 멤버십 미달`,
     ``,
     `━━━━━━━━━━━━━━━━━━━━━━`,
@@ -2999,10 +3195,48 @@ function copyReport() {
   });
 }
 
+// ── ACCORDION ──
+function toggleAccordion(id) {
+  const body = document.getElementById(id);
+  const arrow = document.getElementById(id + '-arrow');
+  body.classList.toggle('open');
+  arrow.classList.toggle('open');
+}
+
+// ── RANK TABLE POPULATION ──
+function populateRankTable() {
+  const fx = parseInt(document.getElementById('fxRate').value) || 1500;
+  const rankData = [
+    { name: '마케팅 이사 (MD)', tier: 'bronze', min: 3000, legCap: '40%', act: 600, bonus: 300 },
+    { name: '시니어 MD (SMD)', tier: 'bronze', min: 10000, legCap: '40%', act: 2000, bonus: 1000 },
+    { name: '지역이사 (RD)', tier: 'silver', min: 25000, legCap: '40%', act: 5000, bonus: 2500 },
+    { name: '전국이사 (ND)', tier: 'silver', min: 50000, legCap: '40%', act: 10000, bonus: 5000 },
+    { name: '국제이사 (ID)', tier: 'gold', min: 100000, legCap: '40%', act: 20000, bonus: 10000 },
+    { name: '상무이사 (ED)', tier: 'gold', min: 250000, legCap: '40%', act: 50000, bonus: 25000 },
+    { name: '이사회 (BOD)', tier: 'diamond', min: 550000, legCap: '40%', act: 110000, bonus: 55000 },
+    { name: '앰배서더 BOD', tier: 'diamond', min: 750000, legCap: '20%', act: 300000, bonus: 105000 },
+    { name: '프리미어 앰배서더', tier: 'crown', min: 750000, legCap: '20%', act: 1000000, bonus: 155000 },
+    { name: '글로벌 앰배서더', tier: 'crown', min: 1000000, legCap: '10%', act: 400000, bonus: 180000 },
+    { name: '로열 앰배서더 👑', tier: 'crown', min: 1000000, legCap: '10%', act: 2000000, bonus: 305000 },
+  ];
+  const tbody = document.getElementById('rankTableBody');
+  tbody.innerHTML = rankData.map(r => `
+    <tr>
+      <td><div class="rank-name-cell"><span class="rank-tier tier-${r.tier}">${r.tier === 'crown' ? '👑' : r.tier === 'diamond' ? '💎' : r.tier === 'gold' ? '🥇' : r.tier === 'silver' ? '🥈' : '🥉'}</span>${r.name}</div></td>
+      <td class="td-prod">$${r.min.toLocaleString()}</td>
+      <td>${r.legCap}</td>
+      <td class="td-act">$${r.act.toLocaleString()}</td>
+      <td class="td-bonus">$${r.bonus.toLocaleString()}</td>
+      <td class="td-krw">${Math.round(r.bonus * fx / 10000).toLocaleString()}만원</td>
+    </tr>
+  `).join('');
+}
+
 // ── Init ──
 document.addEventListener('DOMContentLoaded', () => {
   updateGoal();
   updateMiniChart();
+  populateRankTable();
   updateMatchPreview();
   // Listen to ALL inputs for floating bar
   document.querySelectorAll('input[type="number"]').forEach(el => {
