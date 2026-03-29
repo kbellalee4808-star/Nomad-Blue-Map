@@ -2164,29 +2164,6 @@ body.has-float { padding-bottom: 66px; }
         <div class="goal-realestate" id="goalRealestate">💡 서울에서 월세 250만원 받으려면 시세 약 7.5~10억원 부동산 필요</div>
       </div>
     </div>
-    <div class="fast-start-row">
-      <span class="fast-start-label">🚀 패스트 스타트</span>
-      <div class="fast-start-right">
-        <span class="fast-start-desc">가입월</span>
-        <input type="month" id="joinMonth" class="join-month-input">
-        <span class="fast-start-desc">익월 말까지 $3,000 달성 시 <strong>$200</strong> 추가!</span>
-      </div>
-    </div>
-    <div class="goal-visual">
-      <div class="goal-progress-bg">
-        <div class="goal-progress-fill" id="goalProgressFill" style="width:0%"></div>
-        <div class="goal-progress-marker" id="goalMarker" style="left:0%">
-          <span class="goal-marker-label" id="goalMarkerLabel">0%</span>
-        </div>
-      </div>
-      <div class="goal-milestones" id="goalMilestones">
-        <span class="gm" data-at="25">25%</span>
-        <span class="gm" data-at="50">50%</span>
-        <span class="gm" data-at="75">75%</span>
-        <span class="gm gm-goal">🎉 달성!</span>
-      </div>
-    </div>
-    <div class="goal-message" id="goalMessage">멤버를 추가하면 목표 달성률이 표시됩니다</div>
   </section>
 
   <!-- ═══ SECTION 1: 개인 활동 ═══ -->
@@ -2617,6 +2594,11 @@ body.has-float { padding-bottom: 66px; }
             <div class="incent-icon">🚀</div>
             <div class="incent-title">패스트 스타트 보너스 $200</div>
             <div class="incent-desc">가입 <strong>익월 말</strong>까지 MD(직추 $3,000) 달성 시 $200 추가 지급</div>
+            <div class="fast-start-row" style="margin-top:8px">
+              <span class="fast-start-desc">가입월</span>
+              <input type="month" id="joinMonth" class="join-month-input">
+              <span class="fast-start-desc">익월 말까지 달성!</span>
+            </div>
           </div>
           <div class="incent-card">
             <div class="incent-icon">✈️</div>
@@ -2793,48 +2775,7 @@ function updateGoal() {
   populateRankTable();
 }
 function updateGoalProgress() {
-  const fx = parseInt(document.getElementById('fxRate').value) || 1500;
-  const goal = getGoal();
-  const classic = parseInt(document.getElementById('classicCount').value) || 0;
-  const premium = parseInt(document.getElementById('premiumCount').value) || 0;
-  const dab = classic * 20 + premium * 50;
-  const mab = calcMABtotal(classic, premium);
-  const earned = dab + mab;
-  const pct = goal > 0 ? Math.min(100, Math.round(earned / goal * 100)) : 0;
-  const achieved = pct >= 100;
-
-  // Progress bar
-  const fill = document.getElementById('goalProgressFill');
-  fill.style.width = pct + '%';
-  fill.classList.toggle('achieved', achieved);
-
-  // Marker
-  const marker = document.getElementById('goalMarker');
-  marker.style.left = Math.min(pct, 97) + '%';
-  const markerLabel = document.getElementById('goalMarkerLabel');
-  markerLabel.textContent = achieved ? '🎉 달성!' : '$' + earned.toLocaleString() + ' (' + pct + '%)';
-  markerLabel.classList.toggle('achieved-label', achieved);
-
-  // Milestones
-  document.querySelectorAll('.gm[data-at]').forEach(gm => {
-    const at = parseInt(gm.dataset.at);
-    gm.classList.toggle('reached', pct >= at);
-  });
-
-  // Message
-  const msg = document.getElementById('goalMessage');
-  if (earned === 0) {
-    msg.innerHTML = '멤버를 추가하면 목표 달성률이 표시됩니다';
-    msg.className = 'goal-message';
-  } else if (achieved) {
-    msg.innerHTML = `🎉 목표 <strong>${Math.round(goal * fx / 10000).toLocaleString()}만원</strong> 달성! 다음 목표를 세워보세요`;
-    msg.className = 'goal-message achieved-msg';
-  } else {
-    const remaining = goal - earned;
-    const remainManwon = Math.round(remaining * fx / 10000);
-    msg.innerHTML = `목표까지 <strong>${remainManwon.toLocaleString()}만원</strong> ($${remaining.toLocaleString()}) 남았습니다`;
-    msg.className = 'goal-message';
-  }
+  // Goal progress visual removed — no-op
 }
 
 // ── TWIN BUTTON HELPERS ──
