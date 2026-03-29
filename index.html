@@ -58,7 +58,7 @@ body {
 .hero {
   position: relative;
   background: linear-gradient(135deg, var(--blue-800) 0%, var(--blue-700) 30%, var(--blue-500) 70%, var(--blue-300) 100%);
-  padding: 48px 24px 80px;
+  padding: 36px 24px 70px;
   text-align: center;
   overflow: hidden;
 }
@@ -101,7 +101,30 @@ body {
 .app-container {
   max-width: 960px;
   margin: 0 auto;
-  padding: 0 20px 80px;
+  padding: 0 20px 60px;
+}
+
+/* ── BACKOFFICE BUTTON ── */
+.backoffice-btn {
+  display: block;
+  text-align: center;
+  padding: 12px 20px;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, var(--blue-700), var(--blue-800));
+  color: #fff;
+  text-decoration: none;
+  border-radius: 12px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  font-family: inherit;
+  letter-spacing: 0.03em;
+  box-shadow: 0 4px 16px rgba(14,61,92,0.2);
+  transition: all 0.3s;
+}
+.backoffice-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(14,61,92,0.3);
+  background: linear-gradient(135deg, var(--blue-600), var(--blue-700));
 }
 
 /* ── SECTION CARDS ── */
@@ -109,8 +132,8 @@ body {
   background: #fff;
   border-radius: var(--radius);
   box-shadow: var(--shadow-md);
-  padding: 32px 28px;
-  margin-bottom: 24px;
+  padding: 24px 22px;
+  margin-bottom: 16px;
   border: 1px solid var(--slate-100);
   transition: box-shadow 0.3s;
   animation: fadeUp 0.5s ease both;
@@ -124,27 +147,27 @@ body {
 
 .section-card h2 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   font-weight: 700;
   color: var(--blue-700);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 .section-card h2 .icon {
-  width: 36px; height: 36px;
+  width: 30px; height: 30px;
   background: var(--blue-100);
-  border-radius: 10px;
+  border-radius: 8px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   flex-shrink: 0;
 }
 .section-card .desc {
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   color: var(--slate-400);
-  margin-bottom: 24px;
-  padding-left: 46px;
+  margin-bottom: 16px;
+  padding-left: 38px;
 }
 
 /* ── GOAL SECTION ── */
@@ -560,8 +583,8 @@ body {
 
 /* ── MINI CHART ── */
 .mini-chart-wrap {
-  margin-top: 20px;
-  padding: 18px 20px;
+  margin-top: 14px;
+  padding: 14px 16px;
   background: var(--slate-50);
   border-radius: var(--radius-sm);
   border: 1px solid var(--slate-100);
@@ -633,7 +656,7 @@ body {
 .form-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 16px;
+  gap: 12px;
 }
 .form-group { display:flex; flex-direction:column; gap:5px; }
 .form-group label {
@@ -873,7 +896,7 @@ body {
 .match-result.active .match-result-status { color: var(--mint); font-weight: 600; }
 
 /* ── CALCULATE BUTTON ── */
-.calc-btn-wrap { text-align: center; margin: 32px 0 8px; }
+.calc-btn-wrap { text-align: center; margin: 24px 0 6px; }
 .btn-calculate {
   padding: 16px 56px;
   background: linear-gradient(135deg, var(--blue-500), var(--blue-600));
@@ -914,10 +937,10 @@ body {
 .result-hero {
   background: linear-gradient(135deg, var(--blue-800), var(--blue-600));
   border-radius: var(--radius);
-  padding: 36px 32px;
+  padding: 28px 24px;
   color: #fff;
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   position: relative;
   overflow: hidden;
 }
@@ -996,13 +1019,13 @@ body {
 .bonus-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 16px;
-  margin-bottom: 24px;
+  gap: 12px;
+  margin-bottom: 16px;
 }
 .bonus-card {
   background: #fff;
   border-radius: var(--radius);
-  padding: 24px 22px;
+  padding: 18px 16px;
   border: 1px solid var(--slate-100);
   box-shadow: var(--shadow-sm);
   transition: all 0.3s;
@@ -1014,11 +1037,11 @@ body {
 .bonus-card .b-header {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 12px;
+  gap: 8px;
+  margin-bottom: 8px;
 }
 .bonus-card .b-num {
-  width: 32px; height: 32px;
+  width: 28px; height: 28px;
   background: var(--blue-100);
   color: var(--blue-600);
   border-radius: 8px;
@@ -1101,8 +1124,8 @@ body {
 .incentive-badges {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 24px;
+  gap: 8px;
+  margin-bottom: 16px;
 }
 .badge {
   display: inline-flex;
@@ -1170,8 +1193,8 @@ body {
 
 /* ── BUILDING VISUALIZATION ── */
 .building-wrap {
-  margin-top: 20px;
-  padding: 18px 20px 14px;
+  margin-top: 14px;
+  padding: 14px 16px 12px;
   background: var(--slate-50);
   border-radius: var(--radius-sm);
   border: 1px solid var(--slate-100);
@@ -1274,13 +1297,15 @@ body {
   font-weight: 400;
 }
 .profile-title {
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: var(--blue-600);
-  background: var(--blue-100);
-  padding: 2px 12px;
-  border-radius: 10px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #B8860B;
+  background: linear-gradient(135deg, #FFF3D6, #FFE8B0);
+  padding: 4px 16px;
+  border-radius: 12px;
   letter-spacing: 0.05em;
+  border: 1.5px solid rgba(184,134,11,0.2);
+  box-shadow: 0 2px 6px rgba(184,134,11,0.1);
 }
 .building-scene {
   position: relative;
@@ -1329,9 +1354,9 @@ body {
 
 /* Foundation */
 .building-foundation {
-  width: 140px;
-  height: 24px;
-  background: linear-gradient(180deg, var(--slate-600), var(--slate-700));
+  width: 150px;
+  height: 28px;
+  background: linear-gradient(180deg, var(--blue-700), var(--blue-800));
   border-radius: 4px 4px 0 0;
   display: flex;
   align-items: center;
@@ -1341,10 +1366,10 @@ body {
   flex-shrink: 0;
 }
 .foundation-text {
-  font-size: 0.55rem;
-  font-weight: 700;
-  color: rgba(255,255,255,0.5);
-  letter-spacing: 0.15em;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: rgba(255,255,255,0.9);
+  letter-spacing: 0.08em;
 }
 /* Ground */
 .building-ground {
@@ -1515,8 +1540,8 @@ body {
 
 /* ── MAB STEP CHART ── */
 .mab-wrap {
-  margin-top: 20px;
-  padding: 18px 20px 14px;
+  margin-top: 14px;
+  padding: 14px 16px 12px;
   background: var(--slate-50);
   border-radius: var(--radius-sm);
   border: 1px solid var(--slate-100);
@@ -1541,114 +1566,118 @@ body {
 .mab-desc {
   font-size: 0.7rem;
   color: var(--slate-400);
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
-.mab-chart {
-  display: flex;
-  gap: 16px;
+.mab-table-btn {
+  margin-top: 0;
+  font-size: 0.8rem;
+  padding: 10px 14px;
 }
-.mab-plan-row {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 14px 10px 12px;
-  border-radius: 12px;
-  transition: background 0.3s;
-}
-.mab-plan-row.classic-row { background: rgba(135,206,235,0.08); border: 1.5px solid rgba(135,206,235,0.15); }
-.mab-plan-row.premium-row { background: rgba(217,64,64,0.05); border: 1.5px solid rgba(217,64,64,0.15); }
-.mab-plan-row.classic-row.active-row { background: rgba(135,206,235,0.15); border-color: var(--blue-300); }
-.mab-plan-row.premium-row.active-row { background: rgba(217,64,64,0.1); border-color: #D94040; }
-.mab-plan-label {
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  padding: 5px 18px;
-  border-radius: 20px;
-  margin-bottom: 14px;
-}
-.mab-plan-label.classic-label { background: #1A6FB5; color: #fff; }
-.mab-plan-label.premium-label { background: #D94040; color: #fff; }
-.mab-steps {
-  display: flex;
-  gap: 6px;
+/* MAB Reference Table (matching image style) */
+.mab-ref-table {
   width: 100%;
-  justify-content: center;
-  align-items: flex-end;
-  height: 100px;
+  border-collapse: collapse;
+  margin: 12px 0 4px;
+  font-size: 0.82rem;
 }
-.mab-step {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  flex: 1;
-  max-width: 72px;
-  height: 100%;
-}
-.mab-step-val {
-  font-size: 0.75rem;
+.mab-ref-table thead th {
+  padding: 10px 14px;
+  text-align: center;
   font-weight: 700;
-  color: var(--slate-400);
-  margin-bottom: 4px;
-  transition: all 0.3s;
-  flex-shrink: 0;
+  font-size: 0.75rem;
 }
-.mab-step.active .mab-step-val {
-  transform: scale(1.15);
+.mab-th-plan {
+  background: #3B8CC4;
+  color: #fff;
+  border-radius: 6px 0 0 0;
+  width: 25%;
 }
-.mab-step.active.is-classic .mab-step-val { color: var(--blue-600); }
-.mab-step.active.is-premium .mab-step-val { color: #D94040; }
-.mab-step-bar {
-  width: 100%;
-  border-radius: 6px 6px 0 0;
-  transition: height 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-  min-height: 6px;
-  position: relative;
+.mab-th-tier {
+  background: #3B8CC4;
+  color: #fff;
 }
-.mab-bar-classic {
-  background: linear-gradient(180deg, #5BB8E0 0%, #87CEEB 100%);
-  box-shadow: 0 -2px 8px rgba(91,184,224,0.3);
-}
-.mab-bar-premium {
-  background: linear-gradient(180deg, #D94040 0%, #E86B6B 100%);
-  box-shadow: 0 -2px 8px rgba(217,64,64,0.3);
-}
-.mab-step-bar.inactive {
-  background: var(--slate-200) !important;
-  box-shadow: none !important;
-}
-.mab-step-bar.active::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: rgba(255,255,255,0.6);
-  border-radius: 6px 6px 0 0;
-}
-.mab-step-label {
-  font-size: 0.62rem;
-  color: var(--slate-400);
-  margin-top: 5px;
-  flex-shrink: 0;
-}
-.mab-step.active .mab-step-label {
-  font-weight: 600;
+.mab-th-tier:last-child { border-radius: 0 6px 0 0; }
+.mab-ref-table tbody td {
+  padding: 12px 14px;
+  text-align: center;
+  border-bottom: 1px solid var(--slate-100);
   color: var(--slate-600);
 }
-.mab-summary {
-  margin-top: 14px;
-  font-size: 0.78rem;
-  color: var(--slate-500);
-  text-align: center;
-  min-height: 20px;
+.mab-td-plan { text-align: center; font-weight: 800; letter-spacing: 0.05em; }
+.classic-plan-td { color: #1A6FB5; }
+.premium-plan-td { color: #fff; }
+.mab-row-classic td { background: #F8FBFF; }
+.mab-row-premium td {
+  background: #E87C00;
+  color: #fff;
+  font-weight: 700;
 }
-.mab-summary strong { color: var(--blue-700); }
-.mab-summary .prem-strong { color: #D94040; }
-.mab-summary .classic-name { color: #1A6FB5; font-weight: 700; }
-.mab-summary .prem-name { color: #D94040; font-weight: 700; }
-.mab-summary .amt-black { color: var(--slate-800); }
+.mab-row-premium .mab-td-plan { color: #fff; }
+
+/* MAB Auto Calculation Lines */
+.mab-calc {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.mab-calc-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  transition: all 0.3s;
+}
+.classic-calc { background: rgba(135,206,235,0.08); border: 1px solid rgba(135,206,235,0.15); }
+.premium-calc { background: rgba(217,64,64,0.05); border: 1px solid rgba(217,64,64,0.1); }
+.mab-calc-plan {
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 6px;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+.classic-plan-tag { background: #1A6FB5; color: #fff; }
+.premium-plan-tag { background: #D94040; color: #fff; }
+.mab-calc-detail {
+  color: var(--slate-500);
+  flex: 1;
+}
+.mab-calc-amount {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--blue-700);
+  flex-shrink: 0;
+}
+.premium-amount { color: #D94040; }
+.mab-calc-total {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--blue-800);
+  border-radius: 10px;
+  color: #fff;
+}
+.mab-calc-total-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--blue-200);
+  flex: 1;
+}
+.mab-calc-total-amount {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.mab-calc-total-krw {
+  font-size: 0.78rem;
+  color: var(--blue-200);
+}
 
 /* Labels */
 .building-labels {
@@ -1681,7 +1710,9 @@ body {
   align-items: center;
   transition: all 0.2s;
   font-family: inherit;
+  margin-top: 6px;
 }
+.accordion-btn:first-of-type { margin-top: 0; }
 .accordion-btn:hover { background: var(--blue-100); border-color: var(--blue-300); color: var(--blue-700); }
 .acc-arrow { transition: transform 0.3s; font-size: 0.75rem; }
 .acc-arrow.open { transform: rotate(180deg); }
@@ -1690,7 +1721,144 @@ body {
   overflow: hidden;
   transition: max-height 0.4s ease;
 }
-.accordion-body.open { max-height: 2000px; }
+.accordion-body.open { max-height: 3000px; }
+.acc-left { display: flex; align-items: center; gap: 8px; }
+.acc-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+/* Bonus accent colors */
+.bonus-acc-1 { border-left: 4px solid var(--blue-400); }
+.bonus-acc-1 .acc-num { background: var(--blue-100); color: var(--blue-600); }
+.bonus-acc-2 { border-left: 4px solid var(--mint); }
+.bonus-acc-2 .acc-num { background: #E8F8F0; color: #1A7A5A; }
+.bonus-acc-3 { border-left: 4px solid var(--gold-400); }
+.bonus-acc-3 .acc-num { background: #FFF3D6; color: #A07D2E; }
+.bonus-acc-4 { border-left: 4px solid var(--coral); }
+.bonus-acc-4 .acc-num { background: #FFF0ED; color: #C45A3C; }
+.bonus-acc-5 { border-left: 4px solid #9B59B6; }
+.bonus-acc-5 .acc-num { background: #F3E8F9; color: #7B3FA0; }
+.bonus-acc-incentive { border-left: 4px solid #E87C00; }
+.bonus-acc-incentive .acc-num { background: #FFF3E0; color: #E87C00; font-size: 0.85rem; }
+
+/* Accordion content */
+.acc-content {
+  padding: 16px 4px 12px;
+  font-size: 0.82rem;
+  color: var(--slate-600);
+  line-height: 1.7;
+}
+.acc-content p { margin-bottom: 10px; }
+.acc-block {
+  padding: 12px 14px;
+  background: var(--sand-100);
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.acc-block-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--slate-700);
+  margin-bottom: 8px;
+}
+.acc-highlight-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0;
+}
+.acc-chip {
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  background: var(--slate-100);
+  color: var(--slate-600);
+}
+.acc-chip strong { color: var(--slate-800); }
+.classic-chip { background: rgba(135,206,235,0.15); color: var(--blue-700); }
+.premium-chip { background: rgba(217,64,64,0.08); color: #D94040; }
+.acc-note {
+  font-size: 0.72rem;
+  color: var(--slate-400);
+  margin-top: 8px;
+}
+.acc-conditions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 10px 0;
+}
+.acc-cond {
+  padding: 8px 14px;
+  background: #F0FBF8;
+  border-radius: 8px;
+  border-left: 3px solid var(--mint);
+  font-size: 0.8rem;
+}
+/* Mini table in accordion */
+.acc-mini-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.75rem;
+  margin: 8px 0;
+}
+.acc-mini-table th {
+  padding: 6px 10px;
+  background: var(--slate-100);
+  color: var(--slate-500);
+  font-weight: 600;
+  text-align: center;
+  font-size: 0.68rem;
+}
+.acc-mini-table td {
+  padding: 8px 10px;
+  text-align: center;
+  border-bottom: 1px solid var(--slate-100);
+  color: var(--slate-600);
+}
+.acc-mini-table .classic-chip-td { color: var(--blue-600); font-weight: 700; text-align: left; }
+.acc-mini-table .premium-chip-td { color: #D94040; font-weight: 700; text-align: left; }
+
+/* Incentive cards */
+.incentive-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.incent-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid var(--slate-100);
+  box-shadow: var(--shadow-sm);
+}
+.incent-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.incent-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--slate-700);
+  margin-bottom: 4px;
+}
+.incent-desc {
+  font-size: 0.78rem;
+  color: var(--slate-500);
+  line-height: 1.6;
+}
+.incent-desc strong { color: var(--blue-700); }
 
 /* ── RANK TABLE ── */
 .rank-section { }
@@ -1737,11 +1905,13 @@ body {
   gap: 6px;
 }
 .rank-tier {
-  font-size: 0.6rem;
-  padding: 1px 6px;
-  border-radius: 4px;
-  font-weight: 700;
+  font-size: 0.72rem;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-weight: 800;
   white-space: nowrap;
+  display: inline-block;
+  letter-spacing: 0.04em;
 }
 .tier-bronze { background: #F5E6D3; color: #8B6914; }
 .tier-silver { background: #E8E8E8; color: #555; }
@@ -1849,7 +2019,7 @@ body {
 }
 
 /* Give body bottom padding so content isn't hidden behind floating bar */
-body.has-float { padding-bottom: 80px; }
+body.has-float { padding-bottom: 66px; }
 
 @media (max-width: 600px) {
   .float-inner { padding: 10px 16px 6px; }
@@ -1860,61 +2030,86 @@ body.has-float { padding-bottom: 80px; }
 /* ── FOOTER ── */
 .app-footer {
   text-align: center;
-  padding: 32px 20px;
-  font-size: 0.75rem;
+  padding: 24px 20px;
+  font-size: 0.72rem;
   color: var(--slate-400);
   border-top: 1px solid var(--slate-100);
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 600px) {
-  .hero { padding: 36px 16px 72px; }
-  .section-card { padding: 24px 16px; }
-  .section-card .desc { padding-left: 0; }
-  .goal-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .hero { padding: 28px 16px 64px; }
+  .section-card { padding: 18px 14px; margin-bottom: 10px; }
+  .section-card .desc { padding-left: 0; margin-bottom: 10px; }
+  .section-card h2 { font-size: 1.1rem; gap: 6px; }
+  .section-card h2 .icon { width: 26px; height: 26px; font-size: 0.8rem; }
+  .goal-inner { flex-direction: column; align-items: flex-start; gap: 8px; }
   .goal-input-area { text-align: left; width: 100%; }
   .goal-field-row { justify-content: flex-start; }
   .goal-field input { width: 70px; }
-  .fast-start-row { gap: 8px; }
-  .fast-start-right { gap: 6px; }
-  .match-conditions { flex-direction: column; gap: 8px; }
+  .fast-start-row { gap: 6px; padding: 8px 10px; }
+  .fast-start-right { gap: 4px; }
+  .match-conditions { flex-direction: column; gap: 6px; }
   .match-partner-input-wrap { grid-template-columns: 1fr; }
-  .form-grid { grid-template-columns: 1fr; }
-  .twin-input-wrap { gap: 10px; }
-  .twin-card { padding: 18px 10px 16px; }
-  .section-header-row { flex-direction: column; gap: 12px; }
-  .fx-input-wrap { display: flex; align-items: center; gap: 8px; }
+  .form-grid { grid-template-columns: 1fr; gap: 8px; }
+  .twin-input-wrap { gap: 8px; }
+  .twin-card { padding: 14px 8px 12px; }
+  .section-header-row { flex-direction: column; gap: 8px; }
+  .fx-input-wrap { display: flex; align-items: center; gap: 6px; }
   .fx-label { margin-bottom: 0; }
-  .twin-value { width: 52px; font-size: 1.1rem; }
-  .twin-btn { width: 36px; height: 40px; font-size: 1rem; }
-  .mini-chart-legend { gap: 10px; font-size: 0.72rem; }
+  .twin-value { width: 48px; font-size: 1rem; }
+  .twin-btn { width: 34px; height: 36px; font-size: 0.95rem; }
+  .twin-price { font-size: 0.65rem; margin-bottom: 8px; }
+  .twin-instant { padding: 6px 8px; margin-top: 8px; }
+  .instant-amount { font-size: 1.1rem; }
+  .mini-chart-wrap { margin-top: 12px; padding: 12px 14px; }
+  .mini-chart-legend { gap: 8px; font-size: 0.68rem; }
   .total-legend { margin-left: 0; }
-  .leg-row { grid-template-columns: 1fr 1fr; gap: 8px; padding: 12px; }
-  .bonus-grid { grid-template-columns: 1fr; }
-  .result-hero { padding: 28px 20px; }
-  .building-scene { height: 240px; }
-  .building-layout { gap: 10px; }
-  .profile-frame { width: 90px; height: 110px; border-width: 2.5px; }
-  .profile-plus { font-size: 1.3rem; }
-  .profile-hint { font-size: 0.52rem; }
-  .profile-name { font-size: 0.65rem; }
-  .building-foundation { width: 120px; }
-  .building-tower, .b-floor, .building-roof, .building-roof.visible { width: 100px; }
-  .b-window { width: 18px; height: 13px; font-size: 8px; }
-  .b-floor { height: 22px; }
-  .b-floor-num { right: -28px; font-size: 0.5rem; }
-  .mab-chart { gap: 10px; }
-  .mab-steps { gap: 4px; height: 80px; }
-  .mab-step-val { font-size: 0.68rem; }
-  .mab-plan-row { padding: 10px 6px 8px; }
-  .mab-plan-label { font-size: 0.62rem; padding: 2px 10px; }
-  .mab-summary { font-size: 0.7rem; }
-  .rank-table { font-size: 0.7rem; }
-  .rank-table thead th, .rank-table tbody td { padding: 8px 8px; }
-  .caution-item { font-size: 0.72rem; }
-  .schedule-table { font-size: 0.78rem; }
-  .schedule-table thead th, .schedule-table tbody td { padding: 10px 10px; }
+  .building-wrap { margin-top: 12px; padding: 12px 14px; }
+  .mab-wrap { margin-top: 12px; padding: 12px 14px; }
+  .leg-row { grid-template-columns: 1fr 1fr; gap: 6px; padding: 10px; }
+  .bonus-grid { grid-template-columns: 1fr; gap: 10px; }
+  .result-hero { padding: 22px 16px; }
+  .building-scene { height: 220px; }
+  .building-layout { gap: 8px; }
+  .profile-frame { width: 80px; height: 98px; border-width: 2.5px; }
+  .profile-plus { font-size: 1.2rem; }
+  .profile-hint { font-size: 0.5rem; }
+  .profile-name { font-size: 0.62rem; }
+  .profile-title { font-size: 0.68rem; padding: 3px 10px; }
+  .building-foundation { width: 110px; height: 24px; }
+  .foundation-text { font-size: 0.6rem; }
+  .building-tower, .b-floor, .building-roof, .building-roof.visible { width: 90px; }
+  .b-window { width: 16px; height: 12px; font-size: 7px; }
+  .b-floor { height: 20px; }
+  .b-floor-num { right: -24px; font-size: 0.45rem; }
+  .mab-ref-table { font-size: 0.68rem; }
+  .mab-ref-table thead th, .mab-ref-table tbody td { padding: 6px 6px; }
+  .mab-calc-row { padding: 6px 8px; font-size: 0.72rem; gap: 6px; }
+  .mab-calc-plan { font-size: 0.6rem; padding: 2px 8px; }
+  .mab-calc-amount { font-size: 0.95rem; }
+  .mab-calc-total { padding: 8px 10px; }
+  .mab-calc-total-amount { font-size: 1.1rem; }
+  .rank-table { font-size: 0.65rem; }
+  .rank-table thead th, .rank-table tbody td { padding: 6px 5px; }
+  .rank-tier { font-size: 0.62rem; padding: 2px 6px; }
+  .accordion-btn { padding: 10px 12px; font-size: 0.78rem; }
+  .caution-item { font-size: 0.7rem; padding: 10px 12px; }
+  .acc-content { padding: 10px 2px 6px; font-size: 0.75rem; }
+  .acc-highlight-row { gap: 4px; }
+  .acc-chip { padding: 4px 8px; font-size: 0.68rem; }
+  .acc-mini-table { font-size: 0.65rem; }
+  .incent-card { padding: 10px; gap: 8px; }
+  .incent-icon { font-size: 1.1rem; }
+  .incent-title { font-size: 0.78rem; }
+  .incent-desc { font-size: 0.72rem; }
+  .schedule-table { font-size: 0.72rem; }
+  .schedule-table thead th, .schedule-table tbody td { padding: 8px 6px; }
+  .bonus-card { padding: 18px 16px; }
+  .calc-btn-wrap { margin: 20px 0 6px; }
+  .btn-calculate { padding: 14px 40px; font-size: 0.95rem; }
+  .backoffice-btn { font-size: 0.8rem; padding: 10px 16px; margin-bottom: 10px; }
 }
 </style>
 </head>
@@ -1937,6 +2132,11 @@ body.has-float { padding-bottom: 80px; }
 </div>
 
 <main class="app-container">
+
+  <!-- Backoffice Link -->
+  <a href="https://www.incruises.com" target="_blank" rel="noopener" class="backoffice-btn">
+    🌐 공식 백오피스 바로가기
+  </a>
 
   <!-- ═══ SECTION 0: 목표 설정 ═══ -->
   <section class="section-card goal-card" style="animation-delay:0.05s">
@@ -2061,6 +2261,7 @@ body.has-float { padding-bottom: 80px; }
       <div class="building-layout">
         <!-- Profile photo -->
         <div class="building-profile">
+          <div class="profile-title">👑 건물주</div>
           <label class="profile-frame" id="profileFrame" for="profileUpload">
             <img id="profileImg" src="" alt="">
             <div class="profile-placeholder" id="profilePlaceholder">
@@ -2070,7 +2271,6 @@ body.has-float { padding-bottom: 80px; }
             <input type="file" id="profileUpload" accept="image/*" onchange="handleProfileUpload(this)" hidden>
           </label>
           <div class="profile-name" id="profileName" contenteditable="true" data-placeholder="이름 입력"></div>
-          <div class="profile-title">건물주</div>
         </div>
         <!-- Building scene -->
         <div class="building-scene" id="buildingScene">
@@ -2087,7 +2287,7 @@ body.has-float { padding-bottom: 80px; }
             <div class="building-roof" id="buildingRoof"></div>
           </div>
           <div class="building-foundation">
-            <div class="foundation-text">GLOBAL BUILDING</div>
+            <div class="foundation-text">🌏 글로벌 빌딩</div>
           </div>
           <div class="building-ground"></div>
         </div>
@@ -2098,58 +2298,63 @@ body.has-float { padding-bottom: 80px; }
       </div>
     </div>
 
-    <!-- MAB Step Chart -->
+    <!-- MAB Section -->
     <div class="mab-wrap" id="mabWrap">
       <div class="mab-header">
         <span class="mab-title">📈 월간 활성화 보너스</span>
         <span class="mab-total" id="mabTotalLabel">$0</span>
       </div>
       <p class="mab-desc">같은 달에 3명 이상 활성화하면 1인당 보너스가 올라갑니다!</p>
-      <div class="mab-chart" id="mabChart">
-        <!-- Classic row -->
-        <div class="mab-plan-row classic-row" id="mabClassicRow">
-          <div class="mab-plan-label classic-label">CLASSIC</div>
-          <div class="mab-steps">
-            <div class="mab-step" id="mab-c-step1">
-              <div class="mab-step-val" id="mab-c-val1">$20</div>
-              <div class="mab-step-bar mab-bar-classic" id="mab-c-bar1" style="height:6px"></div>
-              <div class="mab-step-label">3-4명</div>
-            </div>
-            <div class="mab-step" id="mab-c-step2">
-              <div class="mab-step-val" id="mab-c-val2">$30</div>
-              <div class="mab-step-bar mab-bar-classic" id="mab-c-bar2" style="height:6px"></div>
-              <div class="mab-step-label">5-9명</div>
-            </div>
-            <div class="mab-step" id="mab-c-step3">
-              <div class="mab-step-val" id="mab-c-val3">$40</div>
-              <div class="mab-step-bar mab-bar-classic" id="mab-c-bar3" style="height:6px"></div>
-              <div class="mab-step-label">10명+</div>
-            </div>
-          </div>
+
+      <!-- MAB Table (like the reference image) -->
+      <button class="accordion-btn mab-table-btn" onclick="toggleAccordion('mabTableBody')">
+        📊 월간 보너스 단가표 보기 <span class="acc-arrow" id="mabTableBody-arrow">▼</span>
+      </button>
+      <div class="accordion-body" id="mabTableBody">
+        <table class="mab-ref-table">
+          <thead>
+            <tr>
+              <th class="mab-th-plan">플랜</th>
+              <th class="mab-th-tier">3-4명 활성화</th>
+              <th class="mab-th-tier">5-9명 활성화</th>
+              <th class="mab-th-tier">10명 이상 활성화</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="mab-row-classic">
+              <td class="mab-td-plan classic-plan-td">CLASSIC</td>
+              <td>$20.00</td>
+              <td>$30.00</td>
+              <td>$40.00</td>
+            </tr>
+            <tr class="mab-row-premium">
+              <td class="mab-td-plan premium-plan-td">PREMIUM</td>
+              <td><strong>$50.00</strong></td>
+              <td><strong>$75.00</strong></td>
+              <td><strong>$100.00</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Auto Calculation -->
+      <div class="mab-calc" id="mabCalc">
+        <div class="mab-calc-row classic-calc" id="mabClassicCalc">
+          <span class="mab-calc-plan classic-plan-tag">CLASSIC</span>
+          <span class="mab-calc-detail" id="mabClassicDetail">0명 × $0 =</span>
+          <span class="mab-calc-amount" id="mabClassicAmount">$0</span>
         </div>
-        <!-- Premium row -->
-        <div class="mab-plan-row premium-row" id="mabPremiumRow">
-          <div class="mab-plan-label premium-label">PREMIUM</div>
-          <div class="mab-steps">
-            <div class="mab-step" id="mab-p-step1">
-              <div class="mab-step-val" id="mab-p-val1">$50</div>
-              <div class="mab-step-bar mab-bar-premium" id="mab-p-bar1" style="height:6px"></div>
-              <div class="mab-step-label">3-4명</div>
-            </div>
-            <div class="mab-step" id="mab-p-step2">
-              <div class="mab-step-val" id="mab-p-val2">$75</div>
-              <div class="mab-step-bar mab-bar-premium" id="mab-p-bar2" style="height:6px"></div>
-              <div class="mab-step-label">5-9명</div>
-            </div>
-            <div class="mab-step" id="mab-p-step3">
-              <div class="mab-step-val" id="mab-p-val3">$100</div>
-              <div class="mab-step-bar mab-bar-premium" id="mab-p-bar3" style="height:6px"></div>
-              <div class="mab-step-label">10명+</div>
-            </div>
-          </div>
+        <div class="mab-calc-row premium-calc" id="mabPremiumCalc">
+          <span class="mab-calc-plan premium-plan-tag">PREMIUM</span>
+          <span class="mab-calc-detail" id="mabPremiumDetail">0명 × $0 =</span>
+          <span class="mab-calc-amount premium-amount" id="mabPremiumAmount">$0</span>
+        </div>
+        <div class="mab-calc-total">
+          <span class="mab-calc-total-label">합계</span>
+          <span class="mab-calc-total-amount" id="mabTotalAmount">$0</span>
+          <span class="mab-calc-total-krw" id="mabTotalKrw">(₩0)</span>
         </div>
       </div>
-      <div class="mab-summary" id="mabSummary"></div>
     </div>
   </section>
 
@@ -2260,60 +2465,160 @@ body.has-float { padding-bottom: 80px; }
   <input type="hidden" id="newActive" value="0">
   <input type="hidden" id="retainedMembers" value="0">
 
-  <!-- ═══ RANK TABLE ACCORDION ═══ -->
-  <section class="section-card rank-section" style="animation-delay:0.35s">
-    <h2><span class="icon">🏆</span> ③ 팀 리더십 보너스 — 직급 & 보상표</h2>
-    <p class="desc">팀 매출로 직급이 올라가면 매월 자동 지급! 한 팀에만 의존하지 말고 골고루 키우세요.</p>
+  <!-- ═══ 보상 체계 가이드 (아코디언) ═══ -->
+  <section class="section-card bonus-guide-section" style="animation-delay:0.35s">
+    <h2><span class="icon">📖</span> 5대 보너스 & 인센티브 가이드</h2>
+    <p class="desc">각 보너스를 눌러서 상세 조건과 계산 방식을 확인하세요.</p>
 
-    <button class="accordion-btn" onclick="toggleAccordion('rankTableWrap')">
-      📊 직급별 보상표 보기 <span class="acc-arrow" id="rankTableWrap-arrow">▼</span>
+    <!-- ① 일일 & 월간 활성화 보너스 -->
+    <button class="accordion-btn bonus-acc bonus-acc-1" onclick="toggleAccordion('acc1')">
+      <span class="acc-left"><span class="acc-num">①</span> 일일 & 월간 활성화 보너스</span>
+      <span class="acc-arrow" id="acc1-arrow">▼</span>
     </button>
-    <div class="accordion-body" id="rankTableWrap">
-      <div class="rank-table-scroll">
-        <table class="rank-table">
-          <thead>
-            <tr>
-              <th>직급</th>
-              <th class="col-prod">적격 생산액</th>
-              <th>레그 캡</th>
-              <th class="col-act">활성화 볼륨</th>
-              <th class="col-bonus">리더십 보너스</th>
-              <th class="col-krw">한화 환산</th>
-            </tr>
-          </thead>
-          <tbody id="rankTableBody"></tbody>
+    <div class="accordion-body" id="acc1">
+      <div class="acc-content">
+        <div class="acc-block">
+          <div class="acc-block-title">⚡ 일일 활성화 보너스 (DAB)</div>
+          <p>직추 멤버 1명이 가입할 때마다 <strong>24시간 이내</strong> 즉시 지급!</p>
+          <div class="acc-highlight-row">
+            <span class="acc-chip classic-chip">Classic 1명 → <strong>$20</strong></span>
+            <span class="acc-chip premium-chip">Premium 1명 → <strong>$50</strong></span>
+          </div>
+        </div>
+        <div class="acc-block">
+          <div class="acc-block-title">📈 월간 활성화 보너스 (MAB)</div>
+          <p>같은 달에 <strong>3명 이상</strong> 활성화하면 1인당 보너스가 올라갑니다!</p>
+          <table class="acc-mini-table">
+            <tr><th></th><th>3-4명</th><th>5-9명</th><th>10명+</th></tr>
+            <tr><td class="classic-chip-td">Classic</td><td><strong>$20</strong>/인</td><td><strong>$30</strong>/인</td><td><strong>$40</strong>/인</td></tr>
+            <tr><td class="premium-chip-td">Premium</td><td><strong>$50</strong>/인</td><td><strong>$75</strong>/인</td><td><strong>$100</strong>/인</td></tr>
+          </table>
+          <p class="acc-note">💡 매주 월요일 지급 | 예: Premium 10명 = $100 × 10 = <strong>$1,000</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ② 주간 매칭 보너스 -->
+    <button class="accordion-btn bonus-acc bonus-acc-2" onclick="toggleAccordion('acc2')">
+      <span class="acc-left"><span class="acc-num">②</span> 주간 매칭 보너스</span>
+      <span class="acc-arrow" id="acc2-arrow">▼</span>
+    </button>
+    <div class="accordion-body" id="acc2">
+      <div class="acc-content">
+        <p>조건을 충족하면, <strong>내 직추 파트너들이 받는 일일+월간 보너스를 100% 올려받습니다!</strong></p>
+        <div class="acc-conditions">
+          <div class="acc-cond">✅ 내 주간 직추 생산액 <strong>$200 이상</strong></div>
+          <div class="acc-cond">✅ 팀 주간 총 생산액 <strong>$600 이상</strong></div>
+        </div>
+        <p class="acc-note">📅 매주 월요일 지급 (UTC 월~일 기준) | 두 조건 모두 충족해야 매칭 시작</p>
+        <p class="acc-note">💡 예: 파트너 3명이 각각 $200씩 보너스 → 내 매칭 = <strong>$600/주</strong></p>
+      </div>
+    </div>
+
+    <!-- ③ 팀 리더십 보너스 -->
+    <button class="accordion-btn bonus-acc bonus-acc-3" onclick="toggleAccordion('acc3')">
+      <span class="acc-left"><span class="acc-num">③</span> 팀 리더십 보너스</span>
+      <span class="acc-arrow" id="acc3-arrow">▼</span>
+    </button>
+    <div class="accordion-body" id="acc3">
+      <div class="acc-content">
+        <p>팀 전체 매출(적격 생산액)이 기준에 도달하면 <strong>직급이 올라가고 매월 보너스 자동 지급!</strong></p>
+        <div class="rank-table-scroll">
+          <table class="rank-table">
+            <thead>
+              <tr>
+                <th>직급</th>
+                <th class="col-prod">적격 생산액</th>
+                <th>레그 캡</th>
+                <th class="col-act">활성화 볼륨</th>
+                <th class="col-bonus">보너스</th>
+                <th class="col-krw">한화</th>
+              </tr>
+            </thead>
+            <tbody id="rankTableBody"></tbody>
+          </table>
+        </div>
+        <div class="acc-block" style="margin-top:14px">
+          <div class="acc-block-title">⚠️ 핵심 조건</div>
+          <div class="caution-list">
+            <div class="caution-item">
+              <strong>📌 40% 룰 (레그 캡)</strong> — 한 라인에서 아무리 매출이 나와도 기준의 40%까지만 인정. 나머지는 다른 라인에서 채워야 합니다. 골고루 팀을 키우라는 의미!
+            </div>
+            <div class="caution-item">
+              <strong>📌 활성화 볼륨</strong> — 매달 팀 신규매출이 기준 이상이어야 보너스 100% 지급. MD: $600 미만 → 보너스 0 / SMD 이상: $600 이상이면 50%, 기준 충족 시 100%
+            </div>
+            <div class="caution-item">
+              <strong>📌 지급일</strong> — 매월 10일 자동 지급. 지급일에 활성 파트너여야 하며, 미활성 시 영구 소멸.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ④ 리커링 보너스 -->
+    <button class="accordion-btn bonus-acc bonus-acc-4" onclick="toggleAccordion('acc4')">
+      <span class="acc-left"><span class="acc-num">④</span> 리커링 보너스</span>
+      <span class="acc-arrow" id="acc4-arrow">▼</span>
+    </button>
+    <div class="accordion-body" id="acc4">
+      <div class="acc-content">
+        <p>팀에서 매달 발생하는 <strong>반복 매출(리커링)</strong>에 대해 보너스를 받습니다. 시스템 자산 소득!</p>
+        <div class="acc-block">
+          <div class="acc-block-title">승수 (빌더 베이스 규모별)</div>
+          <div class="acc-highlight-row">
+            <span class="acc-chip">$100+ → <strong>$5</strong>/unit</span>
+            <span class="acc-chip">$500+ → <strong>$6</strong>/unit</span>
+            <span class="acc-chip">$2,000+ → <strong>$8</strong>/unit</span>
+            <span class="acc-chip">$5,000+ → <strong>$10</strong>/unit</span>
+          </div>
+          <p class="acc-note">📅 매월 10일 지급 | 40% 룰 동일 적용 | $100 단위로 계산</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ⑤ 빌더 베이스 보너스 -->
+    <button class="accordion-btn bonus-acc bonus-acc-5" onclick="toggleAccordion('acc5')">
+      <span class="acc-left"><span class="acc-num">⑤</span> 빌더 베이스 보너스</span>
+      <span class="acc-arrow" id="acc5-arrow">▼</span>
+    </button>
+    <div class="accordion-body" id="acc5">
+      <div class="acc-content">
+        <p>조직 전체 생산액에 대한 <strong>%</strong> 보너스! 팀이 클수록 비율이 올라갑니다.</p>
+        <table class="acc-mini-table">
+          <tr><th>조직 생산액</th><th>$2K+</th><th>$10K+</th><th>$20K+</th><th>$50K+</th><th>$100K+</th><th>$200K+</th></tr>
+          <tr><td>비율</td><td><strong>5%</strong></td><td><strong>10%</strong></td><td><strong>15%</strong></td><td><strong>20%</strong></td><td><strong>25%</strong></td><td><strong>30%</strong></td></tr>
         </table>
+        <p class="acc-note">📅 매월 15일 지급 | 예: 조직 $50,000 × 20% = <strong>$10,000</strong></p>
       </div>
     </div>
 
-    <button class="accordion-btn" onclick="toggleAccordion('rankCaution')" style="margin-top:10px">
-      ⚠️ 주의사항 & 조건 확인 <span class="acc-arrow" id="rankCaution-arrow">▼</span>
+    <!-- 🎁 인센티브 -->
+    <button class="accordion-btn bonus-acc bonus-acc-incentive" onclick="toggleAccordion('accIncentive')">
+      <span class="acc-left"><span class="acc-num">🎁</span> 인센티브 (추가 혜택)</span>
+      <span class="acc-arrow" id="accIncentive-arrow">▼</span>
     </button>
-    <div class="accordion-body" id="rankCaution">
-      <div class="caution-list">
-        <div class="caution-item">
-          <strong>📌 40% 룰 (레그 캡)</strong><br>
-          한 팀(레그)에서 아무리 매출이 나와도, 내 직급 기준 총 매출의 40%까지만 인정됩니다.<br>
-          예: 목표 $50,000 → 한 라인에서 $50,000이 나와도 $20,000만 인정. 나머지는 다른 라인에서!
-        </div>
-        <div class="caution-item">
-          <strong>📌 총 활성화 볼륨 (매달 신규매출)</strong><br>
-          직급을 달성해도 매달 팀의 신규매출(활성화 볼륨)이 기준 미달이면 보너스가 감액됩니다.<br>
-          • MD: $600 미만 → 직급만 유지, 보너스 0원<br>
-          • SMD 이상: $600 이상이면 50% 지급, 기준 충족 시 100%
-        </div>
-        <div class="caution-item">
-          <strong>📌 상위 직급 (BOD 이상)</strong><br>
-          BOD 이상은 레그 캡이 40%이지만, 앰배서더 등급부터는 20% → 10%로 더 균형 잡힌 팀 필요.<br>
-          즉, 더 많은 리더를 양성해야 최고 직급에 도달할 수 있습니다.
-        </div>
-        <div class="caution-item">
-          <strong>📌 지급일</strong><br>
-          팀 리더십 보너스는 매월 10일에 전월 생산액 기준으로 자동 지급됩니다.<br>
-          지급일에 활성 파트너여야 하며, 미활성 시 보너스가 영구 소멸됩니다.
+    <div class="accordion-body" id="accIncentive">
+      <div class="acc-content">
+        <div class="incentive-cards">
+          <div class="incent-card">
+            <div class="incent-icon">💳</div>
+            <div class="incent-title">무료 멤버십 ($100 면제)</div>
+            <div class="incent-desc">직추 생산액 <strong>$500</strong> 달성 시 월 $100 구독료 면제 + 200 포인트 적립</div>
+          </div>
+          <div class="incent-card">
+            <div class="incent-icon">🚀</div>
+            <div class="incent-title">패스트 스타트 보너스 $200</div>
+            <div class="incent-desc">가입 <strong>익월 말</strong>까지 MD(직추 $3,000) 달성 시 $200 추가 지급</div>
+          </div>
+          <div class="incent-card">
+            <div class="incent-icon">✈️</div>
+            <div class="incent-title">엘리트 트립</div>
+            <div class="incent-desc">MD 이상에서 <strong>3개월 연속</strong> 리더십 보너스 수령 → 90일 이후 예약 시 <strong>100% 리워드</strong>로 크루즈 예약 가능!</div>
+          </div>
         </div>
       </div>
     </div>
+
   </section>
 
   <!-- CALCULATE -->
@@ -2603,54 +2908,29 @@ function updateMABChart(classic, premium) {
   const pMAB = pPP * premium;
   const totalMAB = cMAB + pMAB;
 
+  // Header total
   document.getElementById('mabTotalLabel').textContent = '$' + totalMAB.toLocaleString();
 
-  // Row highlights
-  document.getElementById('mabClassicRow').classList.toggle('active-row', classic >= 3);
-  document.getElementById('mabPremiumRow').classList.toggle('active-row', premium >= 3);
+  // Classic calc line
+  document.getElementById('mabClassicDetail').textContent = classic >= 3
+    ? `${classic}명 × $${cPP} =`
+    : classic > 0 ? `${classic}명 (3명 이상 필요)` : '0명';
+  document.getElementById('mabClassicAmount').textContent = classic >= 3 ? '$' + cMAB.toLocaleString() : '$0';
 
-  // Classic bars (grow upward)
-  const cActive = classic >= 3 ? (classic >= 10 ? 2 : classic >= 5 ? 1 : 0) : -1;
-  [0,1,2].forEach(i => {
-    const bar = document.getElementById('mab-c-bar' + (i+1));
-    const step = document.getElementById('mab-c-step' + (i+1));
-    if (i <= cActive) {
-      bar.style.height = [30, 52, 76][i] + 'px';
-      bar.className = 'mab-step-bar mab-bar-classic active';
-      step.className = 'mab-step active is-classic';
-    } else {
-      bar.style.height = '6px';
-      bar.className = 'mab-step-bar mab-bar-classic inactive';
-      step.className = 'mab-step';
-    }
-  });
+  // Premium calc line
+  document.getElementById('mabPremiumDetail').textContent = premium >= 3
+    ? `${premium}명 × $${pPP} =`
+    : premium > 0 ? `${premium}명 (3명 이상 필요)` : '0명';
+  document.getElementById('mabPremiumAmount').textContent = premium >= 3 ? '$' + pMAB.toLocaleString() : '$0';
 
-  // Premium bars (grow upward)
-  const pActive = premium >= 3 ? (premium >= 10 ? 2 : premium >= 5 ? 1 : 0) : -1;
-  [0,1,2].forEach(i => {
-    const bar = document.getElementById('mab-p-bar' + (i+1));
-    const step = document.getElementById('mab-p-step' + (i+1));
-    if (i <= pActive) {
-      bar.style.height = [30, 52, 76][i] + 'px';
-      bar.className = 'mab-step-bar mab-bar-premium active';
-      step.className = 'mab-step active is-premium';
-    } else {
-      bar.style.height = '6px';
-      bar.className = 'mab-step-bar mab-bar-premium inactive';
-      step.className = 'mab-step';
-    }
-  });
+  // Total line
+  document.getElementById('mabTotalAmount').textContent = '$' + totalMAB.toLocaleString();
+  const manwon = Math.round(totalMAB * fx / 10000);
+  document.getElementById('mabTotalKrw').textContent = totalMAB > 0 ? `(${manwon.toLocaleString()}만원)` : '';
 
-  // Summary
-  const summary = document.getElementById('mabSummary');
-  if (classic < 3 && premium < 3) {
-    summary.innerHTML = '3명 이상 활성화하면 월간 보너스가 시작됩니다';
-  } else {
-    let parts = [];
-    if (classic >= 3) parts.push(`<span class="classic-name">Classic</span> ${classic}명 × <strong class="amt-black">$${cPP}</strong> = <strong class="amt-black">$${cMAB}</strong>`);
-    if (premium >= 3) parts.push(`<span class="prem-name">Premium</span> ${premium}명 × <strong class="amt-black">$${pPP}</strong> = <strong class="amt-black">$${pMAB}</strong>`);
-    summary.innerHTML = parts.join(' &nbsp;+&nbsp; ') + ` &nbsp;→&nbsp; 합계 <strong class="amt-black">$${totalMAB}</strong> (₩${(totalMAB * fx).toLocaleString()})`;
-  }
+  // Highlight active rows
+  document.getElementById('mabClassicCalc').style.borderColor = classic >= 3 ? 'var(--blue-300)' : 'rgba(135,206,235,0.15)';
+  document.getElementById('mabPremiumCalc').style.borderColor = premium >= 3 ? '#D94040' : 'rgba(217,64,64,0.1)';
 }
 
 // ── BUILDING VISUALIZATION ──
@@ -2829,17 +3109,17 @@ function calculate() {
 
   // Rank table: name, key, min(적격생산액), legCap%, minActivation(총활성화볼륨), bonus
   const ranks = [
-    { name: '로열 앰배서더 BOD', nameEn: 'Royal Ambassador BOD', key: 'RBOD', min: 1000000, legCap: 0.10, minAct: 2000000, bonus: 305000 },
-    { name: '글로벌 앰배서더 BOD', nameEn: 'Global Ambassador BOD', key: 'GBOD', min: 1000000, legCap: 0.10, minAct: 400000, bonus: 180000 },
-    { name: '프리미어 앰배서더 BOD', nameEn: 'Premier Ambassador BOD', key: 'PBOD', min: 750000, legCap: 0.20, minAct: 1000000, bonus: 155000 },
-    { name: '앰배서더 BOD', nameEn: 'Ambassador BOD', key: 'ABOD', min: 750000, legCap: 0.20, minAct: 300000, bonus: 105000 },
-    { name: '이사회 (BOD)', nameEn: 'Board of Directors', key: 'BOD', min: 550000, legCap: 0.40, minAct: 110000, bonus: 55000 },
-    { name: '상무이사 (ED)', nameEn: 'Executive Director', key: 'ED', min: 250000, legCap: 0.40, minAct: 50000, bonus: 25000 },
-    { name: '국제이사 (ID)', nameEn: 'International Director', key: 'ID', min: 100000, legCap: 0.40, minAct: 20000, bonus: 10000 },
-    { name: '전국이사 (ND)', nameEn: 'National Director', key: 'ND', min: 50000, legCap: 0.40, minAct: 10000, bonus: 5000 },
-    { name: '지역이사 (RD)', nameEn: 'Regional Director', key: 'RD', min: 25000, legCap: 0.40, minAct: 5000, bonus: 2500 },
-    { name: '시니어 MD (SMD)', nameEn: 'Senior Marketing Director', key: 'SMD', min: 10000, legCap: 0.40, minAct: 2000, bonus: 1000 },
-    { name: '마케팅 이사 (MD)', nameEn: 'Marketing Director', key: 'MD', min: 3000, legCap: 0.40, minAct: 600, bonus: 300 },
+    { name: 'RABOD', key: 'RBOD', min: 1000000, legCap: 0.10, minAct: 2000000, bonus: 305000 },
+    { name: 'GABOD', key: 'GBOD', min: 1000000, legCap: 0.10, minAct: 400000, bonus: 180000 },
+    { name: 'PABOD', key: 'PBOD', min: 750000, legCap: 0.20, minAct: 1000000, bonus: 155000 },
+    { name: 'ABOD', key: 'ABOD', min: 750000, legCap: 0.20, minAct: 300000, bonus: 105000 },
+    { name: 'BOD', key: 'BOD', min: 550000, legCap: 0.40, minAct: 110000, bonus: 55000 },
+    { name: 'ED', key: 'ED', min: 250000, legCap: 0.40, minAct: 50000, bonus: 25000 },
+    { name: 'ID', key: 'ID', min: 100000, legCap: 0.40, minAct: 20000, bonus: 10000 },
+    { name: 'ND', key: 'ND', min: 50000, legCap: 0.40, minAct: 10000, bonus: 5000 },
+    { name: 'RD', key: 'RD', min: 25000, legCap: 0.40, minAct: 5000, bonus: 2500 },
+    { name: 'SMD', key: 'SMD', min: 10000, legCap: 0.40, minAct: 2000, bonus: 1000 },
+    { name: 'MD', key: 'MD', min: 3000, legCap: 0.40, minAct: 600, bonus: 300 },
   ];
 
   // Determine rank based on eligible production (with per-rank leg cap)
@@ -2990,7 +3270,7 @@ function calculate() {
       ${fastStartEligible ? '🚀' : '⬜'} 패스트 스타트 $200
     </span>
     <span class="badge ${eliteTravel ? 'active' : 'inactive'}">
-      ${eliteTravel ? '✈️' : '⬜'} 엘리트 여행 (MD 3개월 유지)
+      ${eliteTravel ? '✈️' : '⬜'} 엘리트 트립 (MD 3개월 리더십)
     </span>
   `;
 
@@ -3118,7 +3398,7 @@ function calculate() {
   if (eliteTravel) {
     insights.push({
       icon: '✈️',
-      text: `MD 이상 유지 중! 3개월 연속 MD를 유지하면 <strong>엘리트 여행</strong> 자격이 주어집니다.`,
+      text: `MD 이상 유지 중! 3개월 연속 리더십 보너스 수령 → 90일 이후 예약 시 <strong>100% 리워드로 크루즈 예약 가능!</strong>`,
       type: 'gold'
     });
   }
@@ -3207,22 +3487,22 @@ function toggleAccordion(id) {
 function populateRankTable() {
   const fx = parseInt(document.getElementById('fxRate').value) || 1500;
   const rankData = [
-    { name: '마케팅 이사 (MD)', tier: 'bronze', min: 3000, legCap: '40%', act: 600, bonus: 300 },
-    { name: '시니어 MD (SMD)', tier: 'bronze', min: 10000, legCap: '40%', act: 2000, bonus: 1000 },
-    { name: '지역이사 (RD)', tier: 'silver', min: 25000, legCap: '40%', act: 5000, bonus: 2500 },
-    { name: '전국이사 (ND)', tier: 'silver', min: 50000, legCap: '40%', act: 10000, bonus: 5000 },
-    { name: '국제이사 (ID)', tier: 'gold', min: 100000, legCap: '40%', act: 20000, bonus: 10000 },
-    { name: '상무이사 (ED)', tier: 'gold', min: 250000, legCap: '40%', act: 50000, bonus: 25000 },
-    { name: '이사회 (BOD)', tier: 'diamond', min: 550000, legCap: '40%', act: 110000, bonus: 55000 },
-    { name: '앰배서더 BOD', tier: 'diamond', min: 750000, legCap: '20%', act: 300000, bonus: 105000 },
-    { name: '프리미어 앰배서더', tier: 'crown', min: 750000, legCap: '20%', act: 1000000, bonus: 155000 },
-    { name: '글로벌 앰배서더', tier: 'crown', min: 1000000, legCap: '10%', act: 400000, bonus: 180000 },
-    { name: '로열 앰배서더 👑', tier: 'crown', min: 1000000, legCap: '10%', act: 2000000, bonus: 305000 },
+    { name: 'MD', tier: 'bronze', min: 3000, legCap: '40%', act: 600, bonus: 300 },
+    { name: 'SMD', tier: 'bronze', min: 10000, legCap: '40%', act: 2000, bonus: 1000 },
+    { name: 'RD', tier: 'silver', min: 25000, legCap: '40%', act: 5000, bonus: 2500 },
+    { name: 'ND', tier: 'silver', min: 50000, legCap: '40%', act: 10000, bonus: 5000 },
+    { name: 'ID', tier: 'gold', min: 100000, legCap: '40%', act: 20000, bonus: 10000 },
+    { name: 'ED', tier: 'gold', min: 250000, legCap: '40%', act: 50000, bonus: 25000 },
+    { name: 'BOD', tier: 'diamond', min: 550000, legCap: '40%', act: 110000, bonus: 55000 },
+    { name: 'ABOD', tier: 'diamond', min: 750000, legCap: '20%', act: 300000, bonus: 105000 },
+    { name: 'PABOD', tier: 'crown', min: 750000, legCap: '20%', act: 1000000, bonus: 155000 },
+    { name: 'GABOD', tier: 'crown', min: 1000000, legCap: '10%', act: 400000, bonus: 180000 },
+    { name: 'RABOD', tier: 'crown', min: 1000000, legCap: '10%', act: 2000000, bonus: 305000 },
   ];
   const tbody = document.getElementById('rankTableBody');
   tbody.innerHTML = rankData.map(r => `
     <tr>
-      <td><div class="rank-name-cell"><span class="rank-tier tier-${r.tier}">${r.tier === 'crown' ? '👑' : r.tier === 'diamond' ? '💎' : r.tier === 'gold' ? '🥇' : r.tier === 'silver' ? '🥈' : '🥉'}</span>${r.name}</div></td>
+      <td><span class="rank-tier tier-${r.tier}">${r.name}</span></td>
       <td class="td-prod">$${r.min.toLocaleString()}</td>
       <td>${r.legCap}</td>
       <td class="td-act">$${r.act.toLocaleString()}</td>
