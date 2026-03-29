@@ -151,6 +151,8 @@ body{font-family:'Gothic A1','Noto Sans KR',sans-serif;background:var(--sand-50)
 /* Reset button */
 .reset-btn{display:inline-flex;align-items:center;gap:3px;padding:4px 10px;background:var(--sl100);color:var(--sl400);border:1px solid var(--sl200);border-radius:5px;font-size:.6rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:inherit;margin-top:8px}
 .reset-btn:hover{background:var(--coral);color:#fff;border-color:var(--coral)}
+.import-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 14px;background:var(--blue-100);color:var(--blue-600);border:1.5px solid var(--blue-300);border-radius:var(--rs);font-size:.72rem;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit;margin-bottom:8px}
+.import-btn:hover{background:var(--blue-200);border-color:var(--blue-500)}
 /* Motivational card */
 .moti-card{padding:28px 24px;background:linear-gradient(135deg,#0E3D5C,#1A5F8A,#3AA0D1);border-radius:var(--r);color:#fff;text-align:center;margin-top:20px;position:relative;overflow:hidden}
 .moti-card::before{content:'';position:absolute;top:-30px;right:-30px;width:100px;height:100px;background:rgba(255,255,255,.05);border-radius:50%}
@@ -231,8 +233,7 @@ body{font-family:'Gothic A1','Noto Sans KR',sans-serif;background:var(--sand-50)
 .dmt-detail{font-size:.62rem;color:rgba(255,255,255,.6);margin-top:2px}
 
 /* ACCORDION SPACING - main accordions only */
-.app > .acc-btn{margin-top:16px}
-.app > .acc-btn:first-of-type{margin-top:0}
+.app > .acc-btn{margin-top:20px}
 
 /* STEP CARDS */
 .step-cards{display:flex;flex-direction:column;align-items:center;gap:0;margin-bottom:14px}
@@ -379,6 +380,8 @@ body{font-family:'Gothic A1','Noto Sans KR',sans-serif;background:var(--sand-50)
 .dest-btn:hover{border-color:var(--blue-400);transform:scale(1.05)}
 .dest-btn.picked{border-color:var(--gold-400);background:linear-gradient(135deg,#FFF3D6,#FFE8B0);transform:scale(1.05);box-shadow:0 3px 12px rgba(212,168,83,.2)}
 .elite-congrats{margin-top:8px;text-align:center;font-size:.72rem;font-weight:700;color:var(--gold-500)}
+.elite-notice{margin-top:10px;padding:8px 12px;background:var(--sand-100);border-radius:6px;border:1px solid var(--sand-200)}
+.elite-notice p{font-size:.65rem;color:var(--sl500);line-height:1.6;margin:0}
 
 /* WINWIN DIAGRAM */
 .ww{padding:16px;background:linear-gradient(135deg,#0E3D5C,#1A5F8A);border-radius:12px;margin-top:8px;overflow:hidden;position:relative}
@@ -541,7 +544,7 @@ body.has-fb{padding-bottom:60px}
   <span class="acc-l"><span class="acc-n">①</span>일일 & 월간 활성화 보너스<span class="acc-click">(클릭)</span></span>
   <span><span class="acc-preview" id="prev1">$0</span><span class="acc-ar" id="acc1-ar">▼</span></span>
 </button>
-<div class="acc-body open" id="acc1">
+<div class="acc-body" id="acc1">
   <div class="acc-inner">
     <div class="twin-wrap">
       <div class="twin">
@@ -757,6 +760,7 @@ body.has-fb{padding-bottom:60px}
     </div>
     <div style="margin-top:8px;padding:6px 10px;background:var(--blue-100);border-radius:6px;font-size:.68rem;font-weight:600;color:var(--blue-700)" id="recMultiInfo">현재 승수: $100당 $5 (기본)</div>
     <p style="font-size:.68rem;color:var(--sl500);margin:8px 0">레그별 리커링(구독료) 매출을 입력하세요.</p>
+    <button class="import-btn" onclick="importLegs()">📥 리더십 레그 매출 가져오기</button>
     <div class="fg"><label>직추 리커링 ($)</label><input type="number" id="myRec" min="0" value="0" oninput="updateAll()"></div>
     <div id="recLegs" style="margin-top:6px"></div>
     <div class="leg-feedback" id="rqpFB" style="margin-top:8px"></div>
@@ -892,6 +896,10 @@ body.has-fb{padding-bottom:60px}
             </div>
             <div class="elite-congrats" id="eliteCongrats"></div>
           </div>
+          <div class="elite-notice">
+            <p>※ MD 직급 유지 시 엘리트 트립 예약 가능</p>
+            <p>※ 90일 이후 크루즈부터 리워드 100% 사용 예약 가능</p>
+          </div>
         </div>
       </div>
     </div>
@@ -899,7 +907,7 @@ body.has-fb{padding-bottom:60px}
 </div>
 
 <!-- 한줄정리 -->
-<button class="acc-btn" onclick="toggleAcc('accSummary')" style="margin-top:16px;border-left:3px solid var(--sl400)">
+<button class="acc-btn" onclick="toggleAcc('accSummary')" style="border-left:3px solid var(--sl400)">
   <span class="acc-l"><span class="acc-n" style="background:var(--sl100);color:var(--sl600);font-size:.7rem">📋</span>5대 보너스 한줄정리<span class="acc-click">(클릭)</span></span>
   <span class="acc-ar" id="accSummary-ar">▼</span>
 </button>
@@ -1051,6 +1059,15 @@ function pickDest(btn,name){
   $('eliteCongrats').textContent='✨ '+name+'로 떠나는 꿈의 크루즈! 곧 현실이 됩니다 🚢';
 }
 
+// ── IMPORT LEGS TO RECURRING ──
+function importLegs(){
+  const legVals=[];
+  document.querySelectorAll('.leg-v').forEach(inp=>legVals.push(parseFloat(inp.value)||0));
+  const recInputs=$('recLegs').querySelectorAll('.rec-leg-v');
+  recInputs.forEach((inp,i)=>{if(i<legVals.length)inp.value=legVals[i]});
+  updateAll();
+}
+
 // ── RESET ──
 function resetAcc(accId){
   const acc=$(accId);
@@ -1166,14 +1183,7 @@ function updateAll(){
   });
   // Feedback
   const fb=$('legFB');
-  const maxLeg=sortedLegs[0]||{v:0};
-  if(totalTeam>0&&maxLeg.v>capAmt){
-    const over=maxLeg.v-capAmt;
-    const nextTarget=curRank?curRank.min:3000;
-    const needed=nextTarget-eligProd;
-    fb.innerHTML='⚠️ 최대 레그가 한도 초과! '+fmt(Math.round(over))+' 초과분은 인정되지 않습니다.'+(needed>0?' 다른 레그에서 '+fmt(needed)+' 더 필요합니다.':'')+'<br>💡 "한 팀에만 의존하지 말고 다른 팀을 키워 수익을 극대화하세요!"';
-    fb.className='leg-feedback show warn';
-  }else if(totalTeam>0&&curRank){
+  if(totalTeam>0&&curRank){
     const nextR=RANKS[RANKS.indexOf(curRank)-1];
     if(nextR){fb.innerHTML='💡 현재 '+curRank.name+'! '+nextR.name+' 달성까지 적격 생산액 '+fmt(nextR.min-eligProd)+' 추가 필요. 달성 시 보너스 '+fmt(nextR.bonus);fb.className='leg-feedback show tip'}
     else{fb.innerHTML='🎉 최고 직급 달성!';fb.className='leg-feedback show tip'}
@@ -1244,12 +1254,17 @@ function updateAll(){
   $('rqpInfo').textContent='RQP '+fmt(rqpTotal)+' × $'+recMulti+'/100 (레그당 최대 인정 '+fmt(rqpCap)+')'+(rqpWasted>0?' | 초과분 '+fmt(rqpWasted)+' 제외':'');
   // RQP jump hint
   const rqpFB=$('rqpFB');
-  const nextTier=RQP_TIERS.slice().reverse().find(t=>t.min>rqpTotal);
-  if(nextTier&&rqpTotal>0){
-    const gap=nextTier.min-rqpTotal;
-    rqpFB.innerHTML='💡 '+fmt(gap)+'만 더 채우면 '+fmt(nextTier.min)+' 구간 진입! 레그당 최대 인정 '+fmt(rqpCap)+' → '+fmt(nextTier.cap)+'로 수익 대폭 상승!';
-    rqpFB.className='leg-feedback show tip';
-  }else{rqpFB.className='leg-feedback'}
+  if(rqpWasted>0){
+    rqpFB.innerHTML='💡 한 팀에만 의존하지 말고 다른 팀을 키워 수익을 극대화하세요!';
+    rqpFB.className='leg-feedback show warn';
+  }else{
+    const nextTier=RQP_TIERS.slice().reverse().find(t=>t.min>rqpTotal);
+    if(nextTier&&rqpTotal>0){
+      const gap=nextTier.min-rqpTotal;
+      rqpFB.innerHTML='💡 '+fmt(gap)+'만 더 채우면 '+fmt(nextTier.min)+' 구간 진입! 레그당 최대 인정 '+fmt(rqpCap)+' → '+fmt(nextTier.cap)+'로 수익 대폭 상승!';
+      rqpFB.className='leg-feedback show tip';
+    }else{rqpFB.className='leg-feedback'}
+  }
   // Multiplier info
   $('recMultiInfo').textContent='현재 승수: $100당 $'+recMulti+(recMulti>5?' (빌더 베이스 '+fmt(bonus5)+' 연동 🔥)':' (기본)');
   $('prev4').textContent=fmt(bonus4);
