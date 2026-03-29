@@ -213,11 +213,23 @@ body {
   margin-top: 4px;
   line-height: 1.4;
 }
+.goal-hint {
+  font-size: 0.65rem;
+  color: var(--slate-400);
+  flex-shrink: 1;
+  line-height: 1.3;
+}
+.goal-fx-note {
+  font-size: 0.68rem;
+  color: var(--slate-400);
+  font-weight: 500;
+}
 .goal-field-row {
   display: flex;
   align-items: center;
   gap: 6px;
   justify-content: flex-end;
+  flex-wrap: wrap;
 }
 .goal-month-label {
   font-size: 0.82rem;
@@ -759,6 +771,122 @@ body {
 .btn-add-leg:hover {
   background: var(--blue-200);
   border-color: var(--blue-500);
+}
+
+/* ── MATCH CALENDAR ── */
+.match-calendar {
+  padding: 14px 16px;
+  background: var(--sand-100);
+  border-radius: 10px;
+  margin-bottom: 14px;
+  border: 1px solid var(--sand-200);
+}
+.match-cal-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--slate-700);
+  margin-bottom: 10px;
+}
+.match-cal-week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 8px;
+}
+.cal-day {
+  text-align: center;
+  padding: 8px 4px;
+  background: var(--blue-100);
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--blue-600);
+}
+.cal-day-end {
+  background: var(--blue-200);
+  color: var(--blue-700);
+}
+.match-cal-flow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0;
+}
+.cal-flow-bar {
+  flex: 1;
+  padding: 6px 12px;
+  background: linear-gradient(90deg, var(--blue-300), var(--blue-400));
+  border-radius: 6px;
+  text-align: center;
+}
+.cal-flow-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #fff;
+}
+.cal-flow-arrow {
+  font-size: 1.2rem;
+  color: var(--slate-400);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.cal-flow-result { flex-shrink: 0; }
+.cal-flow-payday {
+  display: inline-block;
+  padding: 6px 14px;
+  background: var(--mint);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: 6px;
+}
+.match-cal-conditions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+.cal-cond {
+  padding: 5px 10px;
+  background: #fff;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  color: var(--slate-600);
+  border: 1px solid var(--slate-200);
+}
+.cal-cond-plus {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--slate-400);
+}
+.cal-cond-result {
+  background: #E8F8F0;
+  border-color: var(--mint);
+  color: #1A7A5A;
+}
+.match-monthly-box {
+  padding: 14px 16px;
+  background: rgba(255,140,0,0.06);
+  border: 1px solid rgba(255,140,0,0.15);
+  border-radius: 10px;
+  margin-bottom: 14px;
+}
+.match-monthly-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #E87C00;
+  margin-bottom: 6px;
+}
+.match-monthly-desc {
+  font-size: 0.75rem;
+  color: var(--slate-600);
+  line-height: 1.7;
+}
+.match-monthly-note {
+  font-size: 0.7rem;
+  color: var(--mint);
+  font-weight: 600;
 }
 
 /* ── WEEKLY MATCHING ── */
@@ -2059,6 +2187,11 @@ body.has-float { padding-bottom: 66px; }
   .fast-start-right { gap: 4px; }
   .match-conditions { flex-direction: column; gap: 6px; }
   .match-partner-input-wrap { grid-template-columns: 1fr; }
+  .match-cal-conditions { gap: 4px; }
+  .cal-cond { font-size: 0.65rem; padding: 4px 8px; }
+  .cal-day { padding: 6px 2px; font-size: 0.65rem; }
+  .match-monthly-desc { font-size: 0.7rem; }
+  .goal-hint { font-size: 0.58rem; }
   .form-grid { grid-template-columns: 1fr; gap: 8px; }
   .twin-input-wrap { gap: 8px; }
   .twin-card { padding: 14px 8px 12px; }
@@ -2159,8 +2292,9 @@ body.has-float { padding-bottom: 66px; }
             <input type="number" id="goalAmountKrw" value="250" min="1" step="10" oninput="updateGoal()">
             <span class="goal-suffix">만원</span>
           </div>
+          <span class="goal-hint">내가 목표하는 월 소득을 입력해 주세요</span>
         </div>
-        <div class="goal-usd" id="goalUsd">$1,667</div>
+        <div class="goal-usd" id="goalUsd">$1,667 <span class="goal-fx-note" id="goalFxNote">(환율 1,500원 적용)</span></div>
         <div class="goal-realestate" id="goalRealestate">💡 서울에서 월세 250만원 받으려면 시세 약 7.5~10억원 부동산 필요</div>
       </div>
     </div>
@@ -2345,9 +2479,50 @@ body.has-float { padding-bottom: 66px; }
 
   <!-- ═══ SECTION 2: 주간 매칭 보너스 ═══ -->
   <section class="section-card" style="animation-delay:0.15s">
-    <h2><span class="icon">🔗</span> ② 주간 매칭 보너스</h2>
-    <p class="desc">조건 충족 시, 내 직추 파트너들이 받는 일일+월간 활성화 보너스를 100% 올려받습니다.</p>
+    <h2><span class="icon">🔗</span> ② 주간 & 월간 매칭 보너스</h2>
+    <p class="desc">매주 조건을 충족하면 팀이 받는 보너스를 나도 받습니다!</p>
 
+    <!-- Calendar Explanation -->
+    <div class="match-calendar">
+      <div class="match-cal-title">📅 이렇게 작동해요</div>
+      <div class="match-cal-week">
+        <div class="cal-day">월</div>
+        <div class="cal-day">화</div>
+        <div class="cal-day">수</div>
+        <div class="cal-day">목</div>
+        <div class="cal-day">금</div>
+        <div class="cal-day">토</div>
+        <div class="cal-day cal-day-end">일</div>
+      </div>
+      <div class="match-cal-flow">
+        <div class="cal-flow-bar">
+          <span class="cal-flow-label">이번 주 (월~일)</span>
+        </div>
+        <div class="cal-flow-arrow">→</div>
+        <div class="cal-flow-result">
+          <span class="cal-flow-payday">다음 주 월요일 지급!</span>
+        </div>
+      </div>
+      <div class="match-cal-conditions">
+        <div class="cal-cond">✅ 팀 매출 <strong>$600 이상</strong></div>
+        <div class="cal-cond-plus">+</div>
+        <div class="cal-cond">✅ 내 직추 <strong>$200 이상</strong></div>
+        <div class="cal-cond-plus">=</div>
+        <div class="cal-cond cal-cond-result">🎉 팀의 일일 보너스 <strong>매칭!</strong></div>
+      </div>
+    </div>
+
+    <!-- Monthly Matching Explanation -->
+    <div class="match-monthly-box">
+      <div class="match-monthly-title">🗓️ 월간 매칭 (매월 8일이 포함된 주)</div>
+      <p class="match-monthly-desc">
+        매월 <strong>8일이 포함된 주(월~일)</strong>에 같은 조건 충족 시,<br>
+        팀의 <strong>전달 월간 활성화 보너스(MAB)</strong>도 추가로 매칭!<br>
+        <span class="match-monthly-note">→ 그 주에는 주간 매칭 + 월간 매칭 동시에 받을 수 있어요</span>
+      </p>
+    </div>
+
+    <!-- Input -->
     <div class="match-conditions">
       <div class="match-cond">
         <div class="match-cond-icon" id="matchCond1Icon">⬜</div>
@@ -2374,21 +2549,22 @@ body.has-float { padding-bottom: 66px; }
     </div>
 
     <div class="match-partner-section">
-      <div class="match-partner-title">직추 파트너 보너스 합산 (내가 올려받는 금액)</div>
-      <div class="match-partner-desc">내 직추 파트너들이 이번 주에 받는 일일 + 월간 활성화 보너스 합계를 입력하세요</div>
-      <div class="match-example">예: 파트너 A가 Premium 10명 가입 → 일일 $500 + 월간 $1,000 = $1,500</div>
+      <div class="match-partner-title">내 팀의 보너스 합산 (내가 매칭받는 금액)</div>
+      <div class="match-partner-desc">이번 주 팀의 일일 보너스 합계를 입력하세요</div>
       <div class="match-partner-input-wrap">
         <div class="form-group">
-          <label>파트너 일일 활성화 보너스 합계 ($)</label>
+          <label>팀 일일 활성화 보너스 합계 ($)</label>
           <input type="number" id="partnerDAB" min="0" value="0" placeholder="500" oninput="updateMatchPreview()">
+          <span class="unit">→ 주간 매칭 (매주)</span>
         </div>
         <div class="form-group">
-          <label>파트너 월간 활성화 보너스 합계 ($)</label>
+          <label>팀 전달 월간 보너스 합계 ($)</label>
           <input type="number" id="partnerMAB" min="0" value="0" placeholder="1000" oninput="updateMatchPreview()">
+          <span class="unit">→ 월간 매칭 (8일 포함 주에만)</span>
         </div>
       </div>
       <div class="match-result" id="matchResult">
-        <div class="match-result-label">내 주간 매칭 수익</div>
+        <div class="match-result-label">내 매칭 수익</div>
         <div class="match-result-amount" id="matchResultAmount">$0</div>
         <div class="match-result-krw" id="matchResultKrw">₩0</div>
         <div class="match-result-status" id="matchResultStatus">조건을 충족하면 매칭이 시작됩니다</div>
@@ -2764,7 +2940,7 @@ function updateGoal() {
   const fx = parseInt(document.getElementById('fxRate').value) || 1500;
   const manwon = parseInt(document.getElementById('goalAmountKrw').value) || 250;
   const goal = getGoal();
-  document.getElementById('goalUsd').textContent = '$' + goal.toLocaleString();
+  document.getElementById('goalUsd').innerHTML = '$' + goal.toLocaleString() + ' <span class="goal-fx-note">(환율 ' + fx.toLocaleString() + '원 적용)</span>';
   // Real estate comparison: monthly rent / 3~4% annual yield
   const propLow = Math.round(manwon * 12 / 0.04 / 10000 * 10) / 10; // 4% yield
   const propHigh = Math.round(manwon * 12 / 0.03 / 10000 * 10) / 10; // 3% yield
