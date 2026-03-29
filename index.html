@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nomad Blue Map — 디지털 노마드 성과 시뮬레이터</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans+KR:wght@300;400;500;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
 :root {
   --blue-100: #E8F4FD;
@@ -46,12 +46,13 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 
 body {
-  font-family: 'Noto Sans KR', 'DM Sans', sans-serif;
+  font-family: 'Gothic A1', 'Noto Sans KR', sans-serif;
   background: var(--sand-50);
   color: var(--slate-800);
   line-height: 1.6;
   min-height: 100vh;
   overflow-x: hidden;
+  font-weight: 500;
 }
 
 /* ── HEADER ── */
@@ -69,9 +70,9 @@ body {
 }
 .hero-content { position:relative; z-index:1; max-width:640px; margin:0 auto; }
 .hero h1 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Gothic A1', sans-serif;
   font-size: clamp(2rem, 5vw, 3.2rem);
-  font-weight: 700;
+  font-weight: 900;
   color: #fff;
   letter-spacing: -0.02em;
   margin-bottom: 4px;
@@ -146,9 +147,9 @@ body {
 }
 
 .section-card h2 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Gothic A1', sans-serif;
   font-size: 1.35rem;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--blue-700);
   margin-bottom: 4px;
   display: flex;
@@ -206,6 +207,12 @@ body {
   color: var(--slate-400);
   margin-top: 4px;
 }
+.goal-realestate {
+  font-size: 0.65rem;
+  color: var(--slate-400);
+  margin-top: 4px;
+  line-height: 1.4;
+}
 .goal-field-row {
   display: flex;
   align-items: center;
@@ -236,7 +243,7 @@ body {
   font-size: 1.2rem;
   font-weight: 700;
   color: var(--blue-600);
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Gothic A1', sans-serif;
 }
 .goal-suffix {
   padding: 10px 14px 10px 0;
@@ -251,7 +258,7 @@ body {
   border: none;
   outline: none;
   font-size: 1.3rem;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Gothic A1', sans-serif;
   font-weight: 700;
   color: var(--blue-700);
   background: transparent;
@@ -512,7 +519,7 @@ body {
   text-align: center;
   font-size: 1.3rem;
   font-weight: 700;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Gothic A1', sans-serif;
   color: var(--blue-700);
   background: #fff;
   outline: none;
@@ -548,7 +555,7 @@ body {
   background: var(--gold-500);
 }
 .instant-amount {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Gothic A1', sans-serif;
   font-size: 1.3rem;
   font-weight: 700;
   color: var(--blue-700);
@@ -877,7 +884,7 @@ body {
   margin-bottom: 4px;
 }
 .match-result-amount {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Gothic A1', sans-serif;
   font-size: 2rem;
   font-weight: 700;
   color: var(--slate-300);
@@ -958,9 +965,9 @@ body {
   text-transform: uppercase;
 }
 .result-hero .total-amount {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Gothic A1', sans-serif;
   font-size: clamp(2.5rem, 6vw, 3.8rem);
-  font-weight: 700;
+  font-weight: 900;
   margin: 4px 0 8px;
 }
 .result-hero .total-krw {
@@ -1056,7 +1063,7 @@ body {
   color: var(--slate-700);
 }
 .bonus-card .b-amount {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Gothic A1', sans-serif;
   font-size: 1.8rem;
   font-weight: 700;
   color: var(--blue-700);
@@ -1561,7 +1568,7 @@ body {
   font-size: 1rem;
   font-weight: 700;
   color: var(--blue-700);
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Gothic A1', sans-serif;
 }
 .mab-desc {
   font-size: 0.7rem;
@@ -1647,7 +1654,7 @@ body {
   flex: 1;
 }
 .mab-calc-amount {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Gothic A1', sans-serif;
   font-size: 1.2rem;
   font-weight: 700;
   color: var(--blue-700);
@@ -1670,7 +1677,7 @@ body {
   flex: 1;
 }
 .mab-calc-total-amount {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Gothic A1', sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
 }
@@ -1989,7 +1996,7 @@ body {
   flex-shrink: 0;
 }
 .float-usd {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Gothic A1', sans-serif;
   font-size: 1.6rem;
   font-weight: 700;
   color: #fff;
@@ -2149,11 +2156,12 @@ body.has-float { padding-bottom: 66px; }
         <div class="goal-field-row">
           <span class="goal-month-label">월</span>
           <div class="goal-field">
-            <input type="number" id="goalAmountKrw" value="450" min="1" step="10" oninput="updateGoal()">
+            <input type="number" id="goalAmountKrw" value="250" min="1" step="10" oninput="updateGoal()">
             <span class="goal-suffix">만원</span>
           </div>
         </div>
-        <div class="goal-usd" id="goalUsd">$3,000</div>
+        <div class="goal-usd" id="goalUsd">$1,667</div>
+        <div class="goal-realestate" id="goalRealestate">💡 서울에서 월세 250만원 받으려면 시세 약 7.5~10억원 부동산 필요</div>
       </div>
     </div>
     <div class="fast-start-row">
@@ -2766,14 +2774,20 @@ function updateMatchPreview() {
 // ── GOAL ──
 function getGoal() {
   const fx = parseInt(document.getElementById('fxRate').value) || 1500;
-  const manwon = parseInt(document.getElementById('goalAmountKrw').value) || 450;
+  const manwon = parseInt(document.getElementById('goalAmountKrw').value) || 250;
   const krw = manwon * 10000;
   return Math.round(krw / fx);
 }
 function updateGoal() {
   const fx = parseInt(document.getElementById('fxRate').value) || 1500;
+  const manwon = parseInt(document.getElementById('goalAmountKrw').value) || 250;
   const goal = getGoal();
   document.getElementById('goalUsd').textContent = '$' + goal.toLocaleString();
+  // Real estate comparison: monthly rent / 3~4% annual yield
+  const propLow = Math.round(manwon * 12 / 0.04 / 10000 * 10) / 10; // 4% yield
+  const propHigh = Math.round(manwon * 12 / 0.03 / 10000 * 10) / 10; // 3% yield
+  document.getElementById('goalRealestate').textContent = 
+    `💡 서울에서 월세 ${manwon}만원 받으려면 시세 약 ${propLow}~${propHigh}억원 부동산 필요`;
   updateGoalProgress();
   updateMiniChart();
   populateRankTable();
