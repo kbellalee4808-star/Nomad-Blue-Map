@@ -76,6 +76,9 @@ body{font-family:'Gothic A1','Noto Sans KR',sans-serif;background:var(--sand-50)
 .fx-field input::-webkit-outer-spin-button,.fx-field input::-webkit-inner-spin-button{-webkit-appearance:none}
 
 /* BUILDING */
+/* Partner Essential */
+.partner-btn{display:block;text-align:center;padding:14px 20px;margin-bottom:12px;background:linear-gradient(135deg,#f59e0b,#f97316);color:#fff;text-decoration:none;border-radius:12px;font-size:.88rem;font-weight:800;font-family:inherit;box-shadow:0 4px 16px rgba(245,158,11,.25);transition:all .3s;letter-spacing:.02em}
+.partner-btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(245,158,11,.35)}
 .bld-wrap{padding:14px;background:var(--sl50);border-radius:var(--rs);border:1px solid var(--sl100);margin-bottom:12px}
 .bld-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
 .bld-title{font-size:.72rem;font-weight:600;color:var(--sl500)}
@@ -238,6 +241,10 @@ body{font-family:'Gothic A1','Noto Sans KR',sans-serif;background:var(--sand-50)
 .app > .acc-btn{margin-top:20px}
 
 /* STEP CARDS */
+.match-explain{padding:12px 14px;background:var(--blue-100);border-radius:8px;margin-bottom:14px;border-left:3px solid var(--blue-400)}
+.match-explain p{font-size:.72rem;color:var(--sl600);line-height:1.6;margin:0 0 4px}
+.match-explain p:last-child{margin-bottom:0}
+.match-explain strong{color:var(--blue-700)}
 .step-cards{display:flex;flex-direction:column;align-items:center;gap:0;margin-bottom:14px}
 .step-card{width:100%;padding:14px 16px;border-radius:10px;background:#fff;border:1.5px solid var(--sl200);position:relative}
 .step-card-ok{background:linear-gradient(135deg,#E8F8F0,#F0FFF8);border-color:var(--mint)}
@@ -495,7 +502,7 @@ body.has-fb{padding-bottom:60px}
 
 <!-- YOUTUBE -->
 <div class="yt-wrap">
-  <iframe src="https://www.youtube.com/embed/eTD01WI0d7w?autoplay=1&mute=1&loop=1&playlist=eTD01WI0d7w" allowfullscreen loading="lazy" allow="autoplay"></iframe>
+  <iframe src="https://www.youtube.com/embed/eTD01WI0d7w?autoplay=1&mute=1&loop=1&playlist=eTD01WI0d7w&playsinline=1" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture"></iframe>
 </div>
 
 <!-- GOAL -->
@@ -509,13 +516,13 @@ body.has-fb{padding-bottom:60px}
       <div class="goal-row">
         <span class="goal-month">월</span>
         <div class="goal-field">
-          <input type="number" id="goalKrw" value="250" min="1" step="10" oninput="updateAll()">
+          <input type="number" id="goalKrw" value="1000" min="1" step="10" oninput="updateAll()">
           <span class="goal-suf">만원</span>
         </div>
         <span class="goal-hint">내가 목표하는<br>월 소득을 입력해 주세요</span>
       </div>
-      <div class="goal-usd" id="goalUsd">$1,667 <span class="goal-fx">(환율 1,500원 적용)</span></div>
-      <div class="goal-re" id="goalRe">💡 서울에서 월세 250만원 받으려면 시세 약 7.5~10억원 부동산 필요</div>
+      <div class="goal-usd" id="goalUsd">$6,667 <span class="goal-fx">(환율 1,500원 적용)</span></div>
+      <div class="goal-re" id="goalRe">💡 서울에서 월세 1,000만원 받으려면 시세 약 30~40억원 부동산 필요</div>
       <div class="fx-wrap">
         <span class="fx-lbl">💱 환율</span>
         <div class="fx-field">
@@ -526,6 +533,11 @@ body.has-fb{padding-bottom:60px}
     </div>
   </div>
 </div>
+
+<!-- PARTNER ESSENTIAL -->
+<a href="https://kbellalee4808-star.github.io/Active/" target="_blank" rel="noopener" class="partner-btn">
+  ⭐ 파트너 필수사항 확인하기 →
+</a>
 
 <!-- BUILDING (always visible) -->
 <div class="bld-wrap">
@@ -649,6 +661,10 @@ body.has-fb{padding-bottom:60px}
 </button>
 <div class="acc-body" id="acc2">
   <div class="acc-inner">
+    <div class="match-explain">
+      <p>💡 스폰서는 팀원이 더 많은 보너스를 받고 비즈니스를 잘 이어갈 수 있도록 안내하는 역할을 합니다. 이에 대한 보상으로 지급되는 보너스입니다.</p>
+      <p><strong>조건 충족 시, 내 팀원의 일일 보너스와 월간 보너스를 매칭 받을 수 있습니다.</strong></p>
+    </div>
     <!-- Step Cards -->
     <div class="step-cards">
       <div class="step-card">
@@ -1142,7 +1158,7 @@ function updateAll(){
   const f=fx();
   const c=parseInt($('cCnt').value)||0;
   const p=parseInt($('pCnt').value)||0;
-  const goalManwon=parseInt($('goalKrw').value)||250;
+  const goalManwon=parseInt($('goalKrw').value)||1000;
   const goalUsd=Math.round(goalManwon*10000/f);
 
   // Goal
