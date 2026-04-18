@@ -750,9 +750,9 @@ body.has-fb{padding-bottom:60px}
     <!-- Leg inputs (shared with ④) -->
     <p style="font-size:.72rem;font-weight:700;color:var(--sl700);margin:12px 0 6px">📝 팀 매출 입력 (레그별)</p>
     <div class="leg-c" id="legC">
-      <div class="leg-r"><span class="leg-l">레그 1</span><select class="leg-rank" onchange="legRankPick(this)"><option value="">직접 입력</option><option value="3000">MD</option><option value="10000">SMD</option><option value="25000">RD</option><option value="50000">ND</option><option value="100000">ID</option><option value="250000">ED</option><option value="550000">BOD</option></select><div class="fg"><label>매출 ($)</label><input type="number" class="leg-v" min="0" value="0" oninput="updateAll()"></div><div class="leg-gauge"><div class="leg-gauge-fill" style="width:0"></div></div></div>
-      <div class="leg-r"><span class="leg-l">레그 2</span><select class="leg-rank" onchange="legRankPick(this)"><option value="">직접 입력</option><option value="3000">MD</option><option value="10000">SMD</option><option value="25000">RD</option><option value="50000">ND</option><option value="100000">ID</option><option value="250000">ED</option><option value="550000">BOD</option></select><div class="fg"><label>매출 ($)</label><input type="number" class="leg-v" min="0" value="0" oninput="updateAll()"></div><div class="leg-gauge"><div class="leg-gauge-fill" style="width:0"></div></div></div>
-      <div class="leg-r"><span class="leg-l">레그 3</span><select class="leg-rank" onchange="legRankPick(this)"><option value="">직접 입력</option><option value="3000">MD</option><option value="10000">SMD</option><option value="25000">RD</option><option value="50000">ND</option><option value="100000">ID</option><option value="250000">ED</option><option value="550000">BOD</option></select><div class="fg"><label>매출 ($)</label><input type="number" class="leg-v" min="0" value="0" oninput="updateAll()"></div><div class="leg-gauge"><div class="leg-gauge-fill" style="width:0"></div></div></div>
+      <div class="leg-r"><span class="leg-l">레그 1</span><select class="leg-rank" onchange="legRankPick(this)"><option value="">직접 입력</option><option value="3000">MD $3,000</option><option value="10000">SMD $10,000</option><option value="25000">RD $25,000</option><option value="50000">ND $50,000</option><option value="100000">ID $100,000</option><option value="250000">ED $250,000</option><option value="550000">BOD $550,000</option></select><div class="fg"><label>매출 ($)</label><input type="number" class="leg-v" min="0" value="0" oninput="updateAll()"></div><div class="leg-gauge"><div class="leg-gauge-fill" style="width:0"></div></div></div>
+      <div class="leg-r"><span class="leg-l">레그 2</span><select class="leg-rank" onchange="legRankPick(this)"><option value="">직접 입력</option><option value="3000">MD $3,000</option><option value="10000">SMD $10,000</option><option value="25000">RD $25,000</option><option value="50000">ND $50,000</option><option value="100000">ID $100,000</option><option value="250000">ED $250,000</option><option value="550000">BOD $550,000</option></select><div class="fg"><label>매출 ($)</label><input type="number" class="leg-v" min="0" value="0" oninput="updateAll()"></div><div class="leg-gauge"><div class="leg-gauge-fill" style="width:0"></div></div></div>
+      <div class="leg-r"><span class="leg-l">레그 3</span><select class="leg-rank" onchange="legRankPick(this)"><option value="">직접 입력</option><option value="3000">MD $3,000</option><option value="10000">SMD $10,000</option><option value="25000">RD $25,000</option><option value="50000">ND $50,000</option><option value="100000">ID $100,000</option><option value="250000">ED $250,000</option><option value="550000">BOD $550,000</option></select><div class="fg"><label>매출 ($)</label><input type="number" class="leg-v" min="0" value="0" oninput="updateAll()"></div><div class="leg-gauge"><div class="leg-gauge-fill" style="width:0"></div></div></div>
     </div>
     <button class="btn-add" onclick="addLeg()">＋ 레그 추가</button>
     <div class="leg-total" id="legTotal">
@@ -890,17 +890,17 @@ body.has-fb{padding-bottom:60px}
         </div>
         <div class="ww-chart">
           <div class="ww-row">
-            <div class="ww-rank"><span class="rk-badge rk-go">ID</span></div>
+            <div class="ww-rank"><span class="rk-badge rk-go">ID $100,000</span></div>
             <div class="ww-bar-wrap"><div class="ww-bar ww-bar-1" style="width:0%"></div></div>
             <div class="ww-val">$9,000<span class="ww-val-k">1,350만원</span></div>
           </div>
           <div class="ww-row">
-            <div class="ww-rank"><span class="rk-badge rk-si">ND</span></div>
+            <div class="ww-rank"><span class="rk-badge rk-si">ND $50,000</span></div>
             <div class="ww-bar-wrap"><div class="ww-bar ww-bar-2" style="width:0%"></div></div>
             <div class="ww-val">$9,000<span class="ww-val-k">1,350만원</span></div>
           </div>
           <div class="ww-row">
-            <div class="ww-rank"><span class="rk-badge rk-si">RD</span></div>
+            <div class="ww-rank"><span class="rk-badge rk-si">RD $25,000</span></div>
             <div class="ww-bar-wrap"><div class="ww-bar ww-bar-3" style="width:0%"></div></div>
             <div class="ww-val">$9,000<span class="ww-val-k">1,350만원</span></div>
           </div>
@@ -1019,8 +1019,8 @@ body.has-fb{padding-bottom:60px}
 <!-- MOTIVATIONAL CARD -->
 <div class="moti-card">
   <div class="moti-emoji">🚢</div>
-  <div class="moti-quote">"부동산 없이도 월세가 나오는 삶,<br>크루즈를 타며 세상을 여행하는 삶,<br>지금 이 순간 시작됩니다."</div>
-  <div class="moti-author">— Nomad Road Map</div>
+  <div class="moti-quote">"미래는 자신의 꿈의 아름다움을<br>믿는 사람들의 것이다."</div>
+  <div class="moti-author">— 엘레노어 루스벨트 (Eleanor Roosevelt)</div>
   <div class="moti-sub">당신의 노마드 로드맵을 완성하세요 🌊</div>
 </div>
 
@@ -1099,7 +1099,7 @@ function mabPP(type,cnt){
 // ── ADD LEG ──
 let legN=3;
 function addLeg(){legN++;const c=$('legC');const r=document.createElement('div');r.className='leg-r';
-r.innerHTML=`<span class="leg-l">레그 ${legN} <button class="btn-rm" onclick="rmLeg(this)">✕</button></span><select class="leg-rank" onchange="legRankPick(this)"><option value="">직접 입력</option><option value="3000">MD</option><option value="10000">SMD</option><option value="25000">RD</option><option value="50000">ND</option><option value="100000">ID</option><option value="250000">ED</option><option value="550000">BOD</option></select><div class="fg"><label>매출 ($)</label><input type="number" class="leg-v" min="0" value="0" oninput="updateAll()"></div><div class="leg-gauge"><div class="leg-gauge-fill" style="width:0"></div></div>`;
+r.innerHTML=`<span class="leg-l">레그 ${legN} <button class="btn-rm" onclick="rmLeg(this)">✕</button></span><select class="leg-rank" onchange="legRankPick(this)"><option value="">직접 입력</option><option value="3000">MD $3,000</option><option value="10000">SMD $10,000</option><option value="25000">RD $25,000</option><option value="50000">ND $50,000</option><option value="100000">ID $100,000</option><option value="250000">ED $250,000</option><option value="550000">BOD $550,000</option></select><div class="fg"><label>매출 ($)</label><input type="number" class="leg-v" min="0" value="0" oninput="updateAll()"></div><div class="leg-gauge"><div class="leg-gauge-fill" style="width:0"></div></div>`;
 c.appendChild(r)}
 function rmLeg(btn){if(document.querySelectorAll('.leg-r').length<=3)return alert('최소 3개 레그 필요');btn.closest('.leg-r').remove();reIdx()}
 function reIdx(){document.querySelectorAll('.leg-r').forEach((r,i)=>{const l=r.querySelector('.leg-l');if(l)l.childNodes[0].textContent='레그 '+(i+1)+' '});legN=document.querySelectorAll('.leg-r').length}
